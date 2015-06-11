@@ -1,0 +1,134 @@
+/*------------------------------------------------------
+NAVIGATION
+------------------------------------------------------*/
+
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu--main {
+
+  font-weight: bold;
+
+  @include to(s) {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    padding-top: $menu-padding - $menu-item-padding + $header-height-s;
+    padding-bottom: $menu-padding - $menu-item-padding;
+
+    border-top: 1px solid $grey;
+    background: $white;
+
+    transform: translateY(calc(-100% - #{$header-height-s}));
+    transition: all $animation-duration-m $animation-timing-default;
+
+    height: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    z-index: 0;
+
+    .navigation-open & {
+      transform: translateY(0);
+      height: auto;
+    }
+  }
+
+  .menu {
+    @include to(s) {
+      opacity: 0;
+      transition: opacity 0s $animation-timing-default;
+
+      .navigation-open & {
+        opacity: 1;
+        transition-delay: $animation-duration-s;
+      }
+    }
+  }
+
+  li {
+    @include to(s) {
+      text-align: center;
+    }
+
+    @include from(m) {
+      float: left;
+      margin-left: 15px;
+
+      &.menu-item--active-trail a,
+      a.active,
+      a:hover {
+        opacity: 1;
+      }
+
+      &.menu-item--active-trail a,
+      a.active {
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          width: 100%;
+          border-top: 5px solid $black;
+        }
+      }
+    }
+    a {
+      text-decoration: none;
+      color: $font-color-default;
+
+
+      @include to(s) {
+        display: block;
+        padding: $menu-item-padding 0;
+      }
+
+      @include from(m) {
+        display: inline-block;
+        position: relative;
+        line-height: $header-height-m;
+        opacity: $link-hover-opactiy;
+      }
+    }
+  }
+}
+
+.navigation-toggle {
+
+  width: $header-height-s;
+  height: $header-height-s;
+  position: relative;
+
+  cursor: pointer;
+
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  padding-right: $gutter-s;
+
+  @include hide-text;
+
+  @include from('m') {
+    display: none;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    @extend .svg-images--menu-open-black;
+    @extend .svg-images--menu-open-black-dims;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .navigation-open & {
+      @extend .svg-images--menu-close-black;
+    }
+  }
+}

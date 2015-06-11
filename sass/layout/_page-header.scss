@@ -1,0 +1,20 @@
+.page-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $header-height-s;
+
+  padding: 0 $gutter-s;
+
+  box-sizing: border-box;
+  z-index: 99;
+
+  @include from(m) {
+    height: $header-height-m;
+    padding: 0 $gutter-l;
+  }
+
+  &.navigation-open {
+  }
+}

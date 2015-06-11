@@ -1,0 +1,16 @@
+/*------------------------------------------------------
+MESSAGE
+------------------------------------------------------*/
+
+.messages {
+  padding: 1em;
+  margin: 1em 0;
+}
+
+.messages--status {
+  background-color: $green;
+}
+
+.messages--error {
+  background-color: $red;
+}

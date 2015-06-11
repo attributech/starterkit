@@ -1,0 +1,14 @@
+uuid: 016306d3-d40b-49e7-9700-f885ed333af4
+langcode: de
+status: true
+dependencies: {  }
+name: 16_9_xl
+label: '16:9 xl'
+effects:
+  9e3fa329-7bc7-4d5b-9d56-86557ab5884a:
+    uuid: 9e3fa329-7bc7-4d5b-9d56-86557ab5884a
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1440
+      height: 810

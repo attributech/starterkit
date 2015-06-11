@@ -1,0 +1,24 @@
+%svg-common {
+	background: url(sprite.svg) no-repeat;
+}
+
+.svg-images--menu-close-black {
+	@extend %svg-common;
+	background-position: 0 0;
+}
+
+.svg-images--menu-close-black-dims {
+	width: 32px;
+	height: 32px;
+}
+
+.svg-images--menu-open-black {
+	@extend %svg-common;
+	background-position: 100% 0;
+}
+
+.svg-images--menu-open-black-dims {
+	width: 32px;
+	height: 32px;
+}
+

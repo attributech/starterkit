@@ -1,0 +1,29 @@
+/*------------------------------------------------------
+FORM
+------------------------------------------------------*/
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"] {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 7px;
+  border: 1px solid $grey;
+  border-radius: $border-radius;
+  @include font-size(m);
+  line-height: normal !important;
+  background: none;
+  -webkit-appearance: none;
+}
+
+input[type="submit"] {
+  //@include button;
+}
+
+input {
+  @include input-placeholder {
+    color: $grey;
+    opacity: 1;
+  }
+}

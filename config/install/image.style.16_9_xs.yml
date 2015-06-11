@@ -1,0 +1,14 @@
+uuid: 663a554d-ce04-48bd-944a-74f063cad8ca
+langcode: de
+status: true
+dependencies: {  }
+name: 16_9_xs
+label: '16:9 xs'
+effects:
+  253e7a1a-6dae-4fdc-a555-85d38db45192:
+    uuid: 253e7a1a-6dae-4fdc-a555-85d38db45192
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 320
+      height: 180

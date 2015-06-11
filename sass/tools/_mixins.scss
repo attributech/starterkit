@@ -1,0 +1,85 @@
+@mixin button() {
+  display: inline-block;
+  color: $white;
+  background-color: $black;
+  padding: 10px 35px;
+  @include font-size(sans-m);
+  text-align: center;
+
+  margin-top: 5px;
+
+  border: none;
+  border-radius: $border-radius;
+
+  cursor: pointer;
+
+  @include from(m) {
+    padding: 10px 50px;
+    margin-top: 10px;
+  }
+}
+
+@mixin print($declarations) {
+  @each $property, $value in $declarations {
+    #{$property}: $value
+  }
+}
+
+@mixin font-size($name, $font-styles: $font-styles, $font-sizes: $font-sizes) {
+  $font-style: map-get($font-styles, $name);
+  @include print-font-size($font-style, $font-sizes);
+
+}
+
+@mixin print-font-size($font-style, $font-sizes: $font-sizes) {
+  @each $breakpoint, $style in $font-style {
+    $font-size: map-get($font-sizes, $style);
+    @if ($breakpoint ==  'default') {
+      @include print($font-size);
+    }
+    @else {
+      @include from($breakpoint) {
+        @include print($font-size);
+      }
+    }
+  }
+}
+
+// REM CALC
+@function rem-calc($values, $base-value: $rem-base) {
+  $max: length($values);
+  @if $max == 1 { @return convert-to-rem(nth($values, 1), $base-value); }
+  $remValues: ();
+  @for $i from 1 through $max {
+    $remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
+  }
+  @return $remValues;
+}
+
+// CONVERT TO REM
+@function convert-to-rem($value, $base-value: $rem-base) {
+  $value: strip-unit($value) / strip-unit($base-value) * 1rem;
+  @if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
+  @return $value;
+}
+
+// STRIP UNIT
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@mixin hide-text() {
+  $approximate-em-value: 12px / 1em;
+  $wider-than-any-screen: -9999em;
+  text-indent: $wider-than-any-screen * $approximate-em-value;
+  overflow: hidden;
+  text-align: left;
+}
+
+@mixin input-placeholder {
+  &.placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}

@@ -1,0 +1,15 @@
+uuid: a5114a0c-98fc-4d75-b202-2d8b1ee451f9
+langcode: de
+status: true
+dependencies: {  }
+name: default_xl
+label: 'default xl'
+effects:
+  4ee10365-63c9-42b3-9e09-9bf1de75a17e:
+    uuid: 4ee10365-63c9-42b3-9e09-9bf1de75a17e
+    id: image_scale
+    weight: 1
+    data:
+      width: 1440
+      height: null
+      upscale: false

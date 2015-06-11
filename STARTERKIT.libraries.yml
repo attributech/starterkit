@@ -1,0 +1,14 @@
+base:
+  version: 1.x
+  css:
+    base:
+      #//fonts.googleapis.com/css?family=Noto+Sans:700: {type: 'external'}
+      dist/css/styles.css: {}
+  js:
+    js/vendor/modernizr.js: {}
+    js/vendor/fastclick/lib/fastclick.js: {}
+    js/script.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings

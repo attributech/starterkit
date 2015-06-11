@@ -1,0 +1,133 @@
+/* Colors */
+
+$white: #fff;
+$black: #000;
+
+$grey: #898989;
+
+$green: #b0ffa7;
+$red: #ff8f7b;
+
+$font-color-default: $black;
+$font-color-highlight: $grey;
+$font-color-highlight-active: $grey;
+
+/* Media Queries */
+
+$max-width: 1200px;
+
+$bp-s: 320px;
+$bp-m: 640px;
+$bp-l: 960px;
+$bp-xl: 1080px;
+$bp-xxl: 1200px;
+$bp-xxxl: 1430px;
+
+$bp-height-m: 800px;
+
+$slicer-breakpoints: 0 $bp-s $bp-m $bp-l $bp-xl;
+
+//                          └────┬────┘ └────┬────┘ └────┬────┘ └────┬────┘ └────┬────
+// Slice numbers:                1           2           3           4           5
+$slicer-breakpoint-names: 'xs' 's' 'm' 'l' 'xl';
+
+/* Fonts */
+
+$font-noto-sans: 'Noto Sans', sans-serif;
+
+$font-base: $font-noto-sans;
+
+/*
+Font sizes
+*/
+
+$base-font-size:   16px;
+$base-line-height: 22px;
+$rhythm-unit: 'rem';
+
+$font-sizes: (
+  xs: (
+    font-size: 12px,
+    line-height: 14px,
+  ),
+  s: (
+    font-size: 14px,
+    line-height: 16px,
+  ),
+  m: (
+    font-size: 16px,
+    line-height: 18px,
+  ),
+  l: (
+    font-size: 36px,
+    line-height: 48px,
+  ),
+);
+
+$font-styles: (
+  s: (
+    default: xs,
+    l: s,
+  ),
+  m: (
+    default: s,
+    l: m,
+  ),
+  l: (
+    default: m,
+    l: l,
+  ),
+);
+
+/* Grids */
+
+$anything: 100px;
+$gutter-s: 10px;
+$gutter-m: 20px;
+$gutter-l: 30px;
+
+@include layout(12 2/3 inside);
+
+$gutter-half: gutter();
+$gutter: $gutter-half * 2;
+$gutter-double: $gutter * 2;
+
+$gutter-negative: ceil(percentage(((50% / (50% - $gutter))-1)/2));
+
+$page-margin-small: 10px;
+$page-margin-medium: 20px;
+$page-margin-large: 30px;
+
+$page-margin-negative-small: $page-margin-small;
+$page-margin-negative-medium: $page-margin-medium;
+$page-margin-negative-large: $page-margin-large;
+
+/* Animations */
+
+$animation-duration-s: .2s;
+$animation-duration-m: .4s;
+$animation-duration-l: .6s;
+
+$animation-timing-default: ease;
+
+$link-hover-opactiy: .25;
+
+/* Sizes */
+
+$border-width: 1px;
+$border-radius: 3px;
+
+$header-height-s: 50px;
+$header-height-m: 80px;
+
+$footer-height-s: 80px;
+$footer-height-m: 50px;
+
+$menu-padding: 30px;
+$menu-item-padding: 8px;
+
+$icon-size-s: 32px;
+$icon-size-m: 64px;
+
+/* Selectors */
+

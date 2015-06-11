@@ -1,0 +1,11 @@
+.page-main {
+  max-width: $max-width;
+  margin: 0 auto $gutter-double;
+  padding: $header-height-s $gutter 0;
+
+  flex: 1 0 auto;
+
+  @include from(m) {
+    padding-top: $header-height-m;
+  }
+}

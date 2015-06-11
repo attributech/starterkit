@@ -1,0 +1,30 @@
+uuid: ebc407d0-a02d-40e0-9a00-e8a30a0f61b9
+langcode: de
+status: true
+dependencies:
+  config:
+    - image.style.16_9_l
+    - image.style.16_9_m
+    - image.style.16_9_s
+    - image.style.16_9_xl
+    - image.style.16_9_xs
+    - image.style.16_9_xxl
+    - image.style.16_9_xxxl
+id: 16_9
+label: '16:9'
+image_style_mappings:
+  -
+    breakpoint_id: collecting_lines.xs
+    multiplier: 1x
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 150vw
+      sizes_image_styles:
+        - 16_9_l
+        - 16_9_m
+        - 16_9_s
+        - 16_9_xl
+        - 16_9_xs
+        - 16_9_xxl
+        - 16_9_xxxl
+breakpoint_group: collecting_lines

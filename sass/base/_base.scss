@@ -1,0 +1,193 @@
+/*------------------------------------------------------
+GENERAL
+------------------------------------------------------*/
+
+body {
+  @include font-size('s');
+  font-family: $font-base;
+  color: $font-color-default;
+  text-rendering: optimizelegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
+  font-feature-settings: "kern";
+  -webkit-font-feature-settings: "kern";
+  -moz-font-feature-settings: "kern";
+  -moz-font-feature-settings: "kern=1";
+  font-kerning: normal;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+/*------------------------------------------------------
+TYPOGRAPHY
+------------------------------------------------------*/
+
+h1 {
+  @include font-size('l');
+  margin: .5em 0;
+}
+
+h2 {
+  @include font-size('m');
+  margin: .5em 0;
+}
+
+h3 {
+  @include font-size('s');
+  margin: .5em 0;
+}
+
+b, strong {
+}
+
+p {
+  margin: 1em 0;
+}
+
+/*------------------------------------------------------
+GENERAL LINKS
+------------------------------------------------------*/
+
+a {
+  color: $font-color-highlight;
+  cursor: pointer;
+  outline: none !important;
+  transition: opacity $animation-duration-s $animation-timing-default;
+  text-decoration: none;
+
+  &:hover {
+    opacity: $link-hover-opactiy;
+  }
+}
+
+/*------------------------------------------------------
+IMAGES
+------------------------------------------------------*/
+
+img {
+  display: block;
+  border: none 0;
+  max-width: 100%;
+  height: auto;
+  width: auto;
+}
+
+p {
+  img {
+    display: inline;
+  }
+}
+
+/*------------------------------------------------------
+VIDEO
+------------------------------------------------------*/
+
+video {
+  max-width: 100%;
+  height: auto;
+  width: auto;
+}
+
+/*------------------------------------------------------
+CLEAR
+------------------------------------------------------*/
+
+.clear {
+  clear: both;
+}
+
+/*------------------------------------------------------
+HTML5 ELEMENTS
+------------------------------------------------------*/
+
+main,
+nav,
+footer,
+header,
+article {
+  display: block;
+}
+
+
+/*------------------------------------------------------
+INVISBLE ELEMENTS
+------------------------------------------------------*/
+
+.element-invisible {
+  display: none;
+}
+
+/*------------------------------------------------------
+FORMS
+------------------------------------------------------*/
+
+/*------------------------------------------------------
+TABLES
+------------------------------------------------------*/
+
+table {
+  table-layout: fixed;
+  width: 100% !important;
+  border: 0;
+}
+
+th {
+  text-align: left; /* LTR */
+  padding: 0;
+  border-bottom: none;
+}
+
+td {
+  border: 0;
+
+  @include from(l) {
+    width: 2%;
+  }
+}
+
+th,
+td {
+  padding: 0 10px;
+  vertical-align: top;
+
+  @include to(m) {
+    padding: 0;
+    display: block;
+  }
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child {
+    padding-right: 0;
+  }
+}
+
+tr {
+  &:first-child {
+    td,
+    th {
+      > :first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+tbody {
+  border-top: none;
+}
+
+/*------------------------------------------------------
+HR
+------------------------------------------------------*/
+
+hr {
+  border: none;
+  border-top: 1px solid $black;
+}
