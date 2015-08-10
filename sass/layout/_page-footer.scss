@@ -1,6 +1,5 @@
 .page-footer {
   box-sizing: border-box;
-  padding: 2rem $gutter;
   min-height: $footer-height-s;
 
   @include clearfix;
@@ -8,4 +7,10 @@
   @include from(m) {
     min-height: $footer-height-m;
   }
+}
+
+.page-footer__wrapper {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 2rem $gutter;
 }

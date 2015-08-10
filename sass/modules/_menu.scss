@@ -22,7 +22,7 @@ NAVIGATION
     padding-bottom: $menu-padding - $menu-item-padding;
 
     border-top: 1px solid $grey;
-    background: $white;
+    background: $grey;
 
     transform: translateY(calc(-100% - #{$header-height-s}));
     transition: all $animation-duration-m $animation-timing-default;
@@ -40,6 +40,9 @@ NAVIGATION
   }
 
   .menu {
+
+    @include clearfix;
+
     @include to(s) {
       opacity: 0;
       transition: opacity 0s $animation-timing-default;
@@ -58,16 +61,20 @@ NAVIGATION
 
     @include from(m) {
       float: left;
-      margin-left: 15px;
+      margin-right: 15px;
+
+      &:last-child {
+        margin-right: 0;
+      }
 
       &.menu-item--active-trail a,
-      a.active,
+      a.is-active,
       a:hover {
         opacity: 1;
       }
 
       &.menu-item--active-trail a,
-      a.active {
+      a.is-active {
         &:before {
           content: '';
           position: absolute;

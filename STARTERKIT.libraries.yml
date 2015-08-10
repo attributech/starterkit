@@ -7,6 +7,9 @@ base:
   js:
     js/vendor/modernizr.js: {}
     js/vendor/fastclick/lib/fastclick.js: {}
+    js/vendor/fitvids/jquery.fitvids.js: {}
+    js/vendor/headroom.js/dist/headroom.js: {}
+    js/vendor/headroom.js/dist/jQuery.headroom.js: {}
     js/script.js: {}
   dependencies:
     - core/jquery

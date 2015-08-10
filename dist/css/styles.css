@@ -1,5 +1,5 @@
 /*
-STARTERKIT
+perlaton
 Date: 2015
 Autor: attribute.ch / Lukas von Blarer
 Copyright: all rights reserved
@@ -716,9 +716,26 @@ hr {
 }
 
 /* Layout */
+.page-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow-x: hidden;
+}
+.page-container:after {
+  content: "";
+  display: block;
+}
+
 .page-footer {
   box-sizing: border-box;
-  padding: 2rem 3.33333%;
   min-height: 5rem;
   overflow: hidden;
   *zoom: 1;
@@ -729,41 +746,104 @@ hr {
   }
 }
 
+.page-footer__wrapper {
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 2rem 3.33333%;
+}
+
 .page-header {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 3.125rem;
-  padding: 0 0.625rem;
+  position: fixed;
+  top: 0;
   box-sizing: border-box;
   z-index: 99;
+  background-color: #898989;
+  -webkit-transition: -webkit-transform 0.2s ease;
+          transition: transform 0.2s ease;
+}
+@media (max-width: 640px) {
+  .page-header {
+    height: 3.125rem;
+    padding: 0 3.33333%;
+  }
 }
 @media (min-width: 641px) {
   .page-header {
     height: 5rem;
-    padding: 0 1.875rem;
+    padding: 0 3.33333%;
+  }
+}
+.page-header.headroom--pinned {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+.page-header.headroom--unpinned {
+  -webkit-transform: translate3d(0, -100%, 0);
+          transform: translate3d(0, -100%, 0);
+}
+.toolbar-fixed .page-header {
+  margin-top: 2.4375rem;
+}
+.toolbar-tray-open .page-header {
+  margin-top: 4.9375rem;
+}
+@media (max-width: 640px) {
+  .page-header:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #898989;
+    z-index: -1;
+    opacity: 1;
+    -webkit-transition: opacity 0.2s ease;
+            transition: opacity 0.2s ease;
   }
 }
 
-.page-container:after {
-  content: "";
-  display: block;
+.page-header__wrapper {
+  height: 100%;
+  max-width: 75rem;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .page-main {
-  max-width: 75rem;
-  margin: 0 auto 6.66667%;
-  padding: 3.125rem 3.33333% 0;
   -webkit-box-flex: 1;
   -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
 }
+
+.page-main__wrapper {
+  max-width: 75rem;
+  margin: 6.25rem auto 6.66667%;
+  padding: 0 1.25rem;
+  position: relative;
+}
 @media (min-width: 641px) {
-  .page-main {
-    padding-top: 5rem;
+  .page-main__wrapper {
+    padding: 0 3.33333%;
   }
+}
+
+#main-content {
+  display: block;
 }
 
 /* Modules */
@@ -819,6 +899,11 @@ input::-webkit-input-placeholder {
 /*------------------------------------------------------
 LOGO
 ------------------------------------------------------*/
+.logo {
+  position: relative;
+  z-index: 1;
+}
+
 /*------------------------------------------------------
 NAVIGATION
 ------------------------------------------------------*/
@@ -840,7 +925,7 @@ NAVIGATION
     padding-top: 4.5rem;
     padding-bottom: 1.375rem;
     border-top: 0.0625rem solid #898989;
-    background: #fff;
+    background: #898989;
     -webkit-transform: translateY(calc(-100% - 3.125rem));
         -ms-transform: translateY(calc(-100% - 3.125rem));
             transform: translateY(calc(-100% - 3.125rem));
@@ -857,6 +942,10 @@ NAVIGATION
             transform: translateY(0);
     height: auto;
   }
+}
+.menu--main .menu {
+  overflow: hidden;
+  *zoom: 1;
 }
 @media (max-width: 640px) {
   .menu--main .menu {
@@ -878,15 +967,18 @@ NAVIGATION
 @media (min-width: 641px) {
   .menu--main li {
     float: left;
-    margin-left: 0.9375rem;
+    margin-right: 0.9375rem;
+  }
+  .menu--main li:last-child {
+    margin-right: 0;
   }
   .menu--main li.menu-item--active-trail a,
-  .menu--main li a.active,
+  .menu--main li a.is-active,
   .menu--main li a:hover {
     opacity: 1;
   }
   .menu--main li.menu-item--active-trail a:before,
-  .menu--main li a.active:before {
+  .menu--main li a.is-active:before {
     content: '';
     position: absolute;
     top: 0;

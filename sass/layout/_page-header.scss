@@ -1,20 +1,64 @@
 .page-header {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: $header-height-s;
-
-  padding: 0 $gutter-s;
+  position: fixed;
+  top: 0;
 
   box-sizing: border-box;
   z-index: 99;
 
-  @include from(m) {
-    height: $header-height-m;
-    padding: 0 $gutter-l;
+  background-color: $grey;
+
+  transition: transform $animation-duration-s $animation-timing-default;
+
+  @include to(s) {
+    height: $header-height-s;
+    padding: 0 $gutter;
   }
 
-  &.navigation-open {
+  @include from(m) {
+    height: $header-height-m;
+    padding: 0 $gutter;
   }
+
+  &.headroom--pinned {
+    transform: translate3d(0, 0, 0);
+  }
+
+  &.headroom--unpinned {
+    transform: translate3d(0, -100%, 0);
+  }
+
+  .toolbar-fixed & {
+    margin-top: 39px;
+  }
+
+  .toolbar-tray-open & {
+    margin-top: 79px;
+  }
+
+  &:after {
+    @include to(s) {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: $grey;
+      z-index: -1;
+      opacity: 1;
+      transition: opacity $animation-duration-s $animation-timing-default;
+    }
+  }
+}
+
+.page-header__wrapper {
+  height: 100%;
+  max-width: $max-width;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

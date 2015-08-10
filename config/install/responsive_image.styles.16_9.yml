@@ -14,7 +14,7 @@ id: 16_9
 label: '16:9'
 image_style_mappings:
   -
-    breakpoint_id: collecting_lines.xs
+    breakpoint_id: STARTERKIT.xs
     multiplier: 1x
     image_mapping_type: sizes
     image_mapping:
@@ -27,4 +27,4 @@ image_style_mappings:
         - 16_9_xs
         - 16_9_xxl
         - 16_9_xxxl
-breakpoint_group: collecting_lines
+breakpoint_group: STARTERKIT

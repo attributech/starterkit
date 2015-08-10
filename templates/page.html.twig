@@ -62,32 +62,36 @@
 #}
 <div class="page-container">
   <header class="page-header" role="banner">
-    <div class="page-header--wrapper">
+    <div class="page-header__wrapper">
       {% if logo %}
-        <a href="{{ front_page }}" title="{{ 'Home'|t }}" rel="home">
+        <a href="{{ front_page }}" title="{{ 'Home'|t }}" rel="home" class="logo">
           <img src="{{ logo }}" alt="{{ 'Home'|t }}"/>
         </a>
       {% endif %}
       {{ page.header }}
+      <div class="navigation-separator"></div>
+      <div class="navigation-toggle">
+        {{ 'Menu'|t }}
+      </div>
     </div>
   </header>
   <main class="page-main" role="main">
-    <div class="page-main--wrapper">
+    <div class="page-main__wrapper">
       <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-      {% if tabs %}
-        <nav class="tabs" role="navigation" aria-label="{{ 'Tabs'|t }}">
-          {{ tabs }}
-        </nav>
-      {% endif %}
-      {% if action_links %}
-        <nav class="action-links">{{ action_links }}</nav>
-      {% endif %}
-      {{ page.content }}
+        {% if tabs %}
+          <nav class="tabs" role="navigation" aria-label="{{ 'Tabs'|t }}">
+            {{ tabs }}
+          </nav>
+        {% endif %}
+        {% if action_links %}
+          <nav class="action-links">{{ action_links }}</nav>
+        {% endif %}
+        {{ page.content }}
     </div>
   </main>
   {% if page.footer %}
     <footer class="page-footer" role="contentinfo">
-      <div class="page-footer--wrapper">
+      <div class="page-footer__wrapper">
         {{ page.footer }}
       </div>
     </footer>

@@ -102,6 +102,7 @@ $page-margin-negative-small: $page-margin-small;
 $page-margin-negative-medium: $page-margin-medium;
 $page-margin-negative-large: $page-margin-large;
 
+
 /* Animations */
 
 $animation-duration-s: .2s;
@@ -119,6 +120,9 @@ $border-radius: 3px;
 
 $header-height-s: 50px;
 $header-height-m: 80px;
+
+$main-margin-top-s: 20px + $header-height-s;
+$main-margin-top-m: 20px + $header-height-m;
 
 $footer-height-s: 80px;
 $footer-height-m: 50px;

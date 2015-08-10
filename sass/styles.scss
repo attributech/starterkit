@@ -1,5 +1,5 @@
 /*
-STARTERKIT
+perlaton
 Date: 2015
 Autor: attribute.ch / Lukas von Blarer
 Copyright: all rights reserved
@@ -21,7 +21,14 @@ Copyright: all rights reserved
 @import "base/sprite";
 
 /* Layout */
-@import "layout/*";
+@import "layout/page-container";
+@import "layout/page-main";
+@import "layout/page-header";
+@import "layout/page-footer";
 
 /* Modules */
-@import "modules/*";
+@import "modules/form";
+@import "modules/logo";
+@import "modules/menu";
+@import "modules/message";
+@import "modules/tabs";
