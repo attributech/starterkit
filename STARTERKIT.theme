@@ -1,1 +1,23 @@
 <?php
+
+/*
+ * Implements hook_preprocess_input().
+ */
+function STARTERKIT_preprocess_input(&$variables) {
+  if (in_array($variables['element']['#type'], array(
+    'textfield',
+    'email',
+    'tel',
+    'password',
+    'number'
+  ))) {
+    $variables['attributes']['placeholder'] = $variables['element']['#title'];
+  }
+}
+
+/*
+ * Implements hook_preprocess_textarea().
+ */
+function STARTERKIT_preprocess_textarea(&$variables) {
+  $variables['attributes']['placeholder'] = $variables['element']['#title'];
+}

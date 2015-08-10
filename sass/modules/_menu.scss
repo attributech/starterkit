@@ -10,8 +10,6 @@ NAVIGATION
 
 .menu--main {
 
-  font-weight: bold;
-
   @include to(s) {
     position: absolute;
     top: 0;
@@ -21,8 +19,7 @@ NAVIGATION
     padding-top: $menu-padding - $menu-item-padding + $header-height-s;
     padding-bottom: $menu-padding - $menu-item-padding;
 
-    border-top: 1px solid $grey;
-    background: $grey;
+    background: $black;
 
     transform: translateY(calc(-100% - #{$header-height-s}));
     transition: all $animation-duration-m $animation-timing-default;
@@ -39,7 +36,12 @@ NAVIGATION
     }
   }
 
+  @include from(m) {
+    flex-grow: 1;
+  }
+
   .menu {
+
 
     @include clearfix;
 
@@ -52,6 +54,11 @@ NAVIGATION
         transition-delay: $animation-duration-s;
       }
     }
+
+    @include from(m) {
+      display: flex;
+      float: right;
+    }
   }
 
   li {
@@ -60,7 +67,6 @@ NAVIGATION
     }
 
     @include from(m) {
-      float: left;
       margin-right: 15px;
 
       &:last-child {
@@ -86,7 +92,7 @@ NAVIGATION
     }
     a {
       text-decoration: none;
-      color: $font-color-default;
+      color: $white;
 
 
       @include to(s) {
@@ -127,15 +133,15 @@ NAVIGATION
   &:after {
     content: '';
     display: block;
-    @extend .svg-images--menu-open-black;
-    @extend .svg-images--menu-open-black-dims;
+    @extend .svg-images--menu-open-white;
+    @extend .svg-images--menu-open-white-dims;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
     .navigation-open & {
-      @extend .svg-images--menu-close-black;
+      @extend .svg-images--menu-close-white;
     }
   }
 }

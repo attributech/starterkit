@@ -2,22 +2,22 @@
 	background: url(sprite.svg) no-repeat;
 }
 
-.svg-images--menu-close-black {
+.svg-images--menu-close-white {
 	@extend %svg-common;
 	background-position: 0 0;
 }
 
-.svg-images--menu-close-black-dims {
+.svg-images--menu-close-white-dims {
 	width: 32px;
 	height: 32px;
 }
 
-.svg-images--menu-open-black {
+.svg-images--menu-open-white {
 	@extend %svg-common;
 	background-position: 100% 0;
 }
 
-.svg-images--menu-open-black-dims {
+.svg-images--menu-open-white-dims {
 	width: 32px;
 	height: 32px;
 }

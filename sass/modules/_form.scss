@@ -5,25 +5,37 @@ FORM
 input[type="text"],
 input[type="password"],
 input[type="email"],
-input[type="tel"] {
+input[type="tel"],
+input[type="number"],
+select,
+textarea, {
   box-sizing: border-box;
   width: 100%;
-  padding: 7px;
-  border: 1px solid $grey;
+  padding: 10px;
+  border: $border-width solid $black;
   border-radius: $border-radius;
-  @include font-size(m);
   line-height: normal !important;
   background: none;
   -webkit-appearance: none;
 }
 
 input[type="submit"] {
-  //@include button;
+  @include button;
 }
 
-input {
+label {
+  display: none;
+
+  .js-form-type-checkbox > &,
+  .js-form-type-item > & {
+    display: inline;
+  }
+}
+
+input,
+textarea {
   @include input-placeholder {
-    color: $grey;
+    color: $font-color-default;
     opacity: 1;
   }
 }

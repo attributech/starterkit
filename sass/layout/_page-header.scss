@@ -6,7 +6,7 @@
   box-sizing: border-box;
   z-index: 99;
 
-  background-color: $grey;
+  background-color: $black;
 
   transition: transform $animation-duration-s $animation-timing-default;
 
@@ -45,7 +45,7 @@
       right: 0;
       bottom: 0;
       left: 0;
-      background-color: $grey;
+      background-color: $black;
       z-index: -1;
       opacity: 1;
       transition: opacity $animation-duration-s $animation-timing-default;

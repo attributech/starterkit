@@ -693,24 +693,24 @@ hr {
   border-top: 0.0625rem solid #000;
 }
 
-.svg-images--menu-close-black, .navigation-open .navigation-toggle:after, .svg-images--menu-open-black, .navigation-toggle:after {
+.svg-images--menu-close-white, .navigation-open .navigation-toggle:after, .svg-images--menu-open-white, .navigation-toggle:after {
   background: url(sprite.svg) no-repeat;
 }
 
-.svg-images--menu-close-black, .navigation-open .navigation-toggle:after {
+.svg-images--menu-close-white, .navigation-open .navigation-toggle:after {
   background-position: 0 0;
 }
 
-.svg-images--menu-close-black-dims {
+.svg-images--menu-close-white-dims {
   width: 2rem;
   height: 2rem;
 }
 
-.svg-images--menu-open-black, .navigation-toggle:after {
+.svg-images--menu-open-white, .navigation-toggle:after {
   background-position: 100% 0;
 }
 
-.svg-images--menu-open-black-dims, .navigation-toggle:after {
+.svg-images--menu-open-white-dims, .navigation-toggle:after {
   width: 2rem;
   height: 2rem;
 }
@@ -734,22 +734,27 @@ hr {
   display: block;
 }
 
-.page-footer {
-  box-sizing: border-box;
-  min-height: 5rem;
-  overflow: hidden;
-  *zoom: 1;
+.page-main {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+}
+
+.page-main__wrapper {
+  max-width: 75rem;
+  margin: 6.25rem auto 6.66667%;
+  padding: 0 1.25rem;
+  position: relative;
 }
 @media (min-width: 641px) {
-  .page-footer {
-    min-height: 3.125rem;
+  .page-main__wrapper {
+    padding: 0 3.33333%;
   }
 }
 
-.page-footer__wrapper {
-  max-width: 75rem;
-  margin: 0 auto;
-  padding: 2rem 3.33333%;
+#main-content {
+  display: block;
 }
 
 .page-header {
@@ -758,7 +763,7 @@ hr {
   top: 0;
   box-sizing: border-box;
   z-index: 99;
-  background-color: #898989;
+  background-color: #000;
   -webkit-transition: -webkit-transform 0.2s ease;
           transition: transform 0.2s ease;
 }
@@ -797,7 +802,7 @@ hr {
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: #898989;
+    background-color: #000;
     z-index: -1;
     opacity: 1;
     -webkit-transition: opacity 0.2s ease;
@@ -823,27 +828,22 @@ hr {
           justify-content: space-between;
 }
 
-.page-main {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 0 auto;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
-}
-
-.page-main__wrapper {
-  max-width: 75rem;
-  margin: 6.25rem auto 6.66667%;
-  padding: 0 1.25rem;
-  position: relative;
+.page-footer {
+  box-sizing: border-box;
+  min-height: 5rem;
+  overflow: hidden;
+  *zoom: 1;
 }
 @media (min-width: 641px) {
-  .page-main__wrapper {
-    padding: 0 3.33333%;
+  .page-footer {
+    min-height: 3.125rem;
   }
 }
 
-#main-content {
-  display: block;
+.page-footer__wrapper {
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 2rem 3.33333%;
 }
 
 /* Modules */
@@ -853,46 +853,68 @@ FORM
 input[type="text"],
 input[type="password"],
 input[type="email"],
-input[type="tel"] {
+input[type="tel"],
+input[type="number"],
+select,
+textarea {
   box-sizing: border-box;
   width: 100%;
-  padding: 0.4375rem;
-  border: 0.0625rem solid #898989;
+  padding: 0.625rem;
+  border: 0.0625rem solid #000;
   border-radius: 0.1875rem;
-  font-size: 0.875rem;
-  line-height: 16px;
   line-height: normal !important;
   background: none;
   -webkit-appearance: none;
 }
-@media (min-width: 961px) {
-  input[type="text"],
-  input[type="password"],
-  input[type="email"],
-  input[type="tel"] {
-    font-size: 1rem;
-    line-height: 1.125rem;
+
+input[type="submit"] {
+  display: inline-block;
+  color: #fff;
+  background-color: #000;
+  padding: 0.625rem 2.1875rem;
+  text-align: center;
+  margin-top: 0.3125rem;
+  border: none;
+  border-radius: 0.1875rem;
+  cursor: pointer;
+}
+@media (min-width: 641px) {
+  input[type="submit"] {
+    padding: 0.625rem 3.125rem;
+    margin-top: 0.625rem;
   }
 }
 
-input.placeholder {
-  color: #898989;
+label {
+  display: none;
+}
+.js-form-type-checkbox > label, .js-form-type-item > label {
+  display: inline;
+}
+
+input.placeholder,
+textarea.placeholder {
+  color: #000;
   opacity: 1;
 }
-input:-moz-placeholder {
-  color: #898989;
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: #000;
   opacity: 1;
 }
-input::-moz-placeholder {
-  color: #898989;
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #000;
   opacity: 1;
 }
-input:-ms-input-placeholder {
-  color: #898989;
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #000;
   opacity: 1;
 }
-input::-webkit-input-placeholder {
-  color: #898989;
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #000;
   opacity: 1;
 }
 
@@ -913,9 +935,6 @@ NAVIGATION
   padding: 0;
 }
 
-.menu--main {
-  font-weight: bold;
-}
 @media (max-width: 640px) {
   .menu--main {
     position: absolute;
@@ -924,8 +943,7 @@ NAVIGATION
     width: 100%;
     padding-top: 4.5rem;
     padding-bottom: 1.375rem;
-    border-top: 0.0625rem solid #898989;
-    background: #898989;
+    background: #000;
     -webkit-transform: translateY(calc(-100% - 3.125rem));
         -ms-transform: translateY(calc(-100% - 3.125rem));
             transform: translateY(calc(-100% - 3.125rem));
@@ -941,6 +959,14 @@ NAVIGATION
         -ms-transform: translateY(0);
             transform: translateY(0);
     height: auto;
+  }
+}
+@media (min-width: 641px) {
+  .menu--main {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
   }
 }
 .menu--main .menu {
@@ -959,6 +985,15 @@ NAVIGATION
             transition-delay: 0.2s;
   }
 }
+@media (min-width: 641px) {
+  .menu--main .menu {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    float: right;
+  }
+}
 @media (max-width: 640px) {
   .menu--main li {
     text-align: center;
@@ -966,7 +1001,6 @@ NAVIGATION
 }
 @media (min-width: 641px) {
   .menu--main li {
-    float: left;
     margin-right: 0.9375rem;
   }
   .menu--main li:last-child {
@@ -988,7 +1022,7 @@ NAVIGATION
 }
 .menu--main li a {
   text-decoration: none;
-  color: #000;
+  color: #fff;
 }
 @media (max-width: 640px) {
   .menu--main li a {
