@@ -567,7 +567,7 @@ p {
 GENERAL LINKS
 ------------------------------------------------------*/
 a {
-  color: #898989;
+  color: #000;
   cursor: pointer;
   outline: none !important;
   -webkit-transition: opacity 0.2s ease;
@@ -743,13 +743,13 @@ hr {
 
 .page-main__wrapper {
   max-width: 75rem;
-  margin: 6.25rem auto 6.66667%;
+  margin: 6.875rem auto 6.875rem;
   padding: 0 1.25rem;
   position: relative;
 }
 @media (min-width: 641px) {
   .page-main__wrapper {
-    padding: 0 3.33333%;
+    padding: 0 7.5rem;
   }
 }
 
@@ -770,13 +770,13 @@ hr {
 @media (max-width: 640px) {
   .page-header {
     height: 3.125rem;
-    padding: 0 3.33333%;
+    padding: 0 0.625rem;
   }
 }
 @media (min-width: 641px) {
   .page-header {
-    height: 5rem;
-    padding: 0 3.33333%;
+    height: 4.375rem;
+    padding: 0 7.5rem;
   }
 }
 .page-header.headroom--pinned {
@@ -1033,7 +1033,7 @@ NAVIGATION
   .menu--main li a {
     display: inline-block;
     position: relative;
-    line-height: 5rem;
+    line-height: 4.375rem;
     opacity: 0.5;
   }
 }

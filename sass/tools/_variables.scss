@@ -97,11 +97,7 @@ $gutter-negative: ceil(percentage(((50% / (50% - $gutter))-1)/2));
 
 $page-margin-small: 10px;
 $page-margin-medium: 20px;
-$page-margin-large: 30px;
-
-$page-margin-negative-small: $page-margin-small;
-$page-margin-negative-medium: $page-margin-medium;
-$page-margin-negative-large: $page-margin-large;
+$page-margin-large: 120px;
 
 
 /* Animations */
@@ -122,10 +118,15 @@ $border-width: 1px;
 $border-radius: 3px;
 
 $header-height-s: 50px;
-$header-height-m: 80px;
+$header-height-m: 70px;
 
-$main-margin-top-s: 20px + $header-height-s;
-$main-margin-top-m: 20px + $header-height-m;
+$main-vertical-margin-s: 20px;
+$main-vertical-margin-m: 40px;
+
+$main-margin-top-s: $main-vertical-margin-s + $header-height-s;
+$main-margin-top-m: $main-vertical-margin-m + $header-height-m;
+$main-margin-bottom-s: $main-vertical-margin-s + $header-height-s;
+$main-margin-bottom-m: $main-vertical-margin-m + $header-height-m;
 
 $footer-height-s: 80px;
 $footer-height-m: 50px;

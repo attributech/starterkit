@@ -12,12 +12,12 @@
 
   @include to(s) {
     height: $header-height-s;
-    padding: 0 $gutter;
+    padding: 0 $page-margin-small;
   }
 
   @include from(m) {
     height: $header-height-m;
-    padding: 0 $gutter;
+    padding: 0 $page-margin-large;
   }
 
   &.headroom--pinned {
