@@ -5,4 +5,8 @@ LOGO
 .logo {
   position: relative;
   z-index: 1;
+  
+  &:hover {
+    opacity: 1;
+  }
 }

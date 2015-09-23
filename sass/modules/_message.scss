@@ -11,6 +11,10 @@ MESSAGE
   background-color: $green;
 }
 
+.messages--warning {
+  background-color: $yellow;
+}
+
 .messages--error {
   background-color: $red;
 }

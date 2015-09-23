@@ -496,7 +496,7 @@ GENERAL
 body {
   font-size: 0.75rem;
   line-height: 0.875rem;
-  font-family: "Noto Sans", sans-serif;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   color: #000;
   text-rendering: optimizelegibility;
   -moz-osx-font-smoothing: grayscale;
@@ -575,7 +575,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  opacity: 0.25;
+  opacity: 0.5;
 }
 
 /*------------------------------------------------------
@@ -925,6 +925,9 @@ LOGO
   position: relative;
   z-index: 1;
 }
+.logo:hover {
+  opacity: 1;
+}
 
 /*------------------------------------------------------
 NAVIGATION
@@ -1011,13 +1014,9 @@ NAVIGATION
   .menu--main li a:hover {
     opacity: 1;
   }
-  .menu--main li.menu-item--active-trail a:before,
-  .menu--main li a.is-active:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 100%;
-    border-top: 0.3125rem solid #000;
+  .menu--main li.menu-item--active-trail a,
+  .menu--main li a.is-active {
+    text-decoration: underline;
   }
 }
 .menu--main li a {
@@ -1035,7 +1034,7 @@ NAVIGATION
     display: inline-block;
     position: relative;
     line-height: 5rem;
-    opacity: 0.25;
+    opacity: 0.5;
   }
 }
 
@@ -1078,6 +1077,10 @@ MESSAGE
 
 .messages--status {
   background-color: #b0ffa7;
+}
+
+.messages--warning {
+  background-color: #fffe91;
 }
 
 .messages--error {

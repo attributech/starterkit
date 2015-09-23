@@ -6,6 +6,7 @@ $black: #000;
 $grey: #898989;
 
 $green: #b0ffa7;
+$yellow: #fffe91;
 $red: #ff8f7b;
 
 $font-color-default: $black;
@@ -33,9 +34,9 @@ $slicer-breakpoint-names: 'xs' 's' 'm' 'l' 'xl';
 
 /* Fonts */
 
-$font-noto-sans: 'Noto Sans', sans-serif;
+$font-helvetica: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 
-$font-base: $font-noto-sans;
+$font-base: $font-helvetica;
 
 /*
 Font sizes
@@ -111,7 +112,9 @@ $animation-duration-l: .6s;
 
 $animation-timing-default: ease;
 
-$link-hover-opactiy: .25;
+$opactiy-l: .25;
+$opactiy-m: .5;
+$opactiy-s: .75;
 
 /* Sizes */
 

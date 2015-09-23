@@ -81,13 +81,7 @@ NAVIGATION
 
       &.menu-item--active-trail a,
       a.is-active {
-        &:before {
-          content: '';
-          position: absolute;
-          top: 0;
-          width: 100%;
-          border-top: 5px solid $black;
-        }
+        text-decoration: underline;
       }
     }
     a {
@@ -104,7 +98,7 @@ NAVIGATION
         display: inline-block;
         position: relative;
         line-height: $header-height-m;
-        opacity: $link-hover-opactiy;
+        opacity: $opactiy-m;
       }
     }
   }
