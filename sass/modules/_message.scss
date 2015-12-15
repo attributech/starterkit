@@ -8,13 +8,19 @@ MESSAGE
 }
 
 .messages--status {
-  background-color: $green;
+  background-color: $status-light;
+  color: $status-dark;
+  border: 1px solid $status-medium;
 }
 
 .messages--warning {
-  background-color: $yellow;
+  background-color: $warning-light;
+  color: $warning-dark;
+  border: 1px solid $warning-medium;
 }
 
 .messages--error {
-  background-color: $red;
+  background-color: $error-light;
+  color: $error-dark;
+  border: 1px solid $error-medium;
 }

@@ -10,6 +10,10 @@ NAVIGATION
 
 .menu--main {
 
+  @include from(m) {
+    flex-grow: 1;
+  }
+
   @include to(s) {
     position: absolute;
     top: 0;
@@ -19,14 +23,15 @@ NAVIGATION
     padding-top: $menu-padding - $menu-item-padding + $header-height-s;
     padding-bottom: $menu-padding - $menu-item-padding;
 
-    background: $black;
-
     transform: translateY(calc(-100% - #{$header-height-s}));
     transition: all $animation-duration-m $animation-timing-default;
 
     height: 0;
     overflow: hidden;
     box-sizing: border-box;
+
+    background-color: $white;
+    border-bottom: 1px solid $black;
 
     z-index: 0;
 
@@ -36,12 +41,7 @@ NAVIGATION
     }
   }
 
-  @include from(m) {
-    flex-grow: 1;
-  }
-
   .menu {
-
 
     @include clearfix;
 
@@ -75,19 +75,14 @@ NAVIGATION
 
       &.menu-item--active-trail a,
       a.is-active,
-      a:hover {
+      a:hover,
+      a:focus,
+      a:active {
         opacity: 1;
-      }
-
-      &.menu-item--active-trail a,
-      a.is-active {
-        text-decoration: underline;
       }
     }
     a {
       text-decoration: none;
-      color: $white;
-
 
       @include to(s) {
         display: block;

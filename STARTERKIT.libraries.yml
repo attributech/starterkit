@@ -3,13 +3,13 @@ base:
   css:
     base:
       #//fonts.googleapis.com/css?family=Noto+Sans:700: {type: 'external'}
-      dist/css/styles.css: {}
+      dist/css/styles.css: {weight: 9999}
   js:
     js/vendor/modernizr.js: {}
-    js/vendor/fastclick/lib/fastclick.js: {}
-    js/vendor/fitvids/jquery.fitvids.js: {}
-    js/vendor/headroom.js/dist/headroom.js: {}
-    js/vendor/headroom.js/dist/jQuery.headroom.js: {}
+    bower_components/fastclick/lib/fastclick.js: {}
+    bower_components/fitvids/jquery.fitvids.js: {}
+    bower_components/headroom.js/dist/headroom.js: {}
+    bower_components/headroom.js/dist/jQuery.headroom.js: {}
     js/script.js: {}
   dependencies:
     - core/jquery

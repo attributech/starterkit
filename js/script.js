@@ -33,7 +33,7 @@
     FastClick.attach(document.body);
 
     $header.headroom({
-      offset: 120,
+      offset: 40,
       useTouchmove: true
     });
 

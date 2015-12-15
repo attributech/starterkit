@@ -21,3 +21,16 @@ function STARTERKIT_preprocess_input(&$variables) {
 function STARTERKIT_preprocess_textarea(&$variables) {
   $variables['attributes']['placeholder'] = $variables['element']['#title'];
 }
+
+function STARTERKIT_preprocess_links__language_block(&$variables) {
+  $language = \Drupal::languageManager()->getCurrentLanguage();
+  foreach ($variables['links'] as $key => $link) {
+    if ($key == $language->getId()) {
+      $variables['links'][$key]['text'] = $key;
+      $variables['links'][$key]['link']['#title'] = $key;
+    }
+    else {
+      unset($variables['links'][$key]);
+    }
+  }
+}

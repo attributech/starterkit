@@ -11,7 +11,9 @@ module.exports = function (grunt) {
     src: {
       js: 'js',
       sass: 'sass',
-      images: 'images'
+      sassFile: 'sass/styles.scss',
+      images: 'images',
+      spriteFile: '../../sass/base/_sprite.scss'
     },
     dist: {
       js: 'dist/js',
@@ -29,7 +31,7 @@ module.exports = function (grunt) {
       },
       css: {
         files: 'sass/**/*.scss',
-        tasks: ['compass', 'px_to_rem', 'autoprefixer', 'notify:styles']
+        tasks: ['sass', 'px_to_rem', 'autoprefixer', 'notify:styles']
       },
       scripts: {
         files: ['js/**/*.js', 'js/**/*.html'],
@@ -67,7 +69,7 @@ module.exports = function (grunt) {
               sprite: 'sprite.svg',
               render: {
                 scss: {
-                  dest: '../../sass/base/_sprite.scss'
+                  dest: directoriesConfig.dist.spriteFile
                 }
               }
             }
@@ -80,20 +82,18 @@ module.exports = function (grunt) {
         }
       }
     },
-    compass: {
+    sass: {
       dist: {
         options: {
-          //environment: 'production',
-          environment: 'development',
-          sassDir: directoriesConfig.src.sass,
-          cssDir: directoriesConfig.dist.css,
-          noLineComments: true,
-          //sourcemap: true,
           require: [
             'susy',
             'breakpoint',
             'breakpoint-slicer'
-          ]
+          ],
+          style: 'expanded'
+        },
+        files: {
+          'dist/css/styles.css': 'sass/styles.scss'
         }
       }
     },
@@ -129,7 +129,7 @@ module.exports = function (grunt) {
         },
         options: {
           watchTask: true,
-          proxy: "STARTERKIT.dd:8083",
+          proxy: 'd8_9.local1.vagrant.amazee.io',
           browser: ["google chrome"],
           reloadOnRestart: false,
           notify: false

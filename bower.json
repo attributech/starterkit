@@ -1,0 +1,29 @@
+{
+  "name": "STARTERKIT",
+  "version": "1.0",
+  "authors": [
+    "Lukas von Blarer <lukas.vonblarer@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "commercial",
+  "homepage": "https://www.STARTERKIT.com/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "js/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "breakpoint-slicer": "~2.0.0",
+    "compass-breakpoint": "breakpoint-sass#~2.6.1",
+    "fastclick": "~1.0.6",
+    "fitvids": "~1.1.0",
+    "headroom.js": "~0.7.0",
+    "susy": "~2.2.9"
+  }
+}

@@ -5,9 +5,17 @@ $black: #000;
 
 $grey: #898989;
 
-$green: #b0ffa7;
-$yellow: #fffe91;
-$red: #ff8f7b;
+$status-light: #f3faef;
+$status-medium: #77b259;
+$status-dark: #325e1c;
+
+$warning-light: #fdf8ed;
+$warning-medium: #e09600;
+$warning-dark: #734c00;
+
+$error-light: #fcf4f2;
+$error-medium: #e62600;
+$error-dark: #a51b00;
 
 $font-color-default: $black;
 $font-color-highlight: $grey;
@@ -43,21 +51,21 @@ Font sizes
 */
 
 $base-font-size:   16px;
-$base-line-height: 22px;
+$base-line-height: 20px;
 $rhythm-unit: 'rem';
 
 $font-sizes: (
   xs: (
-    font-size: 12px,
-    line-height: 14px,
+    font-size: 16px,
+    line-height: 20px,
   ),
   s: (
-    font-size: 14px,
-    line-height: 16px,
+    font-size: 18px,
+    line-height: 24px,
   ),
   m: (
-    font-size: 16px,
-    line-height: 18px,
+    font-size: 24px,
+    line-height: 32px,
   ),
   l: (
     font-size: 36px,
@@ -125,8 +133,8 @@ $main-vertical-margin-m: 40px;
 
 $main-margin-top-s: $main-vertical-margin-s + $header-height-s;
 $main-margin-top-m: $main-vertical-margin-m + $header-height-m;
-$main-margin-bottom-s: $main-vertical-margin-s + $header-height-s;
-$main-margin-bottom-m: $main-vertical-margin-m + $header-height-m;
+$main-margin-bottom-s: $main-vertical-margin-s;
+$main-margin-bottom-m: $main-vertical-margin-m;
 
 $footer-height-s: 80px;
 $footer-height-m: 50px;

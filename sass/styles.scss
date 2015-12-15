@@ -1,14 +1,11 @@
 /*
-perlaton
-Date: 2015
-Autor: attribute.ch / Lukas von Blarer
-Copyright: all rights reserved
+Main styles file. Just cointains includes
 */
 
 /* Vendor */
-@import "breakpoint";
-@import "breakpoint-slicer";
-@import "susy";
+@import "../bower_components/compass-breakpoint/stylesheets/breakpoint";
+@import "../bower_components/breakpoint-slicer/stylesheets/breakpoint-slicer";
+@import "../bower_components/susy/sass/susy";
 
 /* Tools */
 @import "tools/variables";
@@ -32,3 +29,4 @@ Copyright: all rights reserved
 @import "modules/menu";
 @import "modules/message";
 @import "modules/tabs";
+@import "modules/language-switcher";
