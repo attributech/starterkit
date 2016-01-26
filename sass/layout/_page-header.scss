@@ -13,7 +13,7 @@
 
   @include to(s) {
     height: $header-height-s;
-    padding: 0 $page-margin-small;
+    padding: 0 $page-margin-medium;
   }
 
   @include from(m) {

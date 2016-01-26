@@ -12,5 +12,14 @@
 .page-footer__wrapper {
   max-width: $max-width;
   margin: 0 auto;
-  padding: 2rem $gutter;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  @include to(s) {
+    padding: 0 $page-margin-medium;
+  }
+
+  @include from(m) {
+    padding: 0 $page-margin-large;
+  }
 }

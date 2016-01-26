@@ -104,16 +104,14 @@ NAVIGATION
   width: $header-height-s;
   height: $header-height-s;
   position: relative;
-
-  cursor: pointer;
-
-  position: absolute;
   right: 0;
   top: 0;
 
   padding-right: $gutter-s;
 
   @include hide-text;
+
+  cursor: pointer;
 
   @include from('m') {
     display: none;

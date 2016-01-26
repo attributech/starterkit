@@ -3,7 +3,7 @@ GENERAL
 ------------------------------------------------------*/
 
 body {
-  @include font-size('s');
+  @include font-style('s');
   font-family: $font-base;
   color: $font-color-default;
   text-rendering: optimizelegibility;
@@ -27,17 +27,17 @@ TYPOGRAPHY
 ------------------------------------------------------*/
 
 h1 {
-  @include font-size('l');
+  @include font-style('l');
   margin: .5em 0;
 }
 
 h2 {
-  @include font-size('m');
+  @include font-style('m');
   margin: .5em 0;
 }
 
 h3 {
-  @include font-size('s');
+  @include font-style('s');
   margin: .5em 0;
 }
 
@@ -57,10 +57,8 @@ a {
   cursor: pointer;
   outline: none !important;
   transition: opacity $animation-duration-s $animation-timing-default;
-  text-decoration: none;
 
   &:hover {
-    opacity: $opactiy-m;
   }
 }
 

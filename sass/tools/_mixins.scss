@@ -6,10 +6,7 @@
   text-align: center;
 
   margin-top: 5px;
-
   border: none;
-  border-radius: $border-radius;
-
   cursor: pointer;
 
   @include from(m) {
@@ -24,30 +21,37 @@
   }
 }
 
-@mixin font-size($name, $font-styles: $font-styles, $font-sizes: $font-sizes) {
+@mixin font-style($name, $font-styles: $font-styles, $font-sizes: $font-sizes) {
   $font-style: map-get($font-styles, $name);
-  @include print-font-size($font-style, $font-sizes);
-
+  @include print-font-style($font-style, $font-sizes);
 }
 
-@mixin print-font-size($font-style, $font-sizes: $font-sizes) {
+@mixin font-size($name, $font-sizes: $font-sizes) {
+  $font-size: map-get($font-sizes, $name);
+  @include print-font-size($font-size, $font-sizes);
+}
+
+@mixin print-font-style($font-style, $font-sizes: $font-sizes) {
   @each $breakpoint, $style in $font-style {
     $font-size: map-get($font-sizes, $style);
-    @if ($breakpoint ==  'default') {
+    @include from($breakpoint) {
       @include print($font-size);
     }
-    @else {
-      @include from($breakpoint) {
-        @include print($font-size);
-      }
-    }
+  }
+}
+
+@mixin print-font-size($font-size, $font-sizes: $font-sizes) {
+  @include from(xs) {
+    @include print($font-size);
   }
 }
 
 // REM CALC
 @function rem-calc($values, $base-value: $rem-base) {
   $max: length($values);
-  @if $max == 1 { @return convert-to-rem(nth($values, 1), $base-value); }
+  @if $max == 1 {
+    @return convert-to-rem(nth($values, 1), $base-value);
+  }
   $remValues: ();
   @for $i from 1 through $max {
     $remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
@@ -58,7 +62,10 @@
 // CONVERT TO REM
 @function convert-to-rem($value, $base-value: $rem-base) {
   $value: strip-unit($value) / strip-unit($base-value) * 1rem;
-  @if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
+  @if ($value == 0rem) {
+    $value: 0;
+  }
+  // Turn 0rem into 0
   @return $value;
 }
 

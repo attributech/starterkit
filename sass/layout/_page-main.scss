@@ -5,8 +5,11 @@
 .page-main__wrapper {
   max-width: $max-width;
   margin: $main-margin-top-m auto $main-margin-bottom-m;
-  padding: 0 $page-margin-medium;
   position: relative;
+
+  @include to(s) {
+    padding: 0 $page-margin-medium;
+  }
 
   @include from(m) {
     padding: 0 $page-margin-large;
