@@ -50,7 +50,7 @@ $font-base: $font-helvetica;
 Font sizes
 */
 
-$base-font-size:   16px;
+$base-font-size: 16px;
 $base-line-height: 20px;
 $rhythm-unit: 'rem';
 
@@ -75,15 +75,14 @@ $font-sizes: (
 
 $font-styles: (
   s: (
-    default: xs,
+    xs: xs,
     l: s,
   ),
-  m: (
-    default: s,
+  m: (xs: s,
     l: m,
   ),
   l: (
-    default: m,
+    xs: m,
     l: l,
   ),
 );
@@ -95,18 +94,9 @@ $gutter-s: 10px;
 $gutter-m: 20px;
 $gutter-l: 30px;
 
-@include layout(12 2/3 inside);
-
-$gutter-half: gutter();
-$gutter: $gutter-half * 2;
-$gutter-double: $gutter * 2;
-
-$gutter-negative: ceil(percentage(((50% / (50% - $gutter))-1)/2));
-
 $page-margin-small: 10px;
 $page-margin-medium: 20px;
 $page-margin-large: 120px;
-
 
 /* Animations */
 

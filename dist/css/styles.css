@@ -569,10 +569,6 @@ a {
   outline: none !important;
   -webkit-transition: opacity 0.2s ease;
           transition: opacity 0.2s ease;
-  text-decoration: none;
-}
-a:hover {
-  opacity: 0.5;
 }
 
 /*------------------------------------------------------
@@ -726,10 +722,6 @@ hr {
           flex-direction: column;
   overflow-x: hidden;
 }
-.page-container:after {
-  content: "";
-  display: block;
-}
 
 .page-main {
   -webkit-box-flex: 1;
@@ -741,8 +733,12 @@ hr {
 .page-main__wrapper {
   max-width: 75rem;
   margin: 6.875rem auto 2.5rem;
-  padding: 0 1.25rem;
   position: relative;
+}
+@media (max-width: 640px) {
+  .page-main__wrapper {
+    padding: 0 1.25rem;
+  }
 }
 @media (min-width: 641px) {
   .page-main__wrapper {
@@ -768,7 +764,7 @@ hr {
 @media (max-width: 640px) {
   .page-header {
     height: 3.125rem;
-    padding: 0 0.625rem;
+    padding: 0 1.25rem;
   }
 }
 @media (min-width: 641px) {
@@ -825,7 +821,18 @@ hr {
 .page-footer__wrapper {
   max-width: 75rem;
   margin: 0 auto;
-  padding: 2rem 3.33333%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+@media (max-width: 640px) {
+  .page-footer__wrapper {
+    padding: 0 1.25rem;
+  }
+}
+@media (min-width: 641px) {
+  .page-footer__wrapper {
+    padding: 0 7.5rem;
+  }
 }
 
 /* Modules */
@@ -857,7 +864,6 @@ input[type="submit"] {
   text-align: center;
   margin-top: 0.3125rem;
   border: none;
-  border-radius: 0.1875rem;
   cursor: pointer;
 }
 @media (min-width: 641px) {
@@ -903,11 +909,11 @@ textarea::-webkit-input-placeholder {
 /*------------------------------------------------------
 LOGO
 ------------------------------------------------------*/
-.logo {
+.site-logo {
   position: relative;
   z-index: 1;
 }
-.logo:hover {
+.site-logo:hover {
   opacity: 1;
 }
 
@@ -1020,14 +1026,13 @@ NAVIGATION
   width: 3.125rem;
   height: 3.125rem;
   position: relative;
-  cursor: pointer;
-  position: absolute;
   right: 0;
   top: 0;
   padding-right: 0.625rem;
   text-indent: -7499.25rem;
   overflow: hidden;
   text-align: left;
+  cursor: pointer;
 }
 @media (min-width: 641px) {
   .navigation-toggle {
