@@ -63,18 +63,7 @@
  *   in different view modes.
  */
 #}
-{%
-  set classes = [
-    'node',
-    'node--type-' ~ node.bundle|clean_class,
-    node.isPromoted() ? 'node--promoted',
-    node.isSticky() ? 'node--sticky',
-    not node.isPublished() ? 'node--unpublished',
-    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-  ]
-%}
-{{ attach_library('classy/node') }}
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes }}>
 
   {{ title_prefix }}
   {% if not page %}
@@ -85,16 +74,16 @@
   {{ title_suffix }}
 
   {% if display_submitted %}
-    <footer class="node__meta">
+    <footer>
       {{ author_picture }}
-      <div{{ author_attributes.addClass('node__submitted') }}>
+      <div{{ author_attributes }}>
         {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
         {{ metadata }}
       </div>
     </footer>
   {% endif %}
 
-  <div{{ content_attributes.addClass('node__content') }}>
+  <div{{ content_attributes }}>
     {{ content }}
   </div>
 
