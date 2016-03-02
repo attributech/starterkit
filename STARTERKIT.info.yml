@@ -1,6 +1,6 @@
 name: STARTERKIT
 type: theme
-base theme: classy
+base theme: stable
 description: 'STARTERKIT theme'
 package: STARTERKIT
 version: 1.x
