@@ -1,23 +1,23 @@
 %svg-common {
-	background: url(sprite.svg) no-repeat;
+	background: url("sprite.svg") no-repeat;
 }
 
-.svg-images--menu-close-white {
+.svg-images--menu-close {
 	@extend %svg-common;
 	background-position: 0 0;
 }
 
-.svg-images--menu-close-white-dims {
+.svg-images--menu-close-dims {
 	width: 32px;
 	height: 32px;
 }
 
-.svg-images--menu-open-white {
+.svg-images--menu-open {
 	@extend %svg-common;
 	background-position: 100% 0;
 }
 
-.svg-images--menu-open-white-dims {
+.svg-images--menu-open-dims {
 	width: 32px;
 	height: 32px;
 }

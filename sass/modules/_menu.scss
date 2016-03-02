@@ -120,15 +120,15 @@ NAVIGATION
   &:after {
     content: '';
     display: block;
-    @extend .svg-images--menu-open-white;
-    @extend .svg-images--menu-open-white-dims;
+    @extend .svg-images--menu-open;
+    @extend .svg-images--menu-open-dims;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
     .navigation-open & {
-      @extend .svg-images--menu-close-white;
+      @extend .svg-images--menu-close;
     }
   }
 }
