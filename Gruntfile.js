@@ -34,8 +34,12 @@ module.exports = function (grunt) {
         tasks: ['sass', 'px_to_rem', 'autoprefixer', 'notify:styles']
       },
       scripts: {
-        files: ['js/**/*.js', 'js/**/*.html'],
-        tasks: ['notify:scripts']
+        files: ['js/**/*.js', 'js/**/*.html', 'bower_components/**/*.js'],
+        tasks: ['webpack', 'notify:scripts']
+      },
+      polymer: {
+        files: ['bower_components/**/*.html', 'polymer/index.html'],
+        tasks: ['vulcanize']
       }
     },
     notify: {
@@ -69,7 +73,7 @@ module.exports = function (grunt) {
               sprite: 'sprite.svg',
               render: {
                 scss: {
-                  dest: directoriesConfig.dist.spriteFile
+                  dest: '../../sass/base/_sprite.scss'
                 }
               }
             }
@@ -85,11 +89,7 @@ module.exports = function (grunt) {
     sass: {
       dist: {
         options: {
-          require: [
-            'susy',
-            'breakpoint',
-            'breakpoint-slicer'
-          ],
+
           style: 'expanded'
         },
         files: {
@@ -129,10 +129,41 @@ module.exports = function (grunt) {
         },
         options: {
           watchTask: true,
-          proxy: 'd8_9.local1.vagrant.amazee.io',
+          proxy: 'd8_10.local1.vagrant.amazee.io',
           browser: ["google chrome"],
           reloadOnRestart: false,
           notify: false
+        }
+      }
+    },
+    vulcanize: {
+      default: {
+        options: {
+          inlineScripts: true,
+          inlineCss: true,
+          stripExcludes: false,
+          stripComments: true
+        },
+        files: {
+          'dist/polymer/build/build.html': 'polymer/index.html'
+        },
+      },
+    },
+    webpack: {
+      test: {
+        entry: './js/script.js',
+        output: { path: __dirname, filename: 'dist/js/script.js' },
+        module: {
+          loaders: [
+            {
+              test: /.js?$/,
+              loader: 'babel-loader',
+              exclude: /node_modules/,
+              query: {
+                presets: ['es2015']
+              }
+            }
+          ]
         }
       }
     }
@@ -143,4 +174,3 @@ module.exports = function (grunt) {
     'watch'
   ]);
 };
-
