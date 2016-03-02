@@ -3,7 +3,7 @@
 /*
  * Implements hook_preprocess_input().
  */
-function STARTERKIT_preprocess_input(&$variables) {
+function georggerster_preprocess_input(&$variables) {
   if (in_array($variables['element']['#type'], array(
     'textfield',
     'email',
@@ -18,11 +18,11 @@ function STARTERKIT_preprocess_input(&$variables) {
 /*
  * Implements hook_preprocess_textarea().
  */
-function STARTERKIT_preprocess_textarea(&$variables) {
+function georggerster_preprocess_textarea(&$variables) {
   $variables['attributes']['placeholder'] = $variables['element']['#title'];
 }
 
-function STARTERKIT_preprocess_links__language_block(&$variables) {
+function georggerster_preprocess_links__language_block(&$variables) {
   $language = \Drupal::languageManager()->getCurrentLanguage();
   foreach ($variables['links'] as $key => $link) {
     if ($key == $language->getId()) {
@@ -33,4 +33,13 @@ function STARTERKIT_preprocess_links__language_block(&$variables) {
       unset($variables['links'][$key]);
     }
   }
+}
+
+
+/*
+ * Implements hook_preprocess_block().
+ */
+function georggerster_preprocess_block(&$variables) {
+  $variables['attributes']['class'] = $variables['attributes']['id'];
+  unset($variables['attributes']['id']);
 }
