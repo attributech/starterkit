@@ -170,6 +170,12 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('default', [
+    'svg_sprite',
+    'sass',
+    'px_to_rem',
+    'autoprefixer',
+    'webpack',
+    'vulcanize',
     'browserSync',
     'watch'
   ]);
