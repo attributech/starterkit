@@ -10,7 +10,7 @@ base:
     bower_components/fitvids/jquery.fitvids.js: {}
     bower_components/headroom.js/dist/headroom.js: {}
     bower_components/headroom.js/dist/jQuery.headroom.js: {}
-    js/script.js: {}
+    dist/js/main.js: {}
   dependencies:
     - core/jquery
     - core/drupal
