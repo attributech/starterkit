@@ -151,8 +151,8 @@ module.exports = function (grunt) {
     },
     webpack: {
       test: {
-        entry: './js/script.js',
-        output: { path: __dirname, filename: 'dist/js/script.js' },
+        entry: './js/main.js',
+        output: { path: __dirname, filename: 'dist/js/main.js' },
         module: {
           loaders: [
             {
