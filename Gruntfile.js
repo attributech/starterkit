@@ -145,7 +145,7 @@ module.exports = function (grunt) {
           stripComments: true
         },
         files: {
-          'dist/polymer/build/build.html': 'polymer/index.html'
+          'dist/polymer/build.html': 'polymer/index.html'
         },
       },
     },
