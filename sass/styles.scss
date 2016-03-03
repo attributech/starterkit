@@ -3,8 +3,8 @@ Main styles file. Just cointains includes
 */
 
 /* Vendor */
-@import "../bower_components/compass-breakpoint/stylesheets/breakpoint";
-@import "../bower_components/breakpoint-slicer/stylesheets/breakpoint-slicer";
+@import "../node_modules/breakpoint-sass/stylesheets/breakpoint";
+@import "../node_modules/breakpoint-slicer/stylesheets/breakpoint-slicer";
 
 /* Tools */
 @import "tools/variables";
