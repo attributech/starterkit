@@ -34,7 +34,7 @@ module.exports = function (grunt) {
         tasks: ['sass', 'px_to_rem', 'autoprefixer', 'notify:styles']
       },
       scripts: {
-        files: ['js/**/*.js', 'js/**/*.html', 'bower_components/**/*.js'],
+        files: ['js/**/*.js', 'bower_components/**/*.js'],
         tasks: ['webpack', 'notify:scripts']
       },
       polymer: {
