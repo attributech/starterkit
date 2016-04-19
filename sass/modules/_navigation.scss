@@ -1,0 +1,63 @@
+/*------------------------------------------------------
+NAVIGATION
+------------------------------------------------------*/
+
+.navigation__content {
+
+  @include from(m) {
+    flex-grow: 1;
+  }
+
+  @include to(s) {
+    position: absolute;
+    top: $header-height-s;
+    left: 0;
+
+    height: 0;
+    width: 100%;
+    min-height: 50vh;
+    padding-top: $menu-padding;
+    padding-bottom: $menu-padding;
+
+    transform: translateY(calc(-100% - #{$header-height-s}));
+    transition: all $animation-duration-m $animation-timing-default;
+
+    overflow: hidden;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-direction: column;
+
+    z-index: -1;
+
+    background-color: $white;
+
+    text-align: center;
+
+    .navigation--open & {
+      transform: translateY(0);
+      height: auto;
+    }
+    > * {
+      //width: 100%;
+    }
+  }
+}
+
+.navigation__toggle {
+  width: $header-height-s;
+  height: $header-height-s;
+  position: relative;
+  right: -$page-margin-s;
+  top: 0;
+
+  @include hide-text;
+
+  cursor: pointer;
+
+  @include from('m') {
+    display: none;
+  }
+}

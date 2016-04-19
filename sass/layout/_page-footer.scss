@@ -16,10 +16,10 @@
   padding-bottom: 2rem;
 
   @include to(s) {
-    padding: 0 $page-margin-medium;
+    padding: 0 $page-margin-s;
   }
 
   @include from(m) {
-    padding: 0 $page-margin-large;
+    padding: 0 $page-margin-m;
   }
 }

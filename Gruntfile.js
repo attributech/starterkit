@@ -19,7 +19,7 @@ module.exports = function (grunt) {
       js: 'dist/js',
       css: 'dist/css',
       cssFile: 'dist/css/styles.css',
-      images: 'dist/css'
+      images: 'dist/images'
     }
   };
 
@@ -67,33 +67,23 @@ module.exports = function (grunt) {
         // Target options
         options: {
           mode: {
-            view: {
+            symbol: {
               dest: '',
               bust: false,
               sprite: 'sprite.svg',
-              render: {
-                scss: {
-                  dest: '../../sass/base/_sprite.scss'
-                }
-              }
-            }
+              symbol: true,
+            },
           },
-          shape: {
-            spacing: {
-              //padding: 100
-            }
-          }
-        }
-      }
+        },
+      },
     },
     sass: {
       dist: {
         options: {
-
-          style: 'expanded'
+          style: 'expanded',
         },
         files: {
-          'dist/css/styles.css': 'sass/styles.scss'
+          'dist/css/styles.css': 'sass/styles.scss',
         }
       }
     },
@@ -129,7 +119,7 @@ module.exports = function (grunt) {
         },
         options: {
           watchTask: true,
-          proxy: 'd8_10.local1.vagrant.amazee.io',
+          proxy: 'd8_12.local1.vagrant.amazee.io',
           browser: ["google chrome"],
           reloadOnRestart: false,
           notify: false
@@ -145,7 +135,7 @@ module.exports = function (grunt) {
           stripComments: true
         },
         files: {
-          'dist/polymer/build.html': 'polymer/index.html'
+          'dist/polymer/build.html': 'polymer/index.html',
         },
       },
     },
@@ -157,16 +147,20 @@ module.exports = function (grunt) {
           loaders: [
             {
               test: /.js?$/,
-              loader: 'babel-loader',
-              exclude: /node_modules/,
+              exclude: ['bower_components', 'node_modules'],
+              loader: 'babel',
+              devtool: 'inline-source-map',
               query: {
-                presets: ['es2015']
-              }
-            }
-          ]
-        }
-      }
-    }
+                presets: ['es2015'],
+                cacheDirectory: true,
+
+                // sourceMap: true
+              },
+            },
+          ],
+        },
+      },
+    },
   });
 
   grunt.registerTask('default', [

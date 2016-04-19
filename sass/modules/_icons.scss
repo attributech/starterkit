@@ -1,0 +1,23 @@
+.icon {
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 1em;
+  width: 1em;
+  stroke-width: 2px;
+  stroke: black;
+}
+
+.icon--menu-close {
+  display: none;
+  .navigation--open & {
+      display: inline-block;
+  }
+}
+.icon--menu-open {
+  .navigation--open & {
+      display: none;
+  }
+}

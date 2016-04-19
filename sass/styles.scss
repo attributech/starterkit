@@ -14,7 +14,6 @@ Main styles file. Just cointains includes
 /* Base */
 @import "base/normalize";
 @import "base/base";
-@import "base/sprite";
 
 /* Layout */
 @import "layout/page-container";
@@ -26,6 +25,8 @@ Main styles file. Just cointains includes
 @import "modules/form";
 @import "modules/logo";
 @import "modules/menu";
+@import "modules/navigation";
 @import "modules/message";
 @import "modules/tabs";
 @import "modules/language-switcher";
+@import "modules/icons";

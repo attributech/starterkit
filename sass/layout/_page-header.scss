@@ -6,20 +6,7 @@
   box-sizing: border-box;
   z-index: 99;
 
-  background-color: $white;
-  border-bottom: 1px solid $black;
-
   transition: transform $animation-duration-s $animation-timing-default;
-
-  @include to(s) {
-    height: $header-height-s;
-    padding: 0 $page-margin-medium;
-  }
-
-  @include from(m) {
-    height: $header-height-m;
-    padding: 0 $page-margin-large;
-  }
 
   &.headroom--pinned {
     transform: translate3d(0, 0, 0);
@@ -46,4 +33,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  background-color: $white;
+
+  @include to(s) {
+    padding: 0 $page-margin-s;
+  }
+
+  @include from(m) {
+    padding: 0 $page-margin-m;
+  }
 }
