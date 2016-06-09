@@ -6,6 +6,10 @@ module.exports = function (grunt) {
   // load all grunt tasks
   require('load-grunt-tasks')(grunt);
 
+  grunt.loadNpmTasks('grunt-svg2png');
+
+  grunt.loadNpmTasks('grunt-favicons');
+
   // configurable paths
   var directoriesConfig = {
     src: {
@@ -27,7 +31,8 @@ module.exports = function (grunt) {
     watch: {
       images: {
         files: 'images/*',
-        tasks: ['svg_sprite', 'notify:images']
+        // tasks: ['svg_sprite', 'notify:images']
+        tasks: ['svgmin', 'notify:images']
       },
       css: {
         files: 'sass/**/*.scss',
@@ -59,11 +64,11 @@ module.exports = function (grunt) {
         }
       }
     },
+/*
     svg_sprite: {
       dist: {
         src: [directoriesConfig.src.images + '/*.svg'],
         dest: directoriesConfig.dist.images,
-
         // Target options
         options: {
           mode: {
@@ -77,6 +82,60 @@ module.exports = function (grunt) {
         },
       },
     },
+*/
+
+    svgmin: {
+      options: {
+        plugins: [
+          {
+            removeDimensions: true
+          }, {
+            // removeAttrs: {
+            //   attrs: ['xmlns']
+            // }
+          }
+        ]
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: 'images/',
+          src: ['*.svg'],
+          dest: 'dist/images/'
+        }, {
+          expand: true,
+          cwd: '',
+          src: ['logo.svg'],
+          dest: 'dist/images/'
+        }]
+      }
+    },
+
+    svg2png: {
+      all: {
+        // specify files in array format with multiple src-dest mapping
+        files: [
+          // rasterize all SVG files in "img" and its subdirectories to "img/png"
+          {src: ['favicon.svg'], dest: 'dist/images/png/'}
+        ]
+      }
+    },
+
+    favicons: {
+      options: {
+        // Task-specific options go here.
+        apple: false,
+        windowsTile: false
+      },
+      your_target: {
+        // Target-specific file lists and/or options go here.
+      },
+      icons: {
+        src: 'dist/images/png/favicon.png',
+        dest: ''
+      }
+    },
+
     sass: {
       dist: {
         options: {
@@ -119,8 +178,8 @@ module.exports = function (grunt) {
         },
         options: {
           watchTask: true,
-          proxy: 'd8_12.local1.vagrant.amazee.io',
-          browser: ["google chrome"],
+          proxy: 'STARTERKIT.ch.docker.amazee.io',
+          browser: [],
           reloadOnRestart: false,
           notify: false
         }
@@ -153,7 +212,6 @@ module.exports = function (grunt) {
               query: {
                 presets: ['es2015'],
                 cacheDirectory: true,
-
                 // sourceMap: true
               },
             },
@@ -164,12 +222,15 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('default', [
-    'svg_sprite',
+    'svgmin',
+    'svg2png',
+    'favicons',
+    // 'svg_sprite',
     'sass',
     'px_to_rem',
     'autoprefixer',
     'webpack',
-    'vulcanize',
+    // 'vulcanize',
     'browserSync',
     'watch'
   ]);

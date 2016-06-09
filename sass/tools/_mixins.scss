@@ -89,3 +89,35 @@
   &:-ms-input-placeholder { @content; }
   &::-webkit-input-placeholder { @content; }
 }
+
+
+// icon fitters
+@mixin icon-center {
+  position: relative;
+  & > svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@mixin icon-fit-width {
+  width: $icon-container-size-m;
+  height: $icon-container-size-m;
+  max-width: 100%;
+  & > svg {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@mixin icon-fit-height {
+  width: $icon-container-size-m;
+  height: $icon-container-size-m;
+  max-height: 100%;
+  & > svg {
+    width: auto;
+    height: 100%;
+  }
+}

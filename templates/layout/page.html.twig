@@ -49,20 +49,19 @@
 */
 #}
 
-{% import "@STARTERKIT/macros/icons.html.twig" as icons %}
+{% import "@STARTERKIT/macros/svg.html.twig" as svg %}
 
 <div class="page-container">
   <header class="page-header" role="banner">
     <div class="page-header__wrapper">
-      {{ page.header|without('STARTERKIT_mainnavigation') }}
+      {{ page.header }}
       <div class="navigation">
         <div class="navigation__content">
-          {{ page.header.STARTERKIT_mainnavigation }}
+          {{ page.navigation }}
         </div>
         <div class="navigation__toggle">
-          {{ icons.icon('menu-open') }}
-          {{ icons.icon('menu-close') }}
-          {{ 'Menu'|t }}
+          {{ svg.inline('menu-open') }}
+          {{ svg.inline('menu-close') }}
         </div>
       </div>
     </div>

@@ -6,8 +6,6 @@ NAVIGATION
   list-style: none;
   margin: 0;
   padding: 0;
-
-
 }
 
 .menu--main {
@@ -15,33 +13,17 @@ NAVIGATION
     display: flex;
   }
 
-  .menu {
-
-    @include clearfix;
-
-    @include to(s) {
-      opacity: 0;
-      transition: opacity 0s $animation-timing-default;
-
-      .navigation-open & {
-        opacity: 1;
-        transition-delay: $animation-duration-s;
-      }
-    }
-
-
-  }
-
   li {
 
     @include from(m) {
+      float: left;
       margin-right: 15px;
 
       &:last-child {
         margin-right: 0;
       }
 
-      &.menu-item--active-trail a,
+      &.menu-item--active-trail > a,
       a.is-active,
       a:hover,
       a:focus,
@@ -60,7 +42,7 @@ NAVIGATION
       @include from(m) {
         display: inline-block;
         position: relative;
-        line-height: $header-height-m;
+        //line-height: $header-height-m;
         opacity: $opactiy-m;
       }
     }

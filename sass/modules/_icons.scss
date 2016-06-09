@@ -1,23 +1,26 @@
 .icon {
-  position: absolute;
-  display: inline-block;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 1em;
-  width: 1em;
-  stroke-width: 2px;
-  stroke: black;
+  width: $icon-container-size-m;
+  height: $icon-container-size-m;
 }
-
 .icon--menu-close {
   display: none;
   .navigation--open & {
-      display: inline-block;
+      display: block;
   }
 }
 .icon--menu-open {
   .navigation--open & {
       display: none;
   }
+}
+
+
+.icon--icon-wide {
+  @include icon-fit-width;
+  @include icon-center;
+}
+
+.icon--icon-tall {
+  @include icon-fit-height;
+  @include icon-center;
 }

@@ -7,6 +7,7 @@ version: 1.x
 core: 8.x
 regions:
   header: 'Header'
+  navigation: 'Navigation'
   content: 'Content'
   footer: 'Footer'
 libraries:

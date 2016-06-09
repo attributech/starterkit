@@ -47,13 +47,11 @@ NAVIGATION
 }
 
 .navigation__toggle {
-  width: $header-height-s;
-  height: $header-height-s;
-  position: relative;
-  right: -$page-margin-s;
-  top: 0;
-
-  @include hide-text;
+  // width: $header-height-s;
+  // height: $header-height-s;
+  // position: relative;
+  // right: -$page-margin-s;
+  // top: 0;
 
   cursor: pointer;
 

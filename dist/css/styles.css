@@ -13,6 +13,7 @@ Font sizes
 /* Animations */
 /* Sizes */
 /* Selectors */
+/* icons */
 /* Base */
 /*! normalize.css v1.0.0 | MIT License | git.io/normalize */
 /* ==========================================================================
@@ -689,13 +690,11 @@ hr {
 /* Layout */
 .page-container {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   min-height: 100vh;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
   overflow-x: hidden;
@@ -703,7 +702,6 @@ hr {
 
 .page-main {
   -webkit-box-flex: 1;
-  -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
 }
@@ -757,15 +755,12 @@ hr {
   max-width: 75rem;
   margin: 0 auto;
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
   background-color: #fff;
@@ -904,35 +899,19 @@ NAVIGATION
 @media (min-width: 641px) {
   .menu--main {
     display: -webkit-box;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
 }
-.menu--main .menu {
-  overflow: hidden;
-  *zoom: 1;
-}
-@media (max-width: 640px) {
-  .menu--main .menu {
-    opacity: 0;
-    -webkit-transition: opacity 0s ease;
-            transition: opacity 0s ease;
-  }
-  .navigation-open .menu--main .menu {
-    opacity: 1;
-    -webkit-transition-delay: 0.2s;
-            transition-delay: 0.2s;
-  }
-}
 @media (min-width: 641px) {
   .menu--main li {
+    float: left;
     margin-right: 0.9375rem;
   }
   .menu--main li:last-child {
     margin-right: 0;
   }
-  .menu--main li.menu-item--active-trail a,
+  .menu--main li.menu-item--active-trail > a,
   .menu--main li a.is-active,
   .menu--main li a:hover,
   .menu--main li a:focus,
@@ -953,7 +932,6 @@ NAVIGATION
   .menu--main li a {
     display: inline-block;
     position: relative;
-    line-height: 4.375rem;
     opacity: 0.5;
   }
 }
@@ -964,7 +942,6 @@ NAVIGATION
 @media (min-width: 641px) {
   .navigation__content {
     -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
         -ms-flex-positive: 1;
             flex-grow: 1;
   }
@@ -986,20 +963,16 @@ NAVIGATION
     overflow: hidden;
     box-sizing: border-box;
     display: -webkit-box;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: stretch;
-    -webkit-align-items: stretch;
         -ms-flex-align: stretch;
             align-items: stretch;
     -webkit-box-pack: center;
-    -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
     z-index: -1;
@@ -1014,14 +987,6 @@ NAVIGATION
 }
 
 .navigation__toggle {
-  width: 3.125rem;
-  height: 3.125rem;
-  position: relative;
-  right: -0.625rem;
-  top: 0;
-  text-indent: -7499.25rem;
-  overflow: hidden;
-  text-align: left;
   cursor: pointer;
 }
 @media (min-width: 641px) {
@@ -1121,31 +1086,58 @@ LANGUAGE SWITCHER
   margin: 0;
   padding: 0;
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
 .icon {
-  position: absolute;
-  display: inline-block;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  height: 1em;
-  width: 1em;
-  stroke-width: 0.125rem;
-  stroke: black;
+  width: 4rem;
+  height: 4rem;
 }
 
 .icon--menu-close {
   display: none;
 }
 .navigation--open .icon--menu-close {
-  display: inline-block;
+  display: block;
 }
 
 .navigation--open .icon--menu-open {
   display: none;
+}
+
+.icon--icon-wide {
+  width: 4rem;
+  height: 4rem;
+  max-width: 100%;
+  position: relative;
+}
+.icon--icon-wide > svg {
+  width: 100%;
+  height: auto;
+}
+.icon--icon-wide > svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.icon--icon-tall {
+  width: 4rem;
+  height: 4rem;
+  max-height: 100%;
+  position: relative;
+}
+.icon--icon-tall > svg {
+  width: auto;
+  height: 100%;
+}
+.icon--icon-tall > svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
