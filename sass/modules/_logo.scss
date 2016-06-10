@@ -2,11 +2,16 @@
 LOGO
 ------------------------------------------------------*/
 
-.site-logo {
+.logo {
   position: relative;
   z-index: 1;
-  
+  height: 100%;
+
   &:hover {
     opacity: 1;
   }
+}
+
+.icon--logo {
+  @include icon-size-height(100%);
 }

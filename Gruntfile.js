@@ -90,9 +90,9 @@ module.exports = function (grunt) {
           {
             removeDimensions: true
           }, {
-            // removeAttrs: {
-            //   attrs: ['xmlns']
-            // }
+            removeAttrs: {
+              attrs: ['id']
+            }
           }
         ]
       },

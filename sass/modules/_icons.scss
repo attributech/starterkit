@@ -1,26 +1,25 @@
 .icon {
-  width: $icon-container-size-m;
-  height: $icon-container-size-m;
+  display: inline-block;
+
+  @include icon-size;
+  svg {
+    display: block;
+  }
 }
+
 .icon--menu-close {
   display: none;
+  @include icon-size-height(100%);
+
   .navigation--open & {
       display: block;
   }
 }
+
 .icon--menu-open {
+  @include icon-size-height(100%);
+
   .navigation--open & {
       display: none;
   }
-}
-
-
-.icon--icon-wide {
-  @include icon-fit-width;
-  @include icon-center;
-}
-
-.icon--icon-tall {
-  @include icon-fit-height;
-  @include icon-center;
 }
