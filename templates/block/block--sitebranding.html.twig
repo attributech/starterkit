@@ -27,6 +27,6 @@
 #}
 
 {% import "@STARTERKIT/macros/svg.html.twig" as svg %}
-<div class="logo">
-  {{ svg.inline('logo') }}
-</div>
+<a href="{{ path('<front>') }}" class="logo">
+    {{ svg.inline('logo') }}
+</a>
