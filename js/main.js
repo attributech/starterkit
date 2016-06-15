@@ -9,5 +9,3 @@
 // import headroom              from './utils/headroom';
 // import magnificMessages      from './utils/magnificMessages';
 import responsiveMenu        from './utils/responsiveMenu';
-
-console.log('HAI from main.js');
