@@ -64,25 +64,6 @@ module.exports = function (grunt) {
         }
       }
     },
-/*
-    svg_sprite: {
-      dist: {
-        src: [directoriesConfig.src.images + '/*.svg'],
-        dest: directoriesConfig.dist.images,
-        // Target options
-        options: {
-          mode: {
-            symbol: {
-              dest: '',
-              bust: false,
-              sprite: 'sprite.svg',
-              symbol: true,
-            },
-          },
-        },
-      },
-    },
-*/
 
     svgmin: {
       options: {
@@ -135,14 +116,13 @@ module.exports = function (grunt) {
         dest: ''
       }
     },
-
     sass: {
+      options: {
+        sourceMap: true
+      },
       dist: {
-        options: {
-          style: 'expanded',
-        },
         files: {
-          'dist/css/styles.css': 'sass/styles.scss',
+          'dist/css/styles.css': 'sass/styles.scss'
         }
       }
     },
@@ -224,14 +204,13 @@ module.exports = function (grunt) {
   grunt.registerTask('default', [
     'svgmin',
     'svg2png',
-    'favicons',
-    // 'svg_sprite',
+    //'favicons',
+    //'svg_sprite',
     'sass',
     'px_to_rem',
     'autoprefixer',
     'webpack',
     // 'vulcanize',
-    'browserSync',
-    'watch'
+    'browserSync'
   ]);
 };
