@@ -38,14 +38,42 @@
  */
 #}
 
-{% extends "@STARTERKIT/field/field.html.twig" %}
+{% set bem_block = 'paragraph-' ~ bundle|clean_class ~ '__' ~ field_name|replace({'field_' : ''})|clean_class %}
 
-{# Create classes array #}
 {%
   set classes = [
-    'paragraph-' ~ bundle|clean_class ~ '__' ~ field_name|replace({'field_' : ''})|clean_class,
-    'paragraph-' ~ bundle|clean_class ~ '__' ~ field_name|replace({'field_' : ''}) ~ '--' ~ view_mode|clean_class
+    bem_block,
+    bem_block ~ '--' ~ view_mode|clean_class
   ]
 %}
 
 {% set attributes = attributes.addClass(classes) %}
+
+{% set item_attributes = bem_block ~ '-item' %}
+
+{% if label_hidden %}
+  {% if multiple %}
+    <div{{ attributes }}>
+      {% for item in items %}
+        <div{{ item.attributes.addClass(item_attributes) }}>{{ item.content }}</div>
+      {% endfor %}
+    </div>
+  {% else %}
+    {% for item in items %}
+      <div{{ attributes }}>{{ item.content }}</div>
+    {% endfor %}
+  {% endif %}
+{% else %}
+  <div{{ attributes }}>
+    <div{{ title_attributes }}>{{ label }}</div>
+    {% if multiple %}
+    <div>
+      {% endif %}
+      {% for item in items %}
+        <div{{ item.attributes.addClass(item_attributes) }}>{{ item.content }}</div>
+      {% endfor %}
+      {% if multiple %}
+    </div>
+    {% endif %}
+  </div>
+{% endif %}

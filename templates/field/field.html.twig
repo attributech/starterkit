@@ -40,11 +40,12 @@
 
 {% set bem_block = bundle ~ '__' ~ field_name|replace({'field_' : ''})|clean_class %}
 
-{# Create classes array #}
-{% set classes = [
-  bem_block,
-  bem_block ~ '--' ~ view_mode|clean_class
-] %}
+{%
+  set classes = [
+    bem_block,
+    bem_block ~ '--' ~ view_mode|clean_class
+  ]
+%}
 
 {% set attributes = attributes.addClass(classes) %}
 
