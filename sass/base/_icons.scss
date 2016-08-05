@@ -1,0 +1,56 @@
+.icon {
+  display: inline-block;
+
+  @include icon-size;
+
+  @include to(m) {
+    @include icon-size($icon-size-s);
+  }
+  @include from(l) {
+    @include icon-size($icon-size-m);
+  }
+  svg {
+    display: block;
+  }
+  path {
+    fill: currentColor;
+  }
+
+
+  &--inline {
+    @include icon-size-height(#{$font-cap-height}em);
+
+    &-left {
+      margin-right: .5em;
+    }
+
+    &-right {
+      margin-left: .5em;
+    }
+  }
+
+  &--menu {
+    &-close {
+      display: none;
+      @include icon-size-height(100%);
+      path {
+        stroke: currentColor;
+      }
+
+      .navigation--open & {
+        display: inline-block;
+      }
+    }
+
+    &-open {
+      @include icon-size-height(100%);
+      path {
+        stroke: currentColor;
+      }
+
+      .navigation--open & {
+        display: none;
+      }
+    }
+  }
+}

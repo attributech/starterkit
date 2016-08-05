@@ -1,11 +1,17 @@
-{% macro inline(name) %}
-<div class="icon icon--{{ name }}">
-  {% include active_theme_path() ~ '/dist/images/' ~ name ~ '.svg' %}
-</div>
+{% macro inline(name, additional_classes) %}
+{%
+  set classes = [
+    'icon',
+    'icon--' ~ name
+  ]|merge(additional_classes|default([]))
+%}
+  <div class="{% for class in classes %}{{ class }} {% endfor %}">
+    {% include active_theme_path() ~ '/dist/images/' ~ name ~ '.svg' %}
+  </div>
 {% endmacro %}
 
 {% macro use(name) %}
-<svg class="icon icon--{{ name }}">
-  <use xlink:href="{{ active_theme_path() }}/dist/images/sprite.svg#images--{{ name }}"></use>
-</svg>
+  <svg class="icon icon--{{ name }}">
+    <use xlink:href="{{ active_theme_path() }}/dist/images/sprite.svg#images--{{ name }}"></use>
+  </svg>
 {% endmacro %}

@@ -63,19 +63,22 @@
  *   in different view modes.
  */
 #}
-{%
-  set classes = [
-    'node',
-    'node--type-' ~ node.bundle|clean_class,
-    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-  ]
-%}
+
+{% set classes = [
+  node.bundle|clean_class,
+  view_mode ? node.bundle|clean_class ~ '--' ~ view_mode|clean_class
+] %}
+{% set title_classes = [
+  node.bundle|clean_class ~ '__title',
+  node.bundle|clean_class ~ '__title--' ~ view_mode
+] %}
+
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
 
   {{ title_prefix }}
   {% if not page %}
-    <h2{{ title_attributes }}>
+    <h2{{ title_attributes.addClass(title_classes) }}>
       <a href="{{ url }}" rel="bookmark">{{ label }}</a>
     </h2>
   {% endif %}
@@ -91,8 +94,6 @@
     </footer>
   {% endif %}
 
-  <div{{ content_attributes.addClass('node__content') }}>
-    {{ content }}
-  </div>
+  {{ content }}
 
 </article>

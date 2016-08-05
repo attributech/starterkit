@@ -83,11 +83,21 @@
 }
 
 @mixin input-placeholder {
-  &.placeholder { @content; }
-  &:-moz-placeholder { @content; }
-  &::-moz-placeholder { @content; }
-  &:-ms-input-placeholder { @content; }
-  &::-webkit-input-placeholder { @content; }
+  &.placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+  &::-webkit-input-placeholder {
+    @content;
+  }
 }
 
 @mixin center {
@@ -97,28 +107,86 @@
   transform: translate(-50%, -50%);
 }
 
-
 // icon fitters
 
-@mixin icon-size ($size: $icon-size-m) {
+@mixin icon-size($size: $icon-size-m) {
   > svg {
     width: $size;
     height: $size;
   }
 }
 
-@mixin icon-size-width ($width: $icon-size-m) {
-    width: $width;
+@mixin icon-size-width($width: $icon-size-m) {
+  width: $width;
   > svg {
     width: 100%;
     height: auto;
   }
 }
 
-@mixin icon-size-height ($height: $icon-size-m) {
-    height: $height;
+@mixin icon-size-height($height: $icon-size-m) {
+  height: $height;
   > svg {
     height: 100%;
     width: auto;
   }
+}
+
+@mixin max-width($max-width) {
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin multiline-ellipsis {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@function font-size-relative-margin($margin, $font-size-names: (), $font-cap-height: $font-cap-height, $font-sizes: $font-sizes) {
+  @each $style in $font-size-names {
+    $font-size: map-get($font-sizes, $style);
+    $margin: $margin - get-font-size-relative-margin($font-size, $font-cap-height, $font-sizes);
+  }
+  @return $margin;
+}
+
+@function get-font-size-relative-margin($font-size, $font-cap-height: $font-cap-height, $font-sizes: $font-sizes) {
+  $line-height-value: map-get($font-size, line-height);
+  $font-size-value: map-get($font-size, font-size);
+  $line-height-difference: ($line-height-value - $font-size-value) / 2;
+  $size-difference: ($font-size-value - ($font-size-value * $font-cap-height)) / 2;
+  $margin: $line-height-difference + $size-difference;
+  @return $margin;
+}
+
+@mixin hover($color: $font-color-default, $hover-color: $font-color-highlight, $selector: '&:hover', $speed: $animation-duration-s) {
+  color: $color;
+  transition: color $speed $animation-timing-default;
+  #{$selector} {
+    color: $hover-color;
+  }
+}
+
+@mixin grid($gutter: $margin-15, $flex-wrap: wrap) {
+  display: flex;
+  flex-wrap: $flex-wrap;
+  margin-left: -#{$gutter};
+  margin-right: -#{$gutter};
+}
+
+@mixin grid-item($width, $gutter: $margin-15) {
+  @if ($width) {
+    flex-basis: $width;
+  }
+  padding: 0 $gutter;
+  box-sizing: border-box;
 }

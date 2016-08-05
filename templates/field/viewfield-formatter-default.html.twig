@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * Default theme implementation of a viewfield.
+ *
+ * Available variables:
+ * - output: The rendered view.
+ *
+ * @see template_preprocess()
+ *
+ * @ingroup themeable
+ */
+#}
+{% spaceless %}
+  {% if output %}
+    {{ output }}
+  {% endif %}
+{% endspaceless %}
