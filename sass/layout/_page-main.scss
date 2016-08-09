@@ -4,15 +4,16 @@
 
 .page-main__wrapper {
   max-width: $max-width;
-  margin: $main-margin-top-m auto $main-margin-bottom-m;
   position: relative;
 
   @include to(s) {
     padding: 0 $page-margin-s;
+    margin: $main-margin-top-s auto $main-margin-bottom-s;
   }
 
   @include from(m) {
     padding: 0 $page-margin-m;
+    margin: $main-margin-top-m auto $main-margin-bottom-m;
   }
 }
 
