@@ -142,7 +142,7 @@ module.exports = function (grunt) {
     autoprefixer: {
       dist: {
         options: {
-          browsers: ['last 2 version', '> 1%', 'ie 8']
+          browsers: ['last 2 version', '> 1%']
         },
         files: {
           'dist/css/styles.css': [directoriesConfig.dist.cssFile]
@@ -201,7 +201,7 @@ module.exports = function (grunt) {
     },
   });
 
-  grunt.registerTask('default', [
+  var tasks = [
     'svgmin',
     'svg2png',
     //'favicons',
@@ -210,7 +210,11 @@ module.exports = function (grunt) {
     'px_to_rem',
     'autoprefixer',
     'webpack',
-    // 'vulcanize',
-    'browserSync'
-  ]);
+    'vulcanize',
+    'browserSync',
+  ];
+
+  grunt.registerTask('develop', tasks.concat(['watch']));
+
+  grunt.registerTask('default', tasks);
 };
