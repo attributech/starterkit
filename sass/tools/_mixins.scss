@@ -190,3 +190,23 @@
   padding: 0 $gutter / 2;
   box-sizing: border-box;
 }
+
+@mixin underline() {
+  position: relative;
+
+  &:before {
+    content: "";
+    height: 1px;
+    background-color: currentColor;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+@mixin underline-remove {
+  &:before {
+    content: normal;
+    display: none;
+  }
+}
