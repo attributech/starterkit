@@ -9,28 +9,26 @@
     "url": "https://bitbucket.org/attribute_ch/STARTERKIT"
   },
   "devDependencies": {
+    "autoprefixer": "^6.4.0",
     "babel-core": "^6.11.4",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.5.0",
     "bower": ">=1.6.5",
-    "grunt": "^0.4.5",
-    "grunt-autoprefixer": "^2.2.0",
-    "grunt-babel": "^6.0.0",
-    "grunt-browser-sync": "^2.2.0",
-    "grunt-cli": "^1.2.0",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-favicons": "^0.8.0",
-    "grunt-notify": "^0.4.3",
-    "grunt-px-to-rem": "^0.3.2",
-    "grunt-sass": "^1.2.0",
-    "grunt-svg-sprite": "^1.2.16",
-    "grunt-svg2png": "^0.2.7",
-    "grunt-svgmin": "^3.2.0",
-    "grunt-svgo": "^0.1.0",
-    "grunt-vulcanize": "^1.0.0",
-    "grunt-webpack": "^1.0.11",
-    "load-grunt-tasks": "^0.6.0",
-    "time-grunt": "^1.2.2",
+    "browser-sync": "^2.14.0",
+    "colors": "^1.1.2",
+    "customizr": "^1.0.0-alpha",
+    "gulp": "^3.9.1",
+    "gulp-modernizr": "^1.0.0-alpha",
+    "gulp-postcss": "^6.1.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-svgo": "^1.0.3",
+    "gulp-vulcanize": "^6.1.0",
+    "gulp-webpack": "^1.5.0",
+    "postcss-calc": "^5.3.1",
+    "postcss-pxtorem": "^3.3.1",
+    "postcss-scss": "^0.1.9",
+    "reporter": "^0.1.0",
+    "stylelint": "^7.1.0",
     "webpack": "^1.12.13",
     "webpack-dev-server": "^1.14.1"
   },
@@ -43,7 +41,6 @@
   },
   "scripts": {
     "gulp": "gulp",
-    "bower": "bower",
-    "grunt": "grunt"
+    "bower": "bower"
   }
 }
