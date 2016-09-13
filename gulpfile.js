@@ -31,7 +31,8 @@ var path = {
     dist: dist + 'css'
   },
   webpack: {
-    src: 'js/main.js',
+    main: 'js/main.js',
+    src: 'js/**/*.js',
     dist: dist + 'js'
   },
   vulcanize: {
@@ -104,13 +105,13 @@ gulp.task('vulcanize', function () {
 
 /* Webpack task */
 gulp.task('webpack:develop', function () {
-  gulp.src(path.webpack.src)
+  gulp.src(path.webpack.main)
     .pipe(webpack(webpackConfig.develop))
     .pipe(gulp.dest(path.webpack.dist));
 });
 
 gulp.task('webpack:production', function () {
-  gulp.src(path.webpack.src)
+  gulp.src(path.webpack.main)
     .pipe(webpack(webpackConfig.production))
     .pipe(gulp.dest(path.webpack.dist));
 });
