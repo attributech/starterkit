@@ -4,7 +4,7 @@
 
   @include clearfix;
 
-  @include from(l) {
+  @include from($bp-desktop) {
     min-height: $footer-height-m;
   }
 }
@@ -15,11 +15,11 @@
   padding-top: 2rem;
   padding-bottom: 2rem;
 
-  @include to(m) {
+  @include to($bp-mobile) {
     padding: 0 $page-margin-s;
   }
 
-  @include from(l) {
+  @include from($bp-desktop) {
     padding: 0 $page-margin-m;
   }
 }

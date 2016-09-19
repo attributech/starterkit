@@ -9,7 +9,7 @@
   border: none;
   cursor: pointer;
 
-  @include from(l) {
+  @include from($bp-desktop) {
     padding: 10px 50px;
     margin-top: 10px;
   }

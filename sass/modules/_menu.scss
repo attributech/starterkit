@@ -9,13 +9,13 @@ NAVIGATION
 }
 
 .menu--main {
-  @include from(l) {
+  @include from($bp-desktop) {
     display: flex;
   }
 
   li {
 
-    @include from(l) {
+    @include from($bp-desktop) {
       float: left;
       margin-right: 15px;
 
@@ -34,12 +34,12 @@ NAVIGATION
     a {
       text-decoration: none;
 
-      @include to(m) {
+      @include to($bp-mobile) {
         display: block;
         padding: $menu-item-padding 0;
       }
 
-      @include from(l) {
+      @include from($bp-desktop) {
         display: inline-block;
         position: relative;
         //line-height: $header-height-m;

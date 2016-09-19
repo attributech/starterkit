@@ -32,12 +32,14 @@ $bp-xl: 1080px;
 $bp-xxl: 1200px;
 $bp-xxxl: 1430px;
 
+$slicer-breakpoints:      0   $bp-s   $bp-m   $bp-l   $bp-xl   $bp-xxl   $bp-xxxl;
+$slicer-breakpoint-names:  'xs'    's'     'm'     'l'     'xl'       'xxl'       'xxl';
+
 $bp-height-m: 800px;
 $bp-landscape: orientation landscape;
 $bp-portrait: orientation portrait;
-
-$slicer-breakpoints:      0   $bp-s   $bp-m   $bp-l   $bp-xl   $bp-xxl   $bp-xxxl;
-$slicer-breakpoint-names:  'xs'    's'     'm'     'l'     'xl'       'xxl'       'xxl';
+$bp-mobile: m;
+$bp-desktop: l;
 
 /* Fonts */
 

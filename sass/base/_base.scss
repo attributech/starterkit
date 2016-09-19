@@ -142,7 +142,7 @@ th {
 td {
   border: 0;
 
-  @include from(l) {
+  @include from($bp-desktop) {
     width: 2%;
   }
 }
@@ -152,7 +152,7 @@ td {
   padding: 0 10px;
   vertical-align: top;
 
-  @include to(m) {
+  @include to($bp-mobile) {
     padding: 0;
     display: block;
   }

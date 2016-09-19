@@ -3,10 +3,10 @@
 
   @include icon-size;
 
-  @include to(m) {
+  @include to($bp-mobile) {
     @include icon-size($icon-size-s);
   }
-  @include from(l) {
+  @include from($bp-desktop) {
     @include icon-size($icon-size-m);
   }
   svg {

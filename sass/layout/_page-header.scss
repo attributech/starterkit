@@ -36,11 +36,11 @@
 
   background-color: $white;
 
-  @include to(m) {
+  @include to($bp-mobile) {
     padding: 0 $page-margin-s;
   }
 
-  @include from(l) {
+  @include from($bp-desktop) {
     padding: 0 $page-margin-m;
   }
 }
