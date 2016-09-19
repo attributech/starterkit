@@ -36,11 +36,8 @@ $bp-height-m: 800px;
 $bp-landscape: orientation landscape;
 $bp-portrait: orientation portrait;
 
-$slicer-breakpoints: 0 $bp-s $bp-m $bp-l $bp-xl;
-
-//                          └────┬────┘ └────┬────┘ └────┬────┘ └────┬────┘ └────┬────
-// Slice numbers:                1           2           3           4           5
-$slicer-breakpoint-names: 'xs' 's' 'm' 'l' 'xl';
+$slicer-breakpoints:      0   $bp-s   $bp-m   $bp-l   $bp-xl   $bp-xxl   $bp-xxxl;
+$slicer-breakpoint-names:  'xs'    's'     'm'     'l'     'xl'       'xxl'       'xxl';
 
 /* Fonts */
 
