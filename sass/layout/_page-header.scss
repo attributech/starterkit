@@ -17,11 +17,11 @@
   }
 
   .toolbar-fixed & {
-    margin-top: 39pxi;
+    margin-top: 39PX;
   }
 
   .toolbar-tray-open & {
-    margin-top: 79pxi;
+    margin-top: 79PX;
   }
 }
 
@@ -36,11 +36,11 @@
 
   background-color: $white;
 
-  @include to(s) {
+  @include to(m) {
     padding: 0 $page-margin-s;
   }
 
-  @include from(m) {
+  @include from(l) {
     padding: 0 $page-margin-m;
   }
 }
