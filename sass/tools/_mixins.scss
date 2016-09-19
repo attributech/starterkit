@@ -9,7 +9,7 @@
   border: none;
   cursor: pointer;
 
-  @include from(m) {
+  @include from(l) {
     padding: 10px 50px;
     margin-top: 10px;
   }

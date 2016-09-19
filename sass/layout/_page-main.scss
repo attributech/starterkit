@@ -6,12 +6,12 @@
   max-width: $max-width;
   position: relative;
 
-  @include to(s) {
+  @include to(m) {
     padding: 0 $page-margin-s;
     margin: $main-margin-top-s auto $main-margin-bottom-s;
   }
 
-  @include from(m) {
+  @include from(l) {
     padding: 0 $page-margin-m;
     margin: $main-margin-top-m auto $main-margin-bottom-m;
   }

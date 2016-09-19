@@ -3,7 +3,7 @@ GENERAL
 ------------------------------------------------------*/
 
 body {
-  @include font-style(s);
+  @include font-style(m);
   font-family: $font-base;
   color: $font-color-default;
   text-rendering: optimizelegibility;
@@ -27,17 +27,17 @@ TYPOGRAPHY
 ------------------------------------------------------*/
 
 h1 {
-  @include font-style(l);
+  @include font-style(heading-m);
   margin: .5em 0;
 }
 
 h2 {
-  @include font-style(m);
+  @include font-style(heading-m);
   margin: .5em 0;
 }
 
 h3 {
-  @include font-style(s);
+  @include font-style(m);
   margin: .5em 0;
 }
 

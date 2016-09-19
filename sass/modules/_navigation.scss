@@ -4,11 +4,11 @@ NAVIGATION
 
 .navigation__content {
 
-  @include from(m) {
+  @include from(l) {
     flex-grow: 1;
   }
 
-  @include to(s) {
+  @include to(m) {
     position: absolute;
     top: $header-height-s;
     left: 0;
@@ -55,7 +55,7 @@ NAVIGATION
   top: 0;
   cursor: pointer;
 
-  @include from('m') {
+  @include from(l) {
     display: none;
   }
 }
