@@ -81,13 +81,6 @@ function STARTERKIT_preprocess_field(&$variables) {
 /*
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function STARTERKIT_theme_suggestions_views_view_unformatted_alter(array &$suggestions, array $variables, $hook) {
-  $suggestions[] = 'views_view_unformatted__' . $variables['view']->id();
-}
-
-/*
- * Implements hook_theme_suggestions_HOOK_alter().
- */
 function STARTERKIT_theme_suggestions_form_alter(array &$suggestions, array $variables, $hook) {
   $suggestions[] = 'form__' . $variables['element']['#form_id'];
 }
