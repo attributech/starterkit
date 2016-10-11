@@ -1,19 +1,20 @@
 // load dep. via STARTERKIT.libraries.yml
-export default (($) => {
+
+export function init() {
   // needs to wait for document ready as else $.magnificPopup not ready
-  $(() => {
-    var $messages = $('.messages');
+  jQuery(() => {
+    var $messages = jQuery('.messages');
     if ($messages.length) {
-      $.magnificPopup.open({
+      jQuery.magnificPopup.open({
         items: {
           src: $messages,
           type: 'inline',
         },
       }, 0);
-      var $messagesPopup = $.magnificPopup.instance;
+      // var $messagesPopup = jQuery.magnificPopup.instance;
       /*setTimeout(function () {
         $messagesPopup.close();
       }, 10000);*/
     }
   });
-})(window.jQuery);
+}

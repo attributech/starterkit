@@ -1,4 +1,6 @@
-export default (($) => {
+const $ = window.jQuery;
+
+export function init() {
   $('a[href*=#]:not([href=#])').click(function () {
     const samePathName = location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '');
     const sameHostName = location.hostname == this.hostname;
@@ -17,4 +19,4 @@ export default (($) => {
       }
     }
   });
-})(jQuery);
+}

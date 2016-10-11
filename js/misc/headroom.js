@@ -1,4 +1,6 @@
-export default (($) => {
+const $ = window.jQuery;
+
+export function init() {
   $(() => {
     const $header = $('.page-header');
     $header.headroom({
@@ -6,4 +8,4 @@ export default (($) => {
       useTouchmove: true,
     });
   });
-})(jQuery);
+}
