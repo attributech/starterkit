@@ -148,7 +148,7 @@ gulp.task('browsersync', function () {
 /* Watch task */
 gulp.task('watch', function () {
   gulp.watch(path.css.src, ['css']);
-  gulp.watch(path.webpack.src, ['webpack']).on('change', browserSync.reload);
+  gulp.watch(path.webpack.src, ['webpack:develop']).on('change', browserSync.reload);
   gulp.watch(path.vulcanize.src, ['vulcanize']).on('change', browserSync.reload);
   gulp.watch(path.svg.src, ['svg']).on('change', browserSync.reload);
 });
