@@ -1,7 +1,7 @@
 const $ = window.jQuery;
 
 export function init() {
-  $('a[href*=#]:not([href=#])').click(function () {
+  $('a[href*="#"]:not([href="#"])').click(function () {
     const samePathName = location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '');
     const sameHostName = location.hostname == this.hostname;
     if (samePathName && sameHostName && this.hash) {
