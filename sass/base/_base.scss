@@ -58,6 +58,8 @@ a {
   outline: none !important;
   transition: opacity $animation-duration-s $animation-timing-default;
 
+  @include underline;
+
   &:hover {
   }
 }

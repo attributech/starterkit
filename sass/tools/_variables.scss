@@ -21,6 +21,14 @@ $font-color-default: $black;
 $font-color-highlight: $grey;
 $font-color-highlight-active: $grey;
 
+$text-underline-color: currentColor;
+$text-underline-width: 0.03em;
+$text-underline-position: 0.08em;
+$text-underline-opacity: 1;
+$text-underline-background-color: #fff;
+$text-underline-gap: 0;
+$text-underline-gap-minimum: 0.07em;
+
 /* Media Queries */
 
 $max-width: 1200px;

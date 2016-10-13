@@ -191,7 +191,45 @@
   box-sizing: border-box;
 }
 
-@mixin underline() {
+@mixin underline {
+  @include underline-background;
+}
+
+@mixin underline-background($color: $text-underline-color, $width: $text-underline-width, $offset: $text-underline-position, $background: $white, $text-underline-gap-minimum: $text-underline-gap-minimum) {
+  text-decoration: none;
+  background-image: linear-gradient(to top, transparent, transparent $offset, $color $offset, $color calc(#{$offset} + #{$width}), transparent calc(#{$offset} + #{$width}));
+  text-shadow:
+    #{$text-underline-gap-minimum} 0 $background,
+    -#{$text-underline-gap-minimum} 0 $background,
+    #{$text-underline-gap-minimum} -#{$text-underline-gap-minimum} $background,
+    -#{$text-underline-gap-minimum} -#{$text-underline-gap-minimum} $background,
+}
+
+@mixin underline-background-fancy($text-underline-opacity: $text-underline-opacity, $text-underline-color: $text-underline-color, $text-underline-background-color: $text-underline-background-color, $text-underline-position: $text-underline-position, $text-underline-size: $text-underline-width, $text-underline-gap: $text-underline-gap, $text-underline-gap-minimum: $text-underline-gap-minimum) {
+  text-decoration: none;
+  //display: inline-block;
+  box-shadow:
+    inset 0 calc(#{$text-underline-position} + #{$text-underline-size}) 0 0 $text-underline-background-color,
+    inset 0 $text-underline-position 0 0 rgba($text-underline-background-color, $text-underline-opacity),
+    inset 0 $text-underline-position 0 0 $text-underline-color;
+  text-shadow:
+    $text-underline-gap 0 $text-underline-background-color,
+    -$text-underline-gap 0 $text-underline-background-color,
+    $text-underline-gap-minimum 0 $text-underline-background-color,
+    -$text-underline-gap-minimum 0 $text-underline-background-color;
+}
+
+@mixin underline-remove {
+  @include underline-background-remove;
+}
+
+@mixin underline-background-remove {
+  background-image: none;
+}
+
+@mixin underline-element() {
+  white-space: nowrap;
+  text-decoration: none;
   position: relative;
 
   &:before {
@@ -199,12 +237,13 @@
     height: 1px;
     background-color: currentColor;
     position: absolute;
-    bottom: 0;
+    bottom: -2px;
     width: 100%;
   }
 }
 
-@mixin underline-remove {
+@mixin underline-element-remove {
+  white-space: normal;
   &:before {
     content: normal;
     display: none;
