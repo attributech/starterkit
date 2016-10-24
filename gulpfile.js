@@ -157,6 +157,9 @@ gulp.task('watch', function () {
 gulp.task('modernizr', function() {
   gulp.src(path.webpack.src)
     .pipe(modernizr({
+      'options' : [
+        "setClasses",
+      ],
       'tests' : ['touchevents'],
     }))
     .pipe(gulp.dest(path.modernizr.dist))
