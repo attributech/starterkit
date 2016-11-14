@@ -137,7 +137,7 @@ gulp.task('svg', function () {
 gulp.task('browsersync', function () {
   browserSync.init({
     watchTask: true,
-    proxy: 'fischer-architekten.ch.docker.amazee.io',
+    proxy: 'STARTERKIT.com.docker.amazee.io',
     browser: [],
     reloadOnRestart: false,
     notify: false
