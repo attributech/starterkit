@@ -4,14 +4,14 @@ base:
     base:
       #//fonts.googleapis.com/css?family=Noto+Sans:700: {type: 'external'}
       dist/css/styles.css: {weight: 9999}
-      bower_components/magnific-popup/dist/magnific-popup.css: {}
+      node_modules/magnific-popup/dist/magnific-popup.css: {}
   js:
-    bower_components/fastclick/lib/fastclick.js: {}
-    bower_components/fitvids/jquery.fitvids.js: {}
-    bower_components/headroom.js/dist/headroom.js: {}
-    bower_components/headroom.js/dist/jQuery.headroom.js: {}
-    bower_components/magnific-popup/dist/jquery.magnific-popup.js: {}
-    bower_components/viewport-units-buggyfill/viewport-units-buggyfill.js: {}
+    node_modules/fastclick/lib/fastclick.js: {}
+    node_modules/fitvids/dist/fitvids.js: {}
+    node_modules/headroom.js/dist/headroom.js: {}
+    node_modules/headroom.js/dist/jQuery.headroom.js: {}
+    node_modules/magnific-popup/dist/jquery.magnific-popup.js: {}
+    node_modules/viewport-units-buggyfill/viewport-units-buggyfill.js: {}
     dist/js/main.js: {}
   dependencies:
     - core/jquery

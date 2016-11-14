@@ -36,11 +36,16 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
+    "Polymer": "^1.6.1--",
     "breakpoint-sass": "^2.7.0",
-    "breakpoint-slicer": "^2.0.0"
+    "breakpoint-slicer": "^2.0.0",
+    "fastclick": "^1.0.6",
+    "fitvids": "^2.0.0",
+    "headroom.js": "^0.9.3",
+    "magnific-popup": "^1.1.0",
+    "viewport-units-buggyfill": "^0.6.0"
   },
   "scripts": {
-    "gulp": "gulp",
-    "bower": "bower"
+    "gulp": "gulp"
   }
 }
