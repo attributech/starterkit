@@ -54,11 +54,37 @@ var path = {
 
 var webpackConfig = require('./webpack.config.js');
 
-/* CSS task */
-gulp.task('css', function () {
+/* CSS develop task */
+gulp.task('css:develop', function () {
   gulp.src([path.css.src])
 
-  // Sass Compilation
+    // Sass Compilation
+    .pipe(sass().on('error', sass.logError))
+
+    // PostCSS tasks after Sass compilation
+    .pipe(postcss([
+      autoprefixer({
+        browsers: [
+          '> 1%',
+          'last 2 versions'
+        ]
+      }),
+      pxtorem({
+        propWhiteList: [],
+        rootValue: 16,
+      }),
+      calc
+    ]))
+
+    .pipe(gulp.dest(path.css.dist))
+    .pipe(browserSync.stream());
+});
+
+/* CSS production task */
+gulp.task('css:production', function () {
+  gulp.src([path.css.src])
+
+    // Sass Compilation
     .pipe(sass({
       errLogToConsole: true
     }))
@@ -147,36 +173,37 @@ gulp.task('browsersync', function () {
 
 /* Watch task */
 gulp.task('watch', function () {
-  gulp.watch(path.css.src, ['css']);
+  gulp.watch(path.css.src, ['css:develop']);
   gulp.watch(path.webpack.src, ['webpack:develop']).on('change', browserSync.reload);
   gulp.watch(path.vulcanize.src, ['vulcanize']).on('change', browserSync.reload);
   gulp.watch(path.svg.src, ['svg']).on('change', browserSync.reload);
 });
 
 /* Modernizr task */
-gulp.task('modernizr', function() {
+gulp.task('modernizr', function () {
   gulp.src(path.webpack.src)
     .pipe(modernizr({
-      'options' : [
+      'options': [
         "setClasses",
       ],
-      'tests' : ['touchevents'],
+      'tests': ['touchevents'],
     }))
     .pipe(gulp.dest(path.modernizr.dist))
 });
 
 var defaultTasks = [
-  'css',
   'vulcanize',
   'svg',
 ];
 
 var productionTasks = [
+  'css:production',
   'webpack:production',
   'modernizr',
 ];
 
 var developTasks = [
+  'css:develop',
   'webpack:develop',
   'watch',
   'browsersync',
