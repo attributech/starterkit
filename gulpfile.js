@@ -171,6 +171,7 @@ gulp.task('svg', function () {
     .pipe(gulp.dest(path.svg.dist));
 });
 
+/* Copy Polyfills to corresponding dist folder */
 gulp.task('copyPolyFills', function () {
   gulp.src(path.polyFills.src)
     .pipe(gulp.dest(path.polyFills.dist));
