@@ -21,7 +21,9 @@ var gulp = require('gulp'),
   // Modernizr
   modernizr = require('gulp-modernizr'),
   // SVG
-  svgo = require('gulp-svgo');
+  svgo = require('gulp-svgo'),
+
+  notify = require('gulp-notify');
 
 // Set paths
 var dist = 'dist/';
@@ -59,7 +61,11 @@ gulp.task('css:develop', function () {
   gulp.src([path.css.src])
 
     // Sass Compilation
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass())
+    .on('error', err => notify({
+      message: '\n\n🐙\nError: <%= error.message %> ',
+      sound: false // deactivate sound?
+    }).write(err))
 
     // PostCSS tasks after Sass compilation
     .pipe(postcss([
@@ -77,7 +83,8 @@ gulp.task('css:develop', function () {
     ]))
 
     .pipe(gulp.dest(path.css.dist))
-    .pipe(browserSync.stream());
+    .pipe(browserSync.stream())
+    .pipe(notify('Styles complete 🚀'));
 });
 
 /* CSS production task */
@@ -133,7 +140,8 @@ gulp.task('vulcanize', function () {
 gulp.task('webpack:develop', function () {
   gulp.src(path.webpack.main)
     .pipe(webpack(webpackConfig.develop))
-    .pipe(gulp.dest(path.webpack.dist));
+    .pipe(gulp.dest(path.webpack.dist))
+    .pipe(notify('Webpack task complete🚀'));
 });
 
 gulp.task('webpack:production', function () {
