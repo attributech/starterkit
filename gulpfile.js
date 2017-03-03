@@ -37,6 +37,10 @@ var path = {
     src: 'js/**/*.js',
     dist: dist + 'js'
   },
+  polyFills: {
+    src: 'js/polyfills/*.js',
+    dist: dist + 'polyfills'
+  },
   vulcanize: {
     src: 'polymer/index.html',
     dist: dist + 'polymer'
@@ -60,7 +64,7 @@ var webpackConfig = require('./webpack.config.js');
 gulp.task('css:develop', function () {
   gulp.src([path.css.src])
 
-    // Sass Compilation
+  // Sass Compilation
     .pipe(sass())
     .on('error', err => notify({
       message: '\n\n🐙\nError: <%= error.message %> ',
@@ -91,7 +95,7 @@ gulp.task('css:develop', function () {
 gulp.task('css:production', function () {
   gulp.src([path.css.src])
 
-    // Sass Compilation
+  // Sass Compilation
     .pipe(sass({
       errLogToConsole: true
     }))
@@ -167,11 +171,16 @@ gulp.task('svg', function () {
     .pipe(gulp.dest(path.svg.dist));
 });
 
+gulp.task('copyPolyFills', function () {
+  gulp.src(path.polyFills.src)
+    .pipe(gulp.dest(path.polyFills.dist));
+});
+
 /* Browsersync task */
 gulp.task('browsersync', function () {
   browserSync.init({
     watchTask: true,
-    proxy: 'STARTERKIT.com.docker.amazee.io',
+    proxy: 'kulturspital.ch.docker.amazee.io/',
     browser: [],
     reloadOnRestart: false,
     notify: false
@@ -182,6 +191,7 @@ gulp.task('browsersync', function () {
 /* Watch task */
 gulp.task('watch', function () {
   gulp.watch(path.css.src, ['css:develop']);
+  gulp.watch(path.polyFills.src, ['copyPolyFills']);
   gulp.watch(path.webpack.src, ['webpack:develop']).on('change', browserSync.reload);
   gulp.watch(path.vulcanize.src, ['vulcanize']).on('change', browserSync.reload);
   gulp.watch(path.svg.src, ['svg']).on('change', browserSync.reload);
@@ -208,6 +218,7 @@ var productionTasks = [
   'css:production',
   'webpack:production',
   'modernizr',
+  'copyPolyFills',
 ];
 
 var developTasks = [
@@ -215,6 +226,7 @@ var developTasks = [
   'webpack:develop',
   'watch',
   'browsersync',
+  'copyPolyFills',
 ];
 
 /* Develop task */

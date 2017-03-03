@@ -19,6 +19,7 @@
     "customizr": "^1.0.0-alpha",
     "gulp": "^3.9.1",
     "gulp-modernizr": "^1.0.0-alpha",
+    "gulp-notify": "^3.0.0",
     "gulp-postcss": "^6.1.1",
     "gulp-sass": "^2.3.2",
     "gulp-svgo": "^1.0.3",
