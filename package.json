@@ -46,6 +46,7 @@
     "viewport-units-buggyfill": "^0.6.0"
   },
   "scripts": {
-    "gulp": "gulp"
+    "gulp": "gulp",
+    "start": "./node_modules/gulp/bin/gulp.js develop"
   }
 }
