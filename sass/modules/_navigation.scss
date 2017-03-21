@@ -2,47 +2,39 @@
 NAVIGATION
 ------------------------------------------------------*/
 
-.navigation__content {
-
-  @include from($bp-desktop) {
-    flex-grow: 1;
-  }
-
-  @include to($bp-mobile) {
-    position: absolute;
-    top: $header-height-s;
+.navigation {
+  &__content {
+    position: fixed;
     left: 0;
 
-    height: 0;
     width: 100%;
-    min-height: 50vh;
-    padding-top: $menu-padding;
-    padding-bottom: $menu-padding;
 
-    transform: translateY(calc(-100% - #{$header-height-s}));
-    transition: all $animation-duration-m $animation-timing-default;
+    z-index: -1;
+
+    transition: transform $animation-duration-m $animation-timing-default;
+    will-change: transform;
+    background-color: white;
 
     overflow: hidden;
     box-sizing: border-box;
 
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
-    flex-direction: column;
-
-    z-index: -1;
-
-    background-color: $white;
-
-    text-align: center;
-
-    .navigation--open & {
-      transform: translateY(0);
-      height: auto;
+    @include to(m) {
+      top: $header-height-s;
+      padding: $page-margin-s;
+      transform: translateY(-100%);
+      margin-top: -#{$header-height-s};
     }
 
-    > * {
-      //width: 100%;
+    @include from(l) {
+      top: $header-height-m;
+      padding: $page-margin-m;
+      transform: translateY(-100%);
+      margin-top: -#{$header-height-m};
+    }
+
+    .navigation--open & {
+      transform: none;
+      margin-top: 0;
     }
   }
 }
