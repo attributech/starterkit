@@ -1,29 +1,22 @@
 'use strict';
 
-// Require all modules
-var gulp = require('gulp'),
-  util = require('gulp-util'),
-  //fs            = require('fs'),
-  colors = require('colors'),
-  // CSS
-  sass = require('gulp-sass'),
-  postcss = require('gulp-postcss'),
-  scss = require('postcss-scss'),
-  autoprefixer = require('autoprefixer'),
-  pxtorem = require('postcss-pxtorem'),
-  calc = require('postcss-calc'),
-  // JS
-  webpack = require('gulp-webpack'),
-  // Polymer
-  vulcanize = require('gulp-vulcanize'),
-  // Sync
-  browserSync = require('browser-sync'),
-  // Modernizr
-  modernizr = require('gulp-modernizr'),
-  // SVG
-  svgo = require('gulp-svgo'),
+var gulp = require('gulp');
+var util = require('gulp-util');
+var colors = require('colors');
 
-  notify = require('gulp-notify');
+var sass = require('gulp-sass');
+var postcss = require('gulp-postcss');
+var scss = require('postcss-scss');
+var autoprefixer = require('autoprefixer');
+var pxtorem = require('postcss-pxtorem');
+var calc = require('postcss-calc');
+
+var webpack = require('gulp-webpack');
+var vulcanize = require('gulp-vulcanize');
+var browserSync = require('browser-sync');
+var modernizr = require('gulp-modernizr');
+var svgo = require('gulp-svgo');
+var notify = require('gulp-notify');
 
 // Set paths
 var dist = 'dist/';
