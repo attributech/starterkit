@@ -174,7 +174,7 @@ gulp.task('copyPolyFills', function () {
 gulp.task('browsersync', function () {
   browserSync.init({
     watchTask: true,
-    proxy: 'kulturspital.ch.docker.amazee.io/',
+    proxy: 'STARTERKIT.com.docker.amazee.io/',
     browser: [],
     reloadOnRestart: false,
     notify: false
