@@ -49,6 +49,6 @@
   },
   "scripts": {
     "gulp": "gulp",
-    "start": "./node_modules/gulp/bin/gulp.js develop"
+    "yarn": "yarn"
   }
 }
