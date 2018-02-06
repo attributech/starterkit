@@ -98,3 +98,38 @@ function STARTERKIT_theme_suggestions_field_alter(array &$suggestions, array $va
     $suggestions[] = 'field__' . $variables['element']['#entity_type'] . '__' . $variables['element']['#field_name'] . '__' . $variables['element']['#bundle'] . '__' . $bundle;
   }
 }
+
+/*
+ * Implements hook_preprocess_HOOK().
+ */
+function STARTERKIT_preprocess_responsive_image(&$variables) {
+  $variables['img_element']['#width'] = $variables['width'];
+  $variables['img_element']['#height'] = $variables['height'];
+}
+
+/*
+ * Implements hook_preprocess_HOOK().
+ */
+function STARTERKIT_preprocess_image(&$variables) {
+  $variables['attributes']['class'] = ['lazyload'];
+  unset($variables['attributes']['width']);
+  unset($variables['attributes']['height']);
+
+  if (isset($variables['attributes']['sizes'])) {
+    $variables['attributes']['data-sizes'] = $variables['attributes']['sizes'];
+    unset($variables['attributes']['sizes']);
+  }
+
+  if (isset($variables['attributes']['srcset'])) {
+    $variables['attributes']['data-srcset'] = $variables['attributes']['srcset'];
+    unset($variables['attributes']['srcset']);
+  }
+  else if(isset($variables['attributes']['src'])) {
+    $variables['attributes']['data-src'] = $variables['attributes']['src'];
+    unset($variables['attributes']['src']);
+  }
+
+  if(isset($variables['width']) && isset($variables['height'])) {
+    $variables['attributes']['data-aspectratio'] = round($variables['width'] / $variables['height'], 3);
+  }
+}
