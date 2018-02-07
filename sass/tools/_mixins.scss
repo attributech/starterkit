@@ -229,9 +229,7 @@
 }
 
 @mixin underline-text-decoration-remove {
-  text-decoration-style: solid;
   text-decoration-line: none;
-  text-decoration-skip: objects;
 }
 
 @mixin underline-background-remove {
