@@ -192,7 +192,12 @@
 }
 
 @mixin underline {
-  @include underline-background;
+  @include underline-text-decoration;
+}
+
+@mixin underline-text-decoration {
+  text-decoration-line: underline;
+  text-decoration-skip: ink;
 }
 
 @mixin underline-background($color: $text-underline-color, $width: $text-underline-width, $offset: $text-underline-position, $background: $white, $text-underline-gap-minimum: $text-underline-gap-minimum) {
@@ -220,7 +225,13 @@
 }
 
 @mixin underline-remove {
-  @include underline-background-remove;
+  @include underline-text-decoration-remove;
+}
+
+@mixin underline-text-decoration-remove {
+  text-decoration-style: solid;
+  text-decoration-line: none;
+  text-decoration-skip: objects;
 }
 
 @mixin underline-background-remove {

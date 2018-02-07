@@ -59,8 +59,8 @@ a {
   transition: opacity $animation-duration-s $animation-timing-default;
 
   @include underline;
-
   &:hover {
+    opacity: 0.5;
   }
 }
 
