@@ -37,17 +37,4 @@
  */
 #}
 
-{%
-  set bem_block = 'paragraph-' ~ paragraph.bundle|clean_class
-%}
-
-{%
-  set classes = [
-    bem_block,
-    view_mode ? bem_block ~ '--' ~ view_mode|clean_class,
-  ]
-%}
-
-<div{{ attributes.addClass(classes) }}>
-  {{ content }}
-</div>
+{{ content }}

@@ -31,71 +31,42 @@
  */
 #}
 
-{%
-  set bem_block = id|clean_class
-%}
-
-{%
-  set classes = [
-    bem_block,
-    bem_block ~ '--' ~ display_id,
-    dom_id ? 'js-view-dom-id-' ~ dom_id,
-  ]
-%}
-
-<div{{ attributes.addClass(classes) }}>
+<div{{ attributes.addClass(dom_id ? 'js-view-dom-id-' ~ dom_id) }}>
   {{ title_prefix }}
   {% if title %}
-    <h2 class="{{ bem_block }}__view-title {{ bem_block }}__view-title--{{ display_id }}">
-      {{ title }}
-    </h2>
+    <h2>{{ title }}</h2>
   {% endif %}
   {{ title_suffix }}
+
   {% if header %}
-    <div class="{{ bem_block }}__header {{ bem_block }}__header--{{ display_id }}">
-      {{ header }}
-    </div>
+    <div>{{ header }}</div>
   {% endif %}
+
   {% if exposed %}
-    <div class="{{ bem_block }}__filters {{ bem_block }}__filters--{{ display_id }}">
-      {{ exposed }}
-    </div>
+    <div>{{ exposed }}</div>
   {% endif %}
+
   {% if attachment_before %}
-    <div class="{{ bem_block }}__attachment {{ bem_block }}__attachment--before {{ bem_block }}__attachment--{{ display_id }}">
-      {{ attachment_before }}
-    </div>
+    <div>{{ attachment_before }}</div>
   {% endif %}
 
-  {% if rows %}
-    <div class="{{ bem_block }}__content {{ bem_block }}__content--{{ display_id }}">
-      {{ rows }}
-    </div>
-  {% elseif empty %}
-    <div class="{{ bem_block }}__empty {{ bem_block }}__empty--{{ display_id }}">
-      {{ empty }}
-    </div>
-  {% endif %}
+  {{ rows ? rows : empty }}
 
-  {% if pager %}
-    {{ pager }}
-  {% endif %}
+  {{ pager }}
+
   {% if attachment_after %}
-    <div class="{{ bem_block }}__attachment {{ bem_block }}__attachment--after {{ bem_block }}__attachment--{{ display_id }}">
-      {{ attachment_after }}
-    </div>
+    <div>{{ attachment_after }}</div>
   {% endif %}
+
   {% if more %}
     {{ more }}
   {% endif %}
+
   {% if footer %}
-    <div class="{{ bem_block }}__footer {{ bem_block }}__footer--{{ display_id }}">
-      {{ footer }}
-    </div>
+    <div>{{ footer }}</div>
   {% endif %}
+
   {% if feed_icons %}
-    <div class="{{ bem_block }}__icons {{ bem_block }}__icons--{{ display_id }}">
-      {{ feed_icons }}
-    </div>
+    <div>{ feed_icons }}</div>
   {% endif %}
 </div>

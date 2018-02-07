@@ -64,39 +64,27 @@
  */
 #}
 
-{% set classes = [
-  node.bundle|clean_class,
-  view_mode ? node.bundle|clean_class ~ '--' ~ view_mode|clean_class
-] %}
-{% set title_classes = [
-  node.bundle|clean_class ~ '__title',
-  node.bundle|clean_class ~ '__title--' ~ view_mode
-] %}
 
-<article{{ attributes.addClass(classes) }}>
-
-  {{ title_prefix }}
+<article>
   {% if not page %}
-    <h2{{ title_attributes.addClass(title_classes) }}>
+    <h2>
       <a href="{{ url }}" rel="bookmark">{{ label }}</a>
     </h2>
   {% else %}
-    <h1{{ title_attributes.addClass(title_classes) }}>
-        {{ label }}
-    </h1>
+    <h1>{{ label }}</h1>
   {% endif %}
+
   {{ title_suffix }}
 
   {% if display_submitted %}
-    <footer class="node__meta">
+    <footer>
       {{ author_picture }}
-      <div{{ author_attributes.addClass('node__submitted') }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+      <div>
+        {% trans %}{{ author_name }} – {{ date }}{% endtrans %}
         {{ metadata }}
       </div>
     </footer>
   {% endif %}
 
   {{ content }}
-
 </article>

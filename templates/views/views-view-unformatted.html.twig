@@ -16,26 +16,10 @@
  */
 #}
 
-{%
-  set bem_block = view.id|clean_class
-%}
-
-{%
-  set bem_modifier = view.current_display|clean_class
-%}
-
-{%
-  set row_classes = [
-    bem_block ~ '__row',
-    bem_block ~ '__row--' ~ bem_modifier,
-  ]
-%}
-
 {% if title %}
   <h3>{{ title }}</h3>
 {% endif %}
+
 {% for row in rows %}
-  <div{{ row.attributes.addClass(row_classes) }}>
-    {{ row.content }}
-  </div>
+  <div>{{ row.content }}</div>
 {% endfor %}

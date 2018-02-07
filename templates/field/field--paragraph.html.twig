@@ -38,40 +38,15 @@
  */
 #}
 
-{% set bem_block = 'paragraph-' ~ bundle|clean_class ~ '__' ~ field_name|replace({'field_' : ''})|clean_class %}
-
-{%
-  set classes = [
-    bem_block,
-    bem_block ~ '--' ~ view_mode|clean_class
-  ]
-%}
-
-{% set item_attributes = bem_block ~ '-item' %}
-
-{% if label_hidden %}
-  {% if multiple %}
-    <div{{ attributes.addClass(classes) }}>
-      {% for item in items %}
-        <div{{ item.attributes.addClass(item_attributes) }}>{{ item.content }}</div>
-      {% endfor %}
-    </div>
-  {% else %}
-    {% for item in items %}
-      <div{{ attributes.addClass(classes) }}>{{ item.content }}</div>
-    {% endfor %}
-  {% endif %}
-{% else %}
-  <div{{ attributes.addClass(classes) }}>
-    <div{{ title_attributes }}>{{ label }}</div>
-    {% if multiple %}
-    <div>
-      {% endif %}
-      {% for item in items %}
-        <div{{ item.attributes.addClass(item_attributes) }}>{{ item.content }}</div>
-      {% endfor %}
-      {% if multiple %}
-    </div>
-    {% endif %}
-  </div>
+{% if not label_hidden %}
+  <div>{{ label }}</div>
 {% endif %}
+{% for item in items %}
+  <div>{{ item.content }}</div>
+{% endfor %}
+
+
+
+
+
+
