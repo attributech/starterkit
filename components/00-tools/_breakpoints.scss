@@ -1,0 +1,20 @@
+/* Media Queries */
+
+$max-width: 1200px;
+
+$breakpoint--xs: 320px;
+$breakpoint--s: 640px;
+$breakpoint--m: 800px;
+$breakpoint--l: 960px;
+$breakpoint--xl: 1080px;
+$breakpoint--xxl: 1200px;
+$breakpoint--xxxl: 1430px;
+
+$slicer-breakpoints:      0 $breakpoint--s $breakpoint--m $breakpoint--l $breakpoint--xl $breakpoint--xxl $breakpoint--xxxl;
+$slicer-breakpoint-names: 'xs'           's'            'm'            'l'             'xl'             'xxl'             'xxxl';
+
+$breakpoint--height--m: 800px;
+$breakpoint--landscape: orientation landscape;
+$breakpoint--portrait: orientation portrait;
+$breakpoint--mobile: m;
+$breakpoint--desktop: l;

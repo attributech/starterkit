@@ -12,6 +12,10 @@ regions:
   footer: 'Footer'
 libraries:
  - STARTERKIT/base
+component-libraries:
+  components:
+    paths:
+      - components
 stylesheets-override:
 stylesheets-remove:
   - core/assets/vendor/normalize-css/normalize.css

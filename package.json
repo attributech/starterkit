@@ -43,6 +43,7 @@
     "browser-sync": "^2.23.6",
     "fastclick": "^1.0.6",
     "fitvids": "^2.0.0",
+    "gulp-sass-glob": "^1.0.8",
     "headroom.js": "^0.9.3",
     "lazysizes": "^4.0.1",
     "magnific-popup": "^1.1.0",

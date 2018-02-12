@@ -1,0 +1,119 @@
+@import "colors";
+@import "breakpoints";
+@import "typography";
+
+/* Spacing */
+
+$gutter--xxs: 5px;
+$gutter--xs: 10px;
+$gutter--s: 15px;
+$gutter--m: 20px;
+$gutter--l: 30px;
+
+$grid--gutter--default: $gutter--m;
+
+/* Page */
+
+$page--margin--s: 20px;
+$page--margin--m: 20px;
+$page--margin--l: 30px;
+
+/* Animations */
+
+$animation--duration--s: .2s;
+$animation--duration--m: .4s;
+$animation--duration--l: .6s;
+
+$animation--timing--default: ease;
+
+$opactiy-l: .25;
+$opactiy-m: .5;
+$opactiy-s: .75;
+
+/* Sizes */
+
+$border-width: 1PX;
+$border-radius: 0;
+
+$border--default: $border-width solid $color--black;
+$border--light: $border-width solid $color--grey;
+$border--green: $border-width solid $color--green;
+
+$header-height-s: 50px;
+$header-height-m: 64px;
+
+$breadcrumb--height-s: 30px;
+
+$main-vertical-margin-s: 20px;
+$main-vertical-margin-m: 40px;
+
+$main--padding-top--s: $header-height-s;
+$main--padding-top--m: $header-height-m + 50px;
+
+$main-margin-top-s: $main-vertical-margin-s + $header-height-s;
+$main-margin-top-m: $main-vertical-margin-m + $header-height-m;
+$main-margin-bottom-s: $main-vertical-margin-s;
+$main-margin-bottom-m: $main-vertical-margin-m;
+
+$footer-height-s: 80px;
+$footer-height-m: 50px;
+
+$menu-padding: 30px;
+$menu-item-padding: 8px;
+$menu-item--padding-top--mobile-s: $gutter--xxs;
+$menu-item--padding-top--mobile-m: $gutter--m;
+$menu-item--padding-bottom--mobile: 5px;
+
+
+/* Selectors */
+
+/* icons */
+
+$icon-size--s: 25PX;
+$icon-size--m: 30PX;
+
+$icon-container-size-s: 34PX;
+$icon-container-size-m: 46PX;
+
+/* Text underline */
+$text-underline-width: 0.03em;
+$text-underline-position: 0.08em;
+$text-underline-opacity: 1;
+$text-underline-gap: 0;
+$text-underline-gap-minimum: 0.07em;
+
+/* Logo */
+$logo--padding: 0.5em 1em;
+
+/* Button */
+
+$button--horizontal-padding-m: 7px;
+$button--padding-m: 5px $button--horizontal-padding-m 2px;
+
+/* Inputs */
+$input--padding-m: 5px $button--horizontal-padding-m 2px;
+$input--margin-m: 15px;
+
+/* Navigation */
+$navigation-indent--m: 32px;
+$navigation-indent--mobile: $page--margin--m;
+
+/* Tabs */
+$tabs--height--s: 24px;
+$tabs--height--m: 40PX;
+$tabs--line--width: 1PX;
+
+/* Form */
+$form-item--height--s: 24px;
+$form-item--height--m: 30px;
+$form-item--height--l: 40px;
+
+/* z-index */
+$z-index: (
+  header: 100,
+  main: 50,
+  navigation-content--mobile: -1,
+  navigation-content--desktop: 1,
+  navigation-toggle: 0,
+  tabs: 0,
+);

@@ -1,0 +1,38 @@
+@mixin icon-size($size: $icon-size--m) {
+  width: $size;
+  height: $size;
+}
+
+@mixin icon-size-width($width: $icon-size--m) {
+  width: $width;
+  > svg {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@mixin icon-size-height($height: $icon-size--m) {
+  height: $height;
+  > svg {
+    height: 100%;
+    width: auto;
+  }
+}
+
+.icon {
+  @include icon-size;
+
+  @include icon-size($icon-size--s);
+
+  @include from($breakpoint--desktop) {
+    @include icon-size($icon-size--m);
+  }
+
+  svg {
+    display: block;
+  }
+
+  &--inline {
+    @include icon-size-height(#{$font--cap-height}em);
+  }
+}

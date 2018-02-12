@@ -64,27 +64,17 @@
  */
 #}
 
-
-<article>
-  {% if not page %}
-    <h2>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
-  {% else %}
-    <h1>{{ label }}</h1>
-  {% endif %}
-
-  {{ title_suffix }}
-
-  {% if display_submitted %}
-    <footer>
-      {{ author_picture }}
-      <div>
-        {% trans %}{{ author_name }} – {{ date }}{% endtrans %}
-        {{ metadata }}
-      </div>
-    </footer>
-  {% endif %}
-
-  {{ content }}
-</article>
+{% embed '@components/03-modules/node/node.twig'
+  with {
+    page: page,
+    url: url,
+    label: label,
+    title_suffix: title_suffix,
+    display_submitted: display_submitted,
+    author_picture: author_picture,
+    author_name: author_name,
+    date: date,
+    metadata: metadata,
+    content: content
+  } %}
+{% endembed %}

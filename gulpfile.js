@@ -18,11 +18,14 @@ var modernizr = require('gulp-modernizr');
 var svgo = require('gulp-svgo');
 var notify = require('gulp-notify');
 
+var sassGlob = require('gulp-sass-glob');
+
 // Set paths
 var dist = 'dist/';
 var path = {
   css: {
     src: 'sass/**/*.scss',
+    components: 'components/**/*.scss',
     dist: dist + 'css'
   },
   webpack: {
@@ -51,9 +54,12 @@ var webpackConfig = require('./webpack.config.js');
 
 /* CSS develop task */
 gulp.task('css:develop', function () {
+  'use strict';
+
   gulp.src([path.css.src])
 
-  // Sass Compilation
+    // Sass Compilation
+    .pipe(sassGlob())
     .pipe(sass())
     .on('error', err => notify({
       message: '\n\n🐙\nError: <%= error.message %> ',
@@ -63,6 +69,8 @@ gulp.task('css:develop', function () {
     // PostCSS tasks after Sass compilation
     .pipe(postcss([
       autoprefixer({
+        supports: false,
+        grid: false,
         browsers: [
           '> 1%',
           'last 2 versions'
@@ -70,13 +78,13 @@ gulp.task('css:develop', function () {
       }),
       pxtorem({
         propWhiteList: [],
-        rootValue: 16,
+        rootValue: 16
       }),
       calc
     ]))
 
     .pipe(gulp.dest(path.css.dist))
-    .pipe(browserSync.stream())
+    .pipe(browserSync.reload({stream: true}))
     .pipe(notify('Styles complete 🚀'));
 });
 
@@ -84,7 +92,8 @@ gulp.task('css:develop', function () {
 gulp.task('css:production', function () {
   gulp.src([path.css.src])
 
-  // Sass Compilation
+    // Sass Compilation
+    .pipe(sassGlob())
     .pipe(sass({
       errLogToConsole: true
     }))
@@ -92,6 +101,8 @@ gulp.task('css:production', function () {
     // PostCSS tasks after Sass compilation
     .pipe(postcss([
       autoprefixer({
+        supports: false,
+        grid: false,
         browsers: [
           '> 1%',
           'last 2 versions'
@@ -104,8 +115,7 @@ gulp.task('css:production', function () {
       calc
     ]))
 
-    .pipe(gulp.dest(path.css.dist))
-    .pipe(browserSync.stream());
+    .pipe(gulp.dest(path.css.dist));
 });
 
 /* Polymer task */
@@ -164,7 +174,7 @@ gulp.task('svg', function () {
 gulp.task('browsersync', function () {
   browserSync.init({
     watchTask: true,
-    proxy: 'STARTERKIT.com.docker.amazee.io/',
+    proxy: 'leniadam.ch.docker.amazee.io/',
     browser: [],
     reloadOnRestart: false,
     notify: false
@@ -175,6 +185,7 @@ gulp.task('browsersync', function () {
 /* Watch task */
 gulp.task('watch', function () {
   gulp.watch(path.css.src, ['css:develop']);
+  gulp.watch(path.css.components, ['css:develop']);
   gulp.watch(path.webpack.src, ['webpack:develop']).on('change', browserSync.reload);
   gulp.watch(path.vulcanize.src, ['vulcanize']).on('change', browserSync.reload);
   gulp.watch(path.svg.src, ['svg']).on('change', browserSync.reload);

@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present a media entity.
+ *
+ * Available variables:
+ * - name: Name of the media.
+ * - content: Media content.
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% embed '@components/03-modules/media/media.twig' with {
+  modifier: elements['#media'].bundle.entity.id
+}%}
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+{% endembed %}

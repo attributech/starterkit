@@ -1,0 +1,216 @@
+/*------------------------------------------------------
+GENERAL
+------------------------------------------------------*/
+html {
+  height: 100%;
+
+  @include to($breakpoint--mobile) {
+    @include fluid-size(
+      $min-viewport-width: $breakpoint--s,
+      $max-viewport-width: $breakpoint--l,
+      $min-value: 16PX,
+      $max-value: 18PX
+    );
+  }
+  @include from($breakpoint--desktop) {
+    @include fluid-size(
+      $min-viewport-width: $breakpoint--l,
+      $max-viewport-width: 1920px,
+      $min-value: 18PX,
+      $max-value: 20PX
+    );
+  }
+}
+
+body {
+  height: 100%;
+
+  @include font-style(m);
+  font-family: $font--base;
+  color: $color--font--default;
+  text-rendering: optimizelegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
+  font-feature-settings: "kern";
+  -webkit-font-feature-settings: "kern";
+  -moz-font-feature-settings: "kern";
+  -moz-font-feature-settings: "kern=1";
+  font-feature-settings: "liga" off;
+  font-kerning: normal;
+}
+
+/*------------------------------------------------------
+TYPOGRAPHY
+------------------------------------------------------*/
+
+h1 {
+  @include font-style(heading-m);
+  margin: .5em 0;
+  font-weight: normal;
+}
+
+h2 {
+  @include font-style(heading-m);
+  margin: .5em 0;
+  font-weight: normal;
+}
+
+h3 {
+  @include font-style(m);
+  margin: .5em 0;
+  font-weight: normal;
+}
+
+b, strong {
+  font-weight: normal;
+}
+
+p {
+  margin: 1em 0;
+}
+
+/*------------------------------------------------------
+GENERAL LINKS
+------------------------------------------------------*/
+
+a {
+  color: $color--black;
+  cursor: pointer;
+  outline: none !important;
+  text-decoration-skip: ink;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+/*------------------------------------------------------
+IMAGES
+------------------------------------------------------*/
+
+img {
+  display: block;
+  border: none 0;
+  max-width: 100%;
+  height: auto;
+  width: auto;
+}
+
+p {
+  img {
+    display: inline;
+  }
+}
+
+/*------------------------------------------------------
+VIDEO
+------------------------------------------------------*/
+
+video {
+  max-width: 100%;
+  height: auto;
+  width: auto;
+}
+
+/*------------------------------------------------------
+CLEAR
+------------------------------------------------------*/
+
+.clear {
+  clear: both;
+}
+
+/*------------------------------------------------------
+HTML5 ELEMENTS
+------------------------------------------------------*/
+
+main,
+nav,
+footer,
+header,
+article {
+  display: block;
+}
+
+
+/*------------------------------------------------------
+INVISBLE ELEMENTS
+------------------------------------------------------*/
+
+.element-invisible {
+  display: none;
+}
+
+/*------------------------------------------------------
+FORMS
+------------------------------------------------------*/
+textarea,
+input[type="text"],
+input[type="button"],
+input[type="submit"] {
+  -webkit-appearance: none;
+  border-radius: 0;
+  border: $border--default;
+}
+
+/*------------------------------------------------------
+TABLES
+------------------------------------------------------*/
+
+table {
+  width: 100% !important;
+  border: 0;
+}
+
+th {
+  text-align: left; /* LTR */
+  padding: 0;
+  border-bottom: none;
+}
+
+td {
+  border: 0;
+}
+
+th,
+td {
+  padding: 0 10px;
+  vertical-align: top;
+
+  @include to($breakpoint--mobile) {
+    padding: 0;
+    //display: block;
+  }
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child {
+    padding-right: 0;
+  }
+}
+
+tr {
+  &:first-child {
+    td,
+    th {
+      > :first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+tbody {
+  border-top: none;
+}
+
+/*------------------------------------------------------
+HR
+------------------------------------------------------*/
+
+hr {
+  border: none;
+  border-top: 1px solid $color--black;
+}

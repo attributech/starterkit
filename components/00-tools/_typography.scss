@@ -1,0 +1,85 @@
+//$font-directory: "../../fonts/" !default;
+//
+//@font-face{
+//  font-family: "ensoie";
+//  src: url("#{$font-directory}ensoieeot?#iefix");
+//  src: url("#{$font-directory}ensoie.eot?#iefix") format("eot"),
+//  url("#{$font-directory}ensoie.woff") format("woff"),
+//  url("#{$font-directory}ensoie.ttf") format("truetype");
+//  font-weight: normal;
+//}
+
+
+/* Fonts */
+$font--helvetica: Helvetica Neue,Helvetica,Arial,sans-serif;
+$font--base: $font--helvetica;
+
+
+$font--size--base: 16px;
+$font--line-height--base: 20px;
+$font--rhythm-unit: 'rem';
+$font--cap-height: 0.705;
+$font--cap-offset: -0.2;
+
+
+/* Font sizes*/
+
+$font--sizes: (
+  small-s: (
+    font-size: 16px,
+    line-height: 1.41,
+  ),
+  small-m: (
+    font-size: 16px,
+    line-height: 1.41,
+  ),
+  s: (
+    font-size: 16px,
+    line-height: 1.28,
+    letter-spacing: 0.06em,
+  ),
+  m: (
+    font-size: 25px,
+    line-height: 1.28,
+    letter-spacing: 0.06em,
+  ),
+  heading-s: (
+    font-size: 25px,
+    line-height: 1.36,
+  ),
+  heading-m: (
+    font-size: 40px,
+    line-height: 1.5,
+  ),
+  caption-s: (
+    font-size: 12px,
+    line-height: 1.5,
+  ),
+  caption-m: (
+    font-size: 12px,
+    line-height: 1.5,
+  ),
+);
+
+$font--styles: (
+  s: (
+    xs: small-s,
+    l: small-m,
+  ),
+  m: (
+    xs: s,
+    l: m,
+  ),
+  heading-s: (
+    xs: heading-s,
+    l: m,
+  ),
+  heading-m: (
+    xs: heading-s,
+    l: heading-m,
+  ),
+  caption-m: (
+    xs: caption-s,
+    l: caption-m,
+  ),
+);

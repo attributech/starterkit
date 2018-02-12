@@ -1,0 +1,9 @@
+<div class="navigation">
+  <div class="navigation__content">
+    {{ content }}
+  </div>
+  <div class="navigation__toggle">
+    {% embed '@elements/icon/icon-inline.twig' with { name: 'menu-close' } %}{% endembed %}
+    {% embed '@elements/icon/icon-inline.twig' with { name: 'menu-open' } %}{% endembed %}
+  </div>
+</div>

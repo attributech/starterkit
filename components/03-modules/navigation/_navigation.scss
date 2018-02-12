@@ -1,0 +1,65 @@
+.navigation {
+  position: relative;
+  @include z-index(navigation);
+
+  &__toggle {
+    display: none;
+    cursor: pointer;
+
+    @include to($breakpoint--mobile) {
+      position: relative;
+      transform: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: $icon-container-size-s;
+      height: $icon-container-size-s;
+
+      margin-right: ($icon-container-size-s - $icon-size--s) * -0.5;
+
+      @include z-index(navigation-toggle);
+
+      .icon--menu-close {
+        display: none;
+        .navigation--open & { display: block; }
+      }
+
+      .icon--menu-open {
+        display: block;
+        .navigation--open & { display: none; }
+      }
+    }
+  }
+
+
+  &__content {
+    position: relative;
+
+    @include z-index(navigation-content--desktop);
+
+    @include to($breakpoint--mobile) {
+      @include z-index(navigation-content--mobile);
+      position: fixed;
+      left:0;
+      top: $header-height-s;
+      bottom: 0;
+      width: 100%;
+      overflow-y: scroll;
+
+      background-color: $color--white;
+      opacity: 0;
+      display: none;
+      transition: opacity 300ms ease;
+
+      .navigation--open & {
+        opacity: 1;
+        display: block;
+      }
+    }
+  }
+}
+
+body.navigation--open {
+  overflow-y: hidden;
+}

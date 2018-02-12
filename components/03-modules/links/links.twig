@@ -1,0 +1,24 @@
+<div class="links">
+  {% if links -%}
+    {%- if heading -%}
+      {%- if heading.level -%}
+        <{{ heading.level }}{{ heading.attributes }}>{{ heading.text }}</{{ heading.level }}>
+      {%- else -%}
+        <h2{{ heading.attributes }}>{{ heading.text }}</h2>
+      {%- endif -%}
+    {%- endif -%}
+    <ul class="links__list">
+      {%- for item in links -%}
+        <li class="links__list-item">
+          {%- if item.link -%}
+            {{ item.link }}
+          {%- elseif item.text_attributes -%}
+            <span{{ item.text_attributes }}>{{ item.text }}</span>
+          {%- else -%}
+            {{ item.text }}
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- endif %}
+</div>

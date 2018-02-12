@@ -1,0 +1,17 @@
+.map {
+  width: 100%;
+  @include to($breakpoint--mobile) {
+    @include padding-bottom-hack(3/2, 'a');
+  }
+  @include from($breakpoint--desktop) {
+    @include padding-bottom-hack(16/9, 'a');
+  }
+
+  .geolocation-formatter-map-wrapper {
+    height: 100%;
+  }
+}
+
+.geolocation-google-map > div {
+  background: none !important;
+}

@@ -52,9 +52,11 @@
 {% import "@STARTERKIT/macros/svg.html.twig" as svg %}
 
 <div class="page-container">
-  <header class="page-header" role="banner">
-    <div class="page-header__wrapper">
+  {% embed '@components/03-modules/page/header/header.twig' %}
+    {% block content %}
       {{ page.header }}
+    {% endblock %}
+    {% block navigation %}
       <div class="navigation">
         <div class="navigation__content">
           {{ page.navigation }}
@@ -64,21 +66,20 @@
           {{ svg.inline('menu-close') }}
         </div>
       </div>
-    </div>
-  </header>
-  <main class="page-main" role="main">
-    <div class="page-main__wrapper">
-      <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-      {{ page.content }}
-    </div>
-  </main>
+    {% endblock %}
+  {% endembed %}
 
+  {% embed '@components/03-modules/page/main/main.twig' %}
+    {% block content %}
+      {{ page.content }}
+    {% endblock %}
+  {% endembed %}
 
   {% if page.footer %}
-    <footer class="page-footer" role="contentinfo">
-      <div class="page-footer__wrapper">
+    {% embed '@components/03-modules/page/footer/footer.twig' %}
+      {% block content %}
         {{ page.footer }}
-      </div>
-    </footer>
+      {% endblock %}
+    {% endembed %}
   {% endif %}
 </div>{# /.layout-container #}

@@ -1,32 +1,39 @@
 /*
-Main styles file. Just cointains includes
-*/
+ *  Main styles file. Just contains includes
+ */
 
 /* Vendor */
 @import "../node_modules/breakpoint-sass/stylesheets/breakpoint";
 @import "../node_modules/breakpoint-slicer/stylesheets/breakpoint-slicer";
 
 /* Tools */
-@import "tools/variables";
-@import "tools/mixins";
-@import "tools/compass/utilities/general/clearfix";
+@import "../components/00-tools/variables.scss";
+@import "../components/00-tools/mixins.scss";
 
-/* Base */
-@import "base/normalize";
-@import "base/base";
-@import "base/icons";
+@import "../components/01-base/_normalize.scss";
+@import "../components/01-base/_base.scss";
 
-/* Layout */
-@import "layout/page-container";
-@import "layout/page-main";
-@import "layout/page-header";
-@import "layout/page-footer";
+@import "../components/02-elements/**/*.scss";
+@import "../components/03-modules/**/*.scss";
 
-/* Modules */
-@import "modules/form";
-@import "modules/logo";
-@import "modules/menu";
-@import "modules/navigation";
-@import "modules/message";
-@import "modules/tabs";
-@import "modules/language-switcher";
+
+
+
+//
+//
+///* ---------------------- OLD BELOW ------------------------------*/
+//
+///* Layout */
+//@import "layout/page-container";
+//@import "layout/page-main";
+//@import "layout/page-header";
+//@import "layout/page-footer";
+//
+///* Modules */
+//@import "modules/form";
+//@import "modules/logo";
+//@import "modules/menu";
+//@import "modules/navigation";
+//@import "modules/message";
+//@import "modules/tabs";
+//@import "modules/language-switcher";
