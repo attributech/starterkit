@@ -1,10 +1,12 @@
 // Webpack config
 
 var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
   develop: {
     output: { filename: 'main.js' },
+    target: 'web',
     devtool: 'source-map',
     module: {
       loaders: [
@@ -19,9 +21,15 @@ module.exports = {
         },
       ],
     },
+    resolve: {
+      alias: {
+        'components': path.resolve(__dirname, './components')
+      }
+    }
   },
   production: {
     output: { filename: 'main.js' },
+    target: 'web',
     plugins: [
       new webpack.optimize.UglifyJsPlugin({
         compress: {
@@ -43,6 +51,11 @@ module.exports = {
           },
         }
       ],
+    },
+    resolve: {
+      alias: {
+        'components': path.resolve(__dirname, './components')
+      }
     },
   },
 };

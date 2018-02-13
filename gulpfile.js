@@ -23,6 +23,10 @@ var sassGlob = require('gulp-sass-glob');
 // Set paths
 var dist = 'dist/';
 var path = {
+  components: {
+    css: 'components/**/*.scss',
+    js: 'components/**/*.js'
+  },
   css: {
     src: 'sass/**/*.scss',
     components: 'components/**/*.scss',
@@ -85,7 +89,10 @@ gulp.task('css:develop', function () {
 
     .pipe(gulp.dest(path.css.dist))
     .pipe(browserSync.reload({stream: true}))
-    .pipe(notify('Styles complete 🚀'));
+    .pipe(notify({
+      message: 'Styles complete 🚀',
+      onLast: true,
+    }));
 });
 
 /* CSS production task */
@@ -118,33 +125,15 @@ gulp.task('css:production', function () {
     .pipe(gulp.dest(path.css.dist));
 });
 
-/* Polymer task */
-gulp.task('vulcanize', function () {
-  gulp.src(path.vulcanize.src)
-    .pipe(vulcanize())
-    .pipe(gulp.dest(path.vulcanize.dist));
-});
-
-/* Favicon task */
-gulp.task('favicons', function () {
-  // @TODO: gulp-favicons is shit. Create our own Gulp plugin.
-  gulp.src(path.favicons.src)
-    .pipe(gulp.dest(path.favicons.dist));
-});
-
-/* Polymer task */
-gulp.task('vulcanize', function () {
-  gulp.src(path.vulcanize.src)
-    .pipe(vulcanize())
-    .pipe(gulp.dest(path.vulcanize.dist));
-});
-
 /* Webpack task */
 gulp.task('webpack:develop', function () {
   gulp.src(path.webpack.main)
     .pipe(webpack(webpackConfig.develop))
     .pipe(gulp.dest(path.webpack.dist))
-    .pipe(notify('Webpack task complete🚀'));
+    .pipe(notify({
+      message: 'Webpack task complete 🚀',
+      onLast: true,
+    }));
 });
 
 gulp.task('webpack:production', function () {
@@ -184,9 +173,11 @@ gulp.task('browsersync', function () {
 
 /* Watch task */
 gulp.task('watch', function () {
-  gulp.watch(path.css.src, ['css:develop']);
-  gulp.watch(path.css.components, ['css:develop']);
+  gulp.watch([path.components.css, path.css.src], ['css:develop']);
+
+  gulp.watch(path.components.js, ['webpack:develop']).on('change', browserSync.reload);
   gulp.watch(path.webpack.src, ['webpack:develop']).on('change', browserSync.reload);
+
   gulp.watch(path.vulcanize.src, ['vulcanize']).on('change', browserSync.reload);
   gulp.watch(path.svg.src, ['svg']).on('change', browserSync.reload);
 });
@@ -204,14 +195,7 @@ gulp.task('modernizr', function () {
 });
 
 var defaultTasks = [
-  'vulcanize',
   'svg',
-];
-
-var productionTasks = [
-  'css:production',
-  'webpack:production',
-  'modernizr',
 ];
 
 var developTasks = [
@@ -220,6 +204,13 @@ var developTasks = [
   'watch',
   'browsersync',
 ];
+
+var productionTasks = [
+  'css:production',
+  'webpack:production',
+  'modernizr',
+];
+
 
 /* Develop task */
 gulp.task('develop', defaultTasks.concat(developTasks));

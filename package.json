@@ -29,7 +29,7 @@
     "postcss-scss": "^0.1.9",
     "reporter": "^0.1.0",
     "stylelint": "^7.1.0",
-    "webpack": "^1.12.13",
+    "webpack": "^3.11.0",
     "webpack-dev-server": "^1.14.1"
   },
   "engines": {
