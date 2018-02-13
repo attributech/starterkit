@@ -90,7 +90,7 @@ gulp.task('css:develop', function () {
     .pipe(gulp.dest(path.css.dist))
     .pipe(browserSync.reload({stream: true}))
     .pipe(notify({
-      message: 'Styles complete 🚀',
+      message: 'css: <%= file.relative %> 🚀',
       onLast: true,
     }));
 });
@@ -130,10 +130,7 @@ gulp.task('webpack:develop', function () {
   gulp.src(path.webpack.main)
     .pipe(webpack(webpackConfig.develop))
     .pipe(gulp.dest(path.webpack.dist))
-    .pipe(notify({
-      message: 'Webpack task complete 🚀',
-      onLast: true,
-    }));
+    .pipe(notify('webpack: <%= file.relative %> 🚀'));
 });
 
 gulp.task('webpack:production', function () {
