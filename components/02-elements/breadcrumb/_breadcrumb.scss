@@ -1,0 +1,11 @@
+.breadcrumb {
+  &__item {
+    margin-right: 0.3em;
+    &:after {
+      content: " →";
+    }
+    &:last-of-type:after {
+      content: "";
+    }
+  }
+}
