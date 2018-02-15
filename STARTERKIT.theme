@@ -120,15 +120,16 @@ function STARTERKIT_preprocess_image(&$variables) {
     unset($variables['attributes']['sizes']);
   }
 
-  if (isset($variables['attributes']['srcset'])) {
+  if (isset($variables['attributes']['srcset']) && !empty($variables['attributes']['srcset']->value())) {
     $variables['attributes']['data-srcset'] = $variables['attributes']['srcset'];
     unset($variables['attributes']['srcset']);
   }
   else if(isset($variables['attributes']['src'])) {
     $variables['attributes']['data-src'] = $variables['attributes']['src'];
-    unset($variables['attributes']['src']);
   }
 
+  $variables['fallback'] = $variables['attributes']['src'];
+  $variables['attributes']['src'] = 'data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
   if(isset($variables['width']) && isset($variables['height'])) {
     $variables['attributes']['data-aspectratio'] = round($variables['width'] / $variables['height'], 3);
   }
