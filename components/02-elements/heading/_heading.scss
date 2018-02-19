@@ -1,0 +1,17 @@
+h1 {
+  @include font-style(heading-m);
+  margin: .5em 0;
+  font-weight: normal;
+}
+
+h2 {
+  @include font-style(heading-m);
+  margin: .5em 0;
+  font-weight: normal;
+}
+
+h3 {
+  @include font-style(m);
+  margin: .5em 0;
+  font-weight: normal;
+}

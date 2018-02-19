@@ -1,0 +1,11 @@
+input[type="text"],
+input[type="button"],
+input[type="submit"],
+input[type="tel"],
+input[type="number"],
+input[type="search"],
+input[type="password"] {
+  -webkit-appearance: none;
+  border-radius: 0;
+  border: $border--default;
+}

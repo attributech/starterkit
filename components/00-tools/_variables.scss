@@ -14,7 +14,7 @@ $grid--gutter--default: $gutter--m;
 
 /* Page */
 
-$page--margin--s: 20px;
+$page--margin--s: 10px;
 $page--margin--m: 20px;
 $page--margin--l: 30px;
 
@@ -35,9 +35,11 @@ $opactiy-s: .75;
 $border-width: 1PX;
 $border-radius: 0;
 
-$border--default: $border-width solid $color--black;
-$border--light: $border-width solid $color--grey;
-$border--green: $border-width solid $color--green;
+$border-color--default: $color--black;
+$border-color--light: $color--grey;
+
+$border--default: $border-width solid $border-color--default;
+$border--light: $border-width solid $border-color--light;
 
 $header-height-s: 50px;
 $header-height-m: 64px;
@@ -64,23 +66,15 @@ $menu-item--padding-top--mobile-s: $gutter--xxs;
 $menu-item--padding-top--mobile-m: $gutter--m;
 $menu-item--padding-bottom--mobile: 5px;
 
-
 /* Selectors */
 
-/* icons */
+/* Icons */
 
 $icon-size--s: 25PX;
 $icon-size--m: 30PX;
 
 $icon-container-size-s: 34PX;
 $icon-container-size-m: 46PX;
-
-/* Text underline */
-$text-underline-width: 0.03em;
-$text-underline-position: 0.08em;
-$text-underline-opacity: 1;
-$text-underline-gap: 0;
-$text-underline-gap-minimum: 0.07em;
 
 /* Logo */
 $logo--padding: 0.5em 1em;

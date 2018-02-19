@@ -39,6 +39,12 @@
     {{ page_top }}
     {{ page }}
     {{ page_bottom }}
+    <script type="text/javascript">
+      window.lazySizesConfig = window.lazySizesConfig || {};
+      window.lazySizesConfig.expFactor = 3;
+      window.lazySizesConfig.loadMode = 3;
+      window.lazySizesConfig.loadHidden = false;
+    </script>
     <js-bottom-placeholder token="{{ placeholder_token|raw }}">
   </body>
 </html>

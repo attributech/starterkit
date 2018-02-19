@@ -49,37 +49,27 @@
 */
 #}
 
-{% import "@STARTERKIT/macros/svg.html.twig" as svg %}
-
-<div class="page-container">
-  {% embed '@components/03-modules/page/header/header.twig' %}
-    {% block content %}
-      {{ page.header }}
-    {% endblock %}
-    {% block navigation %}
-      <div class="navigation">
-        <div class="navigation__content">
-          {{ page.navigation }}
-        </div>
-        <div class="navigation__toggle">
-          {{ svg.inline('menu-open') }}
-          {{ svg.inline('menu-close') }}
-        </div>
-      </div>
-    {% endblock %}
-  {% endembed %}
-
-  {% embed '@components/03-modules/page/main/main.twig' %}
-    {% block content %}
-      {{ page.content }}
-    {% endblock %}
-  {% endembed %}
-
-  {% if page.footer %}
-    {% embed '@components/03-modules/page/footer/footer.twig' %}
+{% embed '@components/03-modules/page/page-container/page-container.twig' %}
+  {% block content %}
+    {% embed '@components/03-modules/page/page-header/page-header.twig' %}
       {% block content %}
-        {{ page.footer }}
+        {{ page.header }}
+      {% endblock %}
+          {% block navigation %}
+            {{ page.mainnavigation }}
+          {% endblock %}
+    {% endembed %}
+    {% embed '@components/03-modules/page/page-main/page-main.twig' %}
+      {% block content %}
+        {{ page.content }}
       {% endblock %}
     {% endembed %}
-  {% endif %}
-</div>{# /.layout-container #}
+    {% if page.footer %}
+      {% embed '@components/03-modules/page/page-footer/page-footer.twig' %}
+        {% block content %}
+          {{ page.footer }}
+        {% endblock %}
+      {% endembed %}
+    {% endif %}
+  {% endblock %}
+{% endembed %}

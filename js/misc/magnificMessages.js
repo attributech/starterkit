@@ -1,4 +1,4 @@
-// load dep. via STARTERKIT.libraries.yml
+// load dep. via leniadam.libraries.yml
 
 export function init() {
   // needs to wait for document ready as else $.magnificPopup not ready

@@ -1,0 +1,147 @@
+@import "../../00-tools/variables.scss";
+@import "../../00-tools/mixins.scss";
+
+$border: to_lower_case(#{nth($border--light, 1)}) // get rid of the uppercase in "1PX"
+nth($border--light, 2) nth($border--light, 3);
+
+$frame--padding: $gutter--xxs;
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100% !important;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  font-size: map-deep-get($font--sizes, "s", "font-size");
+}
+
+td {
+  vertical-align: top;
+  font: #{map-deep-get($font--sizes, "s", "font-size")}/#{map-deep-get($font--sizes, "s", "line-height")} $font--base;
+}
+
+p {
+  margin: 1em 0;
+  
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+a {
+  color: $color--black;
+}
+
+.label {
+  text-align: center;
+  img {
+    max-width: 100%;
+    width: 100px;
+    height: auto;
+  }
+}
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: $gutter--s;
+  box-sizing: border-box;
+  font-family: $font--base;
+
+  &__head {
+    padding: 0;
+  }
+
+  &__body {
+    border: $border;
+  }
+
+  &__inner {
+    width: 100%;
+    padding: $frame--padding;
+  }
+}
+
+.message {
+  //text-align: center;
+  padding: $gutter--s 0;
+}
+
+.order-table {
+  border-top: $border;
+  border-bottom: $border;
+  padding-bottom: $gutter--s;
+  width: 100%;
+
+  td {
+    padding-top: $gutter--s;
+  }
+}
+
+.item {
+  &__text {
+    padding-left: $gutter--s;
+    padding-right: $gutter--s;
+  }
+
+  &__price {
+    text-align: right;
+  }
+
+
+  &__image {
+    width: 1%;
+    img {
+      display: block;
+      width: 66px;
+    }
+  }
+}
+
+.adjustment, .subtotal, .total {
+  text-align: right;
+  p {
+    margin: 0;
+  }
+}
+
+.subtotal > td {
+  padding-top: $gutter--s;
+}
+
+.total > td {
+  padding-bottom: $gutter--s;
+}
+
+.information {
+  border-top: $border;
+  width: 100%;
+
+  &__cell {
+    width: 50%;
+    vertical-align: top;
+    padding: $gutter--s 0;
+  }
+}
+
+.order-notes {
+  font-size: #{map-deep-get($font--sizes, "s", "font-size")};
+  line-height: #{map-deep-get($font--sizes, "s", "line-height")};
+  border-top: $border;
+  padding-top: $gutter--s;
+}
+
+@media only screen and (max-width: 450px) {
+  [class="information__cell"] {
+    width: 100% !important;
+    display: block !important;
+  }
+}

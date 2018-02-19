@@ -16,6 +16,9 @@ component-libraries:
   components:
     paths:
       - components
+  svg:
+    paths:
+      - dist/images
 stylesheets-override:
 stylesheets-remove:
   - core/assets/vendor/normalize-css/normalize.css

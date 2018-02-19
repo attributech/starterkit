@@ -11,29 +11,6 @@
 @import "../components/00-tools/mixins.scss";
 
 @import "../components/01-base/_normalize.scss";
-@import "../components/01-base/_base.scss";
 
 @import "../components/02-elements/**/*.scss";
 @import "../components/03-modules/**/*.scss";
-
-
-
-
-//
-//
-///* ---------------------- OLD BELOW ------------------------------*/
-//
-///* Layout */
-//@import "layout/page-container";
-//@import "layout/page-main";
-//@import "layout/page-header";
-//@import "layout/page-footer";
-//
-///* Modules */
-//@import "modules/form";
-//@import "modules/logo";
-//@import "modules/menu";
-//@import "modules/navigation";
-//@import "modules/message";
-//@import "modules/tabs";
-//@import "modules/language-switcher";

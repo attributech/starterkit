@@ -1,14 +1,12 @@
 {#todo: refactor to _bem: tab__list-item#}
-<nav class="tabs">
-  <h2 class="visually-hidden">{{ 'Primary tabs'|t }}</h2>
-  <ul class="tab-list">
+<nav class="tabs" role="navigation" aria-label="{{ 'Tabs'|t }}">
+  <ul class="tabs__list">
     {% for item in items %}
       {% if item['#active'] %}
-        <li class="tab-list__item tab-list__item--active"> {{ item }}</li>
+        <li class="tabs__list-item tabs__list-item--active"> {{ item }}</li>
       {% else %}
-        <li class="tab-list__item">{{ item }}</li>
+        <li class="tabs__list-item">{{ item }}</li>
       {% endif %}
     {% endfor %}
   </ul>
 </nav>
-

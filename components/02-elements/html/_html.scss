@@ -1,0 +1,21 @@
+html {
+  height: 100%;
+
+  @include to($breakpoint--mobile) {
+    @include fluid-size(
+            $min-viewport-width: $breakpoint--s,
+            $max-viewport-width: $breakpoint--l,
+            $min-value: 16PX,
+            $max-value: 18PX
+    );
+  }
+
+  @include from($breakpoint--desktop) {
+    @include fluid-size(
+            $min-viewport-width: $breakpoint--l,
+            $max-viewport-width: 1920px,
+            $min-value: 18PX,
+            $max-value: 20PX
+    );
+  }
+}

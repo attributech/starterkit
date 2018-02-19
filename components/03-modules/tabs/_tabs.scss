@@ -1,59 +1,45 @@
-$line-weight: $tabs--line--width;
-
 .tabs {
   display: block;
   padding-bottom: 0;
   overflow-x: auto;
-  margin-left: -$page--margin--s;
-  margin-right: -$page--margin--s;
 
-  .tab-list {
+  &__list {
     margin: 0;
     padding: 0;
     display: flex;
-    height: 50px;
+    border-bottom: $border--default;
+  }
 
-    &__item {
-      flex-grow: 1;
-      display: flex;
-      align-items: center;
-      position: relative;
-      border-bottom: $tabs--line--width solid $color--black;
+  &__list-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    border: $border--default;
+    border-bottom: none;
+    margin-bottom: -$border-width;
 
-      &:not(:first-of-type) {
-        border-left: $tabs--line--width solid $color--black;
-      }
+    &:not(:first-of-type) {
+      border-left: none;
+    }
 
+    &--active {
+      border-bottom: $border-width solid $color--white;
       a {
-        width: 100%;
-        box-sizing: border-box;
-        display: inline-block;
-        padding: 0 $page--margin--s;
-        white-space: nowrap;
-
-        @include font-cap-margin(s);
-        @include from($breakpoint--desktop) {
-          @include font-cap-margin(m);
-        }
+        color: $color--font--highlight;
       }
+    }
 
-      &--active {
-        border-bottom: none;
-        a {
-          color: $color--red
-        }
-      }
+    a {
+      width: 100%;
+      box-sizing: border-box;
+      display: inline-block;
+      padding: $gutter--xxs $gutter--xs;
+      white-space: nowrap;
     }
   }
 
   a {
     text-decoration: none;
-    color: $color--black;
+    color: $color--font--default;
   }
-}
-
-
-/*-----> Fix Backend styles <-----*/
-#block-ensoie-breadcrumbs + #block-ensoie-local-tasks > .tabs{
-  border-top: none;
 }

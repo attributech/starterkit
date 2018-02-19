@@ -289,17 +289,51 @@
   z-index: map-get($z-index, $key);
 }
 
-@mixin padding-bottom-hack($aspect-ratio: 1, $descendant-selector: '*') {
-  height: 0;
-  padding-top: #{1 / $aspect-ratio * 100%};
+@mixin aspect-ratio-parent($ratio) {
+  padding-top: #{1 / $ratio * 100%};
   position: relative;
   overflow: hidden;
-
-  > #{$descendant-selector} {
+  > * {
     position: absolute;
     top: 0;
+    left: 0;
     right: 0;
     bottom: 0;
-    left: 0;
   }
+}
+
+@mixin aspect-ratio-child {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@mixin icon-size($size: $icon-size--m) {
+  width: $size;
+  height: $size;
+}
+
+@mixin icon-size-width($width: $icon-size--m) {
+  width: $width;
+  > svg {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@mixin icon-size-height($height: $icon-size--m) {
+  height: $height;
+  > svg {
+    height: 100%;
+    width: auto;
+  }
+}
+
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
 }

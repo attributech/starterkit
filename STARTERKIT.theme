@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\Core\Render\Element;
+
 /**
  * Implements template_preprocess_page().
  */
@@ -128,9 +130,20 @@ function STARTERKIT_preprocess_image(&$variables) {
     $variables['attributes']['data-src'] = $variables['attributes']['src'];
   }
 
-  $variables['fallback'] = $variables['attributes']['src'];
-  $variables['attributes']['src'] = 'data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
   if(isset($variables['width']) && isset($variables['height'])) {
     $variables['attributes']['data-aspectratio'] = round($variables['width'] / $variables['height'], 3);
+  }
+
+  $variables['fallback'] = $variables['attributes']['src'];
+  $variables['attributes']['src'] = 'data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+}
+
+/*
+ * Implements hook_preprocess_field__HOOK().
+ */
+function STARTERKIT_preprocess_menu_local_tasks(&$variables) {
+  foreach (Element::children($variables['primary'], $sort = TRUE) as $key) {
+    $link = $variables['primary'][$key];
+    $variables['items'][$key] = $link;
   }
 }

@@ -1,3 +1,9 @@
-.anchor {
-
+a {
+  color: $color--black;
+  cursor: pointer;
+  outline: none !important;
+  text-decoration-skip: ink;
+  &:hover {
+    opacity: 0.5;
+  }
 }

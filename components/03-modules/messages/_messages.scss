@@ -1,0 +1,29 @@
+.messages {
+  padding: $gutter--xxs;
+  margin-top: $gutter--m;
+  border: 1px solid;
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &--status {
+    border-color: $color--status--dark;
+    background-color: $color--status--medium;
+    color: $color--status--dark;
+  }
+
+  &--warning {
+    border-color: $color--warning--dark;
+    background-color: $color--warning--medium;
+    color: $color--warning--dark;
+  }
+
+  &--error {
+    border-color: $color--error--dark;
+    background-color: $color--error--medium;
+    color: $color--error--dark;
+  }
+}

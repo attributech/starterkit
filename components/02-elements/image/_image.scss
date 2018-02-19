@@ -1,0 +1,19 @@
+img {
+  display: block;
+  border: none 0;
+  height: auto;
+  width: 100%;
+
+  &.lazyload,
+  &.lazyloading {
+    opacity: 0;
+  }
+  &.lazyloaded {
+    opacity: 1;
+    transition: opacity $animation--duration--s $animation--timing--default;
+  }
+
+  p & {
+    display: inline;
+  }
+}

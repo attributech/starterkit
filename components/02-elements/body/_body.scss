@@ -1,0 +1,8 @@
+body {
+  height: 100%;
+  @include font-style(m);
+  font-family: $font--base;
+  color: $color--font--default;
+  font-feature-settings: "kern" on, "liga" on;
+  font-kerning: normal;
+}

@@ -1,0 +1,17 @@
+.icon {
+  @include icon-size;
+
+  @include icon-size($icon-size--s);
+
+  @include from($breakpoint--desktop) {
+    @include icon-size($icon-size--m);
+  }
+
+  svg {
+    display: block;
+  }
+
+  &--inline {
+    @include icon-size-height(#{$font--cap-height}em);
+  }
+}

@@ -22,16 +22,19 @@
 
       .icon--menu-close {
         display: none;
-        .navigation--open & { display: block; }
+        .navigation--open & {
+          display: block;
+        }
       }
 
       .icon--menu-open {
         display: block;
-        .navigation--open & { display: none; }
+        .navigation--open & {
+          display: none;
+        }
       }
     }
   }
-
 
   &__content {
     position: relative;
@@ -41,7 +44,7 @@
     @include to($breakpoint--mobile) {
       @include z-index(navigation-content--mobile);
       position: fixed;
-      left:0;
+      left: 0;
       top: $header-height-s;
       bottom: 0;
       width: 100%;

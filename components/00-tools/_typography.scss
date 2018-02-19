@@ -25,61 +25,31 @@ $font--cap-offset: -0.2;
 /* Font sizes*/
 
 $font--sizes: (
-  small-s: (
-    font-size: 16px,
-    line-height: 1.41,
-  ),
-  small-m: (
-    font-size: 16px,
-    line-height: 1.41,
-  ),
   s: (
-    font-size: 16px,
-    line-height: 1.28,
-    letter-spacing: 0.06em,
+    font-size: 18px,
+    line-height: 1.5em,
   ),
   m: (
-    font-size: 25px,
-    line-height: 1.28,
-    letter-spacing: 0.06em,
+    font-size: 24px,
+    line-height: 1.5em,
   ),
-  heading-s: (
-    font-size: 25px,
-    line-height: 1.36,
+  headeing-s: (
+    font-size: 36px,
+    line-height: 1.5em,
   ),
   heading-m: (
-    font-size: 40px,
-    line-height: 1.5,
-  ),
-  caption-s: (
-    font-size: 12px,
-    line-height: 1.5,
-  ),
-  caption-m: (
-    font-size: 12px,
-    line-height: 1.5,
+    font-size: 48px,
+    line-height: 1.5em,
   ),
 );
 
 $font--styles: (
-  s: (
-    xs: small-s,
-    l: small-m,
-  ),
   m: (
     xs: s,
     l: m,
   ),
-  heading-s: (
-    xs: heading-s,
-    l: m,
-  ),
   heading-m: (
-    xs: heading-s,
+    xs: headeing-s,
     l: heading-m,
-  ),
-  caption-m: (
-    xs: caption-s,
-    l: caption-m,
   ),
 );

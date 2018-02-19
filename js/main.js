@@ -15,17 +15,15 @@ import * as lazySizes              from './misc/lazysizes';
 import * as navigation             from 'components/03-modules/navigation/navigation';
 
 
-anchorScrollAnimation.init();
-buggyfill.init();
-fastclick.init();
+//anchorScrollAnimation.init();
+//buggyfill.init();
 headroom.init();
-magnificMessages.init();
+//magnificMessages.init();
 
 
-Drupal.behaviors.STARTERKIT = {
+Drupal.behaviors.leniadam = {
   attach: (context, settings) => {
     navigation.init(context, settings);
-
     lazySizes.aspectRatio.init(context, settings);
   }
 };

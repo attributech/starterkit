@@ -1,14 +1,14 @@
 .map {
   width: 100%;
   @include to($breakpoint--mobile) {
-    @include padding-bottom-hack(3/2, 'a');
+    @include aspect-ratio-parent(3/2);
   }
   @include from($breakpoint--desktop) {
-    @include padding-bottom-hack(16/9, 'a');
+    @include aspect-ratio-parent(16/9);
   }
 
   .geolocation-formatter-map-wrapper {
-    height: 100%;
+    @include aspect-ratio-child;
   }
 }
 
