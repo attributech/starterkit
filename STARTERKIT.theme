@@ -158,7 +158,7 @@ function STARTERKIT_preprocess_image(&$variables) {
     $variables['attributes']['data-srcset'] = $variables['attributes']['srcset'];
     unset($variables['attributes']['srcset']);
   }
-  else if(isset($variables['attributes']['src'])) {
+  else if (isset($variables['attributes']['src'])) {
     $variables['attributes']['data-src'] = $variables['attributes']['src'];
   }
 
