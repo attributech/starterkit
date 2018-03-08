@@ -63,7 +63,7 @@ gulp.task('css:develop', function () {
   gulp.src([path.css.src])
 
     // Sass Compilation
-    .pipe(sassGlob())
+    .pipe(sassGlob({ ignorePaths: ['**/email.scss'] }))
     .pipe(sass())
     .on('error', err => notify({
       message: '\n\n🐙\nError: <%= error.message %> ',
@@ -95,34 +95,34 @@ gulp.task('css:develop', function () {
     }));
 });
 
+gulp.src([path.css.src])
+
+  // Sass Compilation
+  .pipe(sassGlob({ ignorePaths: ['**/email.scss'] }))
+  .pipe(sass({
+    errLogToConsole: true
+  }))
+
+  // PostCSS tasks after Sass compilation
+  .pipe(postcss([
+    autoprefixer({
+      supports: false,
+      grid: false,
+      browsers: [
+        '> 1%',
+        'last 2 versions'
+      ]
+    }),
+    pxtorem({
+      propWhiteList: [],
+      rootValue: 16,
+    }),
+    calc
+  ]))
+
+  .pipe(gulp.dest(path.css.dist));
 /* CSS production task */
 gulp.task('css:production', function () {
-  gulp.src([path.css.src])
-
-    // Sass Compilation
-    .pipe(sassGlob())
-    .pipe(sass({
-      errLogToConsole: true
-    }))
-
-    // PostCSS tasks after Sass compilation
-    .pipe(postcss([
-      autoprefixer({
-        supports: false,
-        grid: false,
-        browsers: [
-          '> 1%',
-          'last 2 versions'
-        ]
-      }),
-      pxtorem({
-        propWhiteList: [],
-        rootValue: 16,
-      }),
-      calc
-    ]))
-
-    .pipe(gulp.dest(path.css.dist));
 });
 
 /* Webpack task */
