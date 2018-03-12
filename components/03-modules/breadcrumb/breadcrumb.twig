@@ -25,7 +25,7 @@
     "@type": "ListItem",
     "position": {{ loop.index }},
     "item": {
-      "@id": "https://www.attribute.ch{{ link.url }}",
+      "@id": "{{ link.url }}",
       "name": "{{ link.text }}"
     }
   }{% if not loop.last %},{% endif %}
