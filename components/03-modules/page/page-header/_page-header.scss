@@ -17,6 +17,10 @@
 
   &.headroom--pinned {
     transform: translate3d(0, 0, 0);
+
+    .navigation--open & {
+      transform: none;
+    }
   }
 
   &.headroom--unpinned {
