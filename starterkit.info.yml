@@ -1,8 +1,8 @@
-name: STARTERKIT
+name: starterkit
 type: theme
 base theme: stable
-description: 'STARTERKIT theme'
-package: STARTERKIT
+description: 'starterkit theme'
+package: starterkit
 version: 1.x
 core: 8.x
 regions:
@@ -11,7 +11,7 @@ regions:
   content: 'Content'
   footer: 'Footer'
 libraries:
- - STARTERKIT/base
+ - starterkit/base
 component-libraries:
   components:
     paths:
