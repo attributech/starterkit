@@ -1,0 +1,14 @@
+{
+    "name": "attributech/starterkit",
+    "description": "starterkit theme",
+    "type": "drupal-theme",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Lukas von Blarer",
+            "email": "lukas.vonblarer@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

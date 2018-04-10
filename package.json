@@ -1,12 +1,13 @@
 {
-  "name": "STARTERKIT",
+  "name": "starterkit",
   "version": "1.0.0",
-  "description": "STARTERKIT template",
-  "homepage": "https://www.STARTERKIT.com",
+  "description": "starterkit theme",
+  "homepage": "https://github.com/attributech/starterkit",
   "author": "attribute",
+  "license": "GPL-2.0+",
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/attribute_ch/STARTERKIT"
+    "url": "https://github.com/attributech/starterkit.git"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
