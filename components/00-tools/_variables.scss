@@ -14,9 +14,8 @@ $grid--gutter--default: $gutter--m;
 
 /* Page */
 
-$page--margin--s: 10px;
-$page--margin--m: 20px;
-$page--margin--l: 30px;
+$page--margin--s: $gutter--s;
+$page--margin--m: $gutter--m;
 
 /* Animations */
 
