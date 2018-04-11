@@ -8,6 +8,7 @@ core: 8.x
 regions:
   header: 'Header'
   navigation: 'Navigation'
+  meta_navigation: 'Meta navigation'
   content: 'Content'
   footer: 'Footer'
 libraries:
