@@ -10,6 +10,7 @@ var scss = require('postcss-scss');
 var autoprefixer = require('autoprefixer');
 var pxtorem = require('postcss-pxtorem');
 var calc = require('postcss-calc');
+var sourcemaps = require('gulp-sourcemaps');
 
 var webpack = require('gulp-webpack');
 var vulcanize = require('gulp-vulcanize');
@@ -98,6 +99,7 @@ gulp.task('css:develop', function () {
 gulp.src([path.css.src])
 
   // Sass Compilation
+  .pipe(sourcemaps.init())
   .pipe(sassGlob({ ignorePaths: ['**/email.scss'] }))
   .pipe(sass({
     errLogToConsole: true
@@ -119,8 +121,9 @@ gulp.src([path.css.src])
     }),
     calc
   ]))
-
+  .pipe(sourcemaps.write('.'))
   .pipe(gulp.dest(path.css.dist));
+
 /* CSS production task */
 gulp.task('css:production', function () {
 });
