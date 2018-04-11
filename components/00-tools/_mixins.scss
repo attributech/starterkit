@@ -192,7 +192,7 @@
   );
 }
 
-@mixin hover($color: $color--font--default, $hover-color: $color--font--highlight, $selector: '&:hover', $speed: $animation--duration--s) {
+@mixin hover($color: $color--font--highlight, $hover-color: $color--font--default, $selector: '&:hover', $speed: $animation--duration--s) {
   color: $color;
   transition: color $speed $animation--timing--default;
   #{$selector} {
