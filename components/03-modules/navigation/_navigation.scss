@@ -1,5 +1,5 @@
 .navigation {
-  position: fixed;
+  position: relative;
   @include z-index(navigation);
 
   @include to($breakpoint--mobile) {
@@ -57,13 +57,13 @@
       visibility: hidden;
       transform: translateY(-100%);
       opacity: 0;
-      transition: visibility 0s, transform $animation--duration--m $animation--timing--default, opacity $animation--duration--m $animation--timing--default;
+      transition: transform $animation--duration--m $animation--timing--default, opacity $animation--duration--m $animation--timing--default, visibility 0s linear $animation--duration--m;
 
       body.navigation--open & {
         visibility: visible;
         transform: translateY(0);
         opacity: 1;
-        transition: transform $animation--duration--m $animation--timing--default, opacity $animation--duration--m $animation--timing--default, visibility 0s linear $animation--duration--m;
+        transition: visibility 0s, transform $animation--duration--m $animation--timing--default, opacity $animation--duration--m $animation--timing--default;
       }
     }
   }

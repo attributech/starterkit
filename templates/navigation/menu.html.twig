@@ -18,9 +18,10 @@
  *   - in_active_trail: TRUE if the link is in the active trail.
  */
 #}
-
 {% embed '@components/03-modules/menu/menu.twig'
   with {
+    modifier: menu_name,
     items: items
   }%}
 {% endembed %}
+

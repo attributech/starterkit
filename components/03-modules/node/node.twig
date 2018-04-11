@@ -1,6 +1,4 @@
 <article>
-  {{ title_prefix }}
-
   {% if not page %}
     <h2>
       <a href="{{ url }}" rel="bookmark">{{ label }}</a>
@@ -8,18 +6,5 @@
   {% else %}
     <h1>{{ label }}</h1>
   {% endif %}
-
-  {{ title_suffix }}
-
-  {% if display_submitted %}
-    <footer>
-      {{ author_picture }}
-      <div>
-        {% trans %}{{ author_name }} – {{ date }}{% endtrans %}
-        {{ metadata }}
-      </div>
-    </footer>
-  {% endif %}
-
   {{ content }}
 </article>

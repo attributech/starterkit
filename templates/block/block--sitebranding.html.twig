@@ -26,11 +26,10 @@
 */
 #}
 
-{% import "@leniadam/macros/svg.html.twig" as svg %}
-
-<a href="{{ path('<front>') }}" class="logo">
-  {% if content.site_logo['#access'] %}
-    {{ svg.inline('logo') }}
-  {% endif %}
-  {{ content|without('site_logo') }}
-</a>
+{% embed '@components/03-modules/site-branding/site-branding.twig' with {
+  link: path('<front>')
+} %}
+  {% block content %}
+    {{ source(directory ~ '/images/site-branding.svg') }}
+  {% endblock %}
+{% endembed %}

@@ -39,10 +39,10 @@
 #}
 
 {% if not label_hidden %}
-  <div>{{ label }}</div>
+  {{ label }}
 {% endif %}
 {% for item in items %}
-  <div>{{ item.content }}</div>
+  {{ item.content }}
 {% endfor %}
 
 
