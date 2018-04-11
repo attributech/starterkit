@@ -1,0 +1,35 @@
+select {
+  appearance: none;
+  cursor: pointer;
+  width: 100%;
+
+  font-family: $font--base;
+  text-align: center;
+
+  color: $color--grey;
+
+  border-radius: 0;
+  border: $border--default;
+  padding: 5px;
+  @include font-style(m);
+  line-height: normal !important;
+}
+
+.form-select {
+  &__wrapper {
+    position: relative;
+    &:after {
+      content: "\2193";
+      position: absolute;
+
+      right: 0.7em;
+      top: 50%;
+      z-index: -1;
+      transform: translateY(-50%);
+
+      font-feature-settings: "ss03";
+      font-family: $font--base;
+      font-weight: normal;
+    }
+  }
+}

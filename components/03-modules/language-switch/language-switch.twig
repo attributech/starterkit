@@ -1,0 +1,8 @@
+<div class="language-switch">
+  {% for link in links %}
+    <span class="language-switch__item">{{ link.link }}</span>
+    {% if not loop.last %}
+      <span class="language-switch__separator"> / </span>
+    {% endif %}
+  {% endfor %}
+</div>

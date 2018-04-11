@@ -49,27 +49,39 @@
 */
 #}
 
-{% embed '@components/03-modules/page/page-container/page-container.twig' %}
+{% embed '@components/04-layouts/page-container/page-container.twig' %}
   {% block content %}
-    {% embed '@components/03-modules/page/page-header/page-header.twig' %}
+    {% embed '@components/04-layouts/page-header/page-header.twig' %}
       {% block content %}
         {{ page.header }}
       {% endblock %}
-          {% block navigation %}
-            {{ page.mainnavigation }}
-          {% endblock %}
     {% endembed %}
-    {% embed '@components/03-modules/page/page-main/page-main.twig' %}
+
+    {% embed '@components/03-modules/navigation/navigation.twig' %}
+      {% block navigation %}
+        {{ page.navigation }}
+        {% embed '@components/03-modules/meta-navigation/meta-navigation.twig' %}
+          {% block meta_navigation %}
+            {{ page.meta_navigation }}
+          {% endblock %}
+        {% endembed %}
+      {% endblock %}
+    {% endembed %}
+
+
+    {% embed '@components/04-layouts/page-main/page-main.twig' %}
       {% block content %}
         {{ page.content }}
       {% endblock %}
     {% endembed %}
+
     {% if page.footer %}
-      {% embed '@components/03-modules/page/page-footer/page-footer.twig' %}
+      {% embed '@components/04-layouts/page-footer/page-footer.twig' %}
         {% block content %}
           {{ page.footer }}
         {% endblock %}
       {% endembed %}
     {% endif %}
   {% endblock %}
+
 {% endembed %}

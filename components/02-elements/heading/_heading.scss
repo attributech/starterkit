@@ -1,17 +1,18 @@
 h1 {
   @include font-style(heading-m);
-  margin: .5em 0;
+  margin: 0 0 $gutter--m;
   font-weight: normal;
 }
 
 h2 {
   @include font-style(heading-m);
-  margin: .5em 0;
+  margin: 0 0 $gutter--s;
   font-weight: normal;
+  text-align: center;
 }
 
 h3 {
-  @include font-style(m);
-  margin: .5em 0;
-  font-weight: normal;
+  @include font-style(heading-m);
+  margin: 0 0 $gutter--s;
+  text-align: center;
 }

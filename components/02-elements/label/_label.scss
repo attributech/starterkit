@@ -1,3 +1,4 @@
 label {
-  display: block;
+  @include font-style(heading-m);
+  color: $color--grey
 }

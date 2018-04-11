@@ -1,0 +1,7 @@
+.meta-navigation {
+  padding: 0 0 $page--margin--s $menu-padding--s;
+
+  @include from($breakpoint--desktop) {
+    padding: 0 0 $page--margin--m $menu-padding--m;
+  }
+}

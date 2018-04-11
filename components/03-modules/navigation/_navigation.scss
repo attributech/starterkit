@@ -1,6 +1,10 @@
 .navigation {
-  position: relative;
+  position: fixed;
   @include z-index(navigation);
+
+  @include to($breakpoint--mobile) {
+    height: $header-height-s;
+  }
 
   &__toggle {
     display: none;
@@ -38,7 +42,6 @@
 
   &__content {
     position: relative;
-
     @include z-index(navigation-content--desktop);
 
     @include to($breakpoint--mobile) {
@@ -46,18 +49,21 @@
       position: fixed;
       left: 0;
       top: $header-height-s;
-      bottom: 0;
       width: 100%;
+
       overflow-y: scroll;
-
       background-color: $color--white;
-      opacity: 0;
-      display: none;
-      transition: opacity 300ms ease;
 
-      .navigation--open & {
+      visibility: hidden;
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: visibility 0s, transform $animation--duration--m $animation--timing--default, opacity $animation--duration--m $animation--timing--default;
+
+      body.navigation--open & {
+        visibility: visible;
+        transform: translateY(0);
         opacity: 1;
-        display: block;
+        transition: transform $animation--duration--m $animation--timing--default, opacity $animation--duration--m $animation--timing--default, visibility 0s linear $animation--duration--m;
       }
     }
   }

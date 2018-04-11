@@ -1,12 +1,39 @@
 input[type="text"],
 input[type="button"],
 input[type="submit"],
-input[type="email"],
 input[type="tel"],
 input[type="number"],
 input[type="search"],
+input[type="email"],
 input[type="password"] {
   -webkit-appearance: none;
   border-radius: 0;
   border: $border--default;
+  font-family: $font--base;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+input[type="search"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  @include font-style(m);
+  line-height: normal !important;
+}
+
+input[type="button"],
+input[type="submit"] {
+  border: none;
+  @include font-style(heading-m);
+
+  height: $form-item--height--s;
+  padding: 0 $form-item--padding--s;
+  @include from($breakpoint--desktop) {
+    height: $form-item--height--m;
+    padding: 0 $form-item--padding--m;
+  }
 }

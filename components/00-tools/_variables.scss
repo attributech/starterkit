@@ -59,7 +59,8 @@ $main-margin-bottom-m: $main-vertical-margin-m;
 $footer-height-s: 80px;
 $footer-height-m: 50px;
 
-$menu-padding: 30px;
+$menu-padding--s: $page--margin--s;
+$menu-padding--m: $page--margin--m;
 $menu-item-padding: 8px;
 $menu-item--padding-top--mobile-s: $gutter--xxs;
 $menu-item--padding-top--mobile-m: $gutter--m;
@@ -98,8 +99,10 @@ $tabs--line--width: 1PX;
 
 /* Form */
 $form-item--height--s: 24px;
-$form-item--height--m: 30px;
-$form-item--height--l: 40px;
+$form-item--height--m: 32px;
+
+$form-item--padding--s: 5px;
+$form-item--padding--m: 8px;
 
 /* z-index */
 $z-index: (

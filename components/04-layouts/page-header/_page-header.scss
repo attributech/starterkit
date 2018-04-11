@@ -2,9 +2,8 @@
   width: 100%;
   position: fixed;
   top: 0;
-
   box-sizing: border-box;
-  z-index: 99;
+  @include z-index(header);
 
   transition: transform $animation--duration--s $animation--timing--default;
 

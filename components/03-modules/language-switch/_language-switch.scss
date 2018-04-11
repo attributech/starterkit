@@ -1,0 +1,9 @@
+.language-switch {
+  .language-link {
+    color: $color--font--default;
+
+    &.is-active {
+      color: $color--font--highlight;
+    }
+  }
+}

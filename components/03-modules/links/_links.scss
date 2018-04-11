@@ -1,0 +1,14 @@
+.links {
+  &__list {
+   display: flex;
+   list-style: none;
+   padding: 0;
+   margin: 0;
+  }
+
+  &__list-item {
+   padding-right: $gutter--m;
+  }
+}
+
+

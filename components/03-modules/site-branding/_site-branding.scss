@@ -1,0 +1,9 @@
+.site-branding {
+  &__link {
+    display: block;
+    svg {
+      height: 100%;
+      width: auto;
+    }
+  }
+}

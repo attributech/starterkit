@@ -4,4 +4,5 @@
  * Display an iframe with alterable components.
  */
 #}
-<iframe{{ attributes }}{% if url is not empty %} data-src="{{ url }}{% if query is not empty %}?{{ query | url_encode }}{% endif %}{% if fragment is not empty %}#{{ fragment }}{% endif %}"{% endif %}></iframe>
+
+<iframe{{ attributes.addClass('lazyload') }}{% if url is not empty %} data-src="{{ url }}{% if query is not empty %}?{{ query | url_encode }}{% endif %}{% if fragment is not empty %}#{{ fragment }}{% endif %}"{% endif %}></iframe>

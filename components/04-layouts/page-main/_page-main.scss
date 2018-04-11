@@ -1,0 +1,23 @@
+.page-main {
+  flex: 1 0 auto;
+
+  &__wrapper {
+    position: relative;
+    margin-top: $main-margin-top-s;
+
+    @include from($breakpoint--desktop) {
+      padding: 0;
+      margin-top: $main-margin-top-m;
+      margin-bottom: $main-margin-bottom-m;
+    }
+
+    @include responsive--side-bar {
+      margin-left: $side-bar--width;
+      margin-right: $side-bar--width;
+    }
+  }
+}
+
+#main-content {
+  display: block;
+}
