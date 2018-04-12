@@ -28,8 +28,6 @@ input[type="password"] {
 input[type="button"],
 input[type="submit"] {
   border: none;
-  @include font-style(heading-m);
-
   height: $form-item--height--s;
   padding: 0 $form-item--padding--s;
   @include from($breakpoint--desktop) {
