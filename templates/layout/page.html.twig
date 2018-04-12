@@ -54,20 +54,18 @@
     {% embed '@components/04-layouts/page-header/page-header.twig' %}
       {% block content %}
         {{ page.header }}
-      {% endblock %}
-    {% endembed %}
-
-    {% embed '@components/03-modules/navigation/navigation.twig' %}
-      {% block navigation %}
-        {{ page.navigation }}
-        {% embed '@components/03-modules/meta-navigation/meta-navigation.twig' %}
-          {% block meta_navigation %}
-            {{ page.meta_navigation }}
+        {% embed '@components/03-modules/navigation/navigation.twig' %}
+          {% block navigation %}
+            {{ page.navigation }}
+            {% embed '@components/03-modules/meta-navigation/meta-navigation.twig' %}
+              {% block meta_navigation %}
+                {{ page.meta_navigation }}
+              {% endblock %}
+            {% endembed %}
           {% endblock %}
         {% endembed %}
       {% endblock %}
     {% endembed %}
-
 
     {% embed '@components/04-layouts/page-main/page-main.twig' %}
       {% block content %}

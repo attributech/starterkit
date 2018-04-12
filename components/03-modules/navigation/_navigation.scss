@@ -7,7 +7,6 @@
   }
 
   &__toggle {
-    display: none;
     cursor: pointer;
 
     @include to($breakpoint--mobile) {
@@ -37,6 +36,10 @@
           display: none;
         }
       }
+    }
+
+    @include from($breakpoint--desktop) {
+      display: none;
     }
   }
 
