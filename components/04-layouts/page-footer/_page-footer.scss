@@ -5,14 +5,14 @@
   @include from($breakpoint--desktop) {
     min-height: $footer-height-m;
   }
+}
 
-  &__wrapper {
-    max-width: $max-width;
-    margin: 0 auto;
-    padding: 2rem $page--margin--s 2rem;
+.page-footer__wrapper {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 2rem $page--margin--s 2rem;
 
-    @include from($breakpoint--desktop) {
-      padding: 0 $page--margin--m;
-    }
+  @include from($breakpoint--desktop) {
+    padding: 0 $page--margin--m;
   }
 }

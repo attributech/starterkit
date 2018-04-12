@@ -3,17 +3,13 @@
 
   &__wrapper {
     position: relative;
-    margin-top: $main-margin-top-s;
+    max-width: $max-width;
+    padding: 0 $page--margin--s;
+    margin: $main-margin-top-s auto $main-margin-bottom-s;
 
     @include from($breakpoint--desktop) {
-      padding: 0;
-      margin-top: $main-margin-top-m;
-      margin-bottom: $main-margin-bottom-m;
-    }
-
-    @include responsive--side-bar {
-      margin-left: $side-bar--width;
-      margin-right: $side-bar--width;
+      padding: 0 $page--margin--m;
+      margin: $main-margin-top-m auto $main-margin-bottom-m;
     }
   }
 }
