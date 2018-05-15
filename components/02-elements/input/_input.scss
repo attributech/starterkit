@@ -27,9 +27,11 @@ input[type="password"] {
 
 input[type="button"],
 input[type="submit"] {
-  border: none;
   height: $form-item--height--s;
   padding: 0 $form-item--padding--s;
+  
+  -webkit-appearance: none;
+  border: $border--default;
   @include from($breakpoint--desktop) {
     height: $form-item--height--m;
     padding: 0 $form-item--padding--m;
