@@ -91,6 +91,7 @@ gulp.task('css:develop', function () {
       calc
     ]))
 
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(path.css.dist))
     .pipe(browserSync.reload({stream: true}))
     .pipe(notify({
@@ -99,11 +100,13 @@ gulp.task('css:develop', function () {
     }));
 });
 
-gulp.src([path.css.src])
+/* CSS production task */
+gulp.task('css:production', function () {
+  gulp.src([path.css.src])
 
   // Sass Compilation
   .pipe(sourcemaps.init())
-  .pipe(sassGlob({ ignorePaths: ['**/email.scss'] }))
+  .pipe(sassGlob({ignorePaths: ['**/email.scss']}))
   .pipe(sass({
     errLogToConsole: true
   }))
@@ -126,9 +129,6 @@ gulp.src([path.css.src])
   ]))
   .pipe(sourcemaps.write('.'))
   .pipe(gulp.dest(path.css.dist));
-
-/* CSS production task */
-gulp.task('css:production', function () {
 });
 
 /* Webpack task */
