@@ -1,0 +1,7 @@
+{
+  "context": {
+    "attributes": " src=\"http://via.placeholder.com/1920x1080\"",
+    "fallback": "http://via.placeholder.com/1920x1080",
+    "alt": "Alt text"
+  }
+}
