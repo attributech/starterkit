@@ -13,7 +13,7 @@
   {% set menu_classes = [
     'menu',
     'menu--' ~ menu_name,
-    'menu--level--' ~ menu_level
+    'menu--level-' ~ menu_level
   ] %}
 
   <ul{{ create_attribute().addClass(menu_classes) }}>
@@ -23,6 +23,8 @@
     
       {% set item_classes = [
         'menu__item',
+        'menu__item--' ~ menu_name,
+        'menu__item--level-' ~ menu_level,
         item.in_active_trail and item.below ? ' menu__item--active_trail menu__item--open',
         item.below ? ' menu__item--has-sub-items'
       ] %}

@@ -33,21 +33,22 @@
   .toolbar-tray-open & {
     margin-top: 79PX;
   }
-}
 
-.page-header__wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  &__wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-  height: 100%;
-  max-width: $max-width;
-  margin: 0 auto;
-  padding: 0 $page--margin--s;
+    height: 100%;
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 0 $page--margin--s;
 
-  background-color: $color--white;
+    background-color: $color--white;
 
-  @include from($breakpoint--desktop) {
-    padding: 0 $page--margin--m;
+    @include from($breakpoint--desktop) {
+      padding: 0 $page--margin--m;
+    }
   }
 }

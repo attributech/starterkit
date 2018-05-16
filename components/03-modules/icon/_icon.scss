@@ -14,4 +14,14 @@
   &--inline {
     @include icon-size-height(#{$font--cap-height}em);
   }
+
+  &--logo {
+    @include to($breakpoint--mobile) {
+      @include icon-size-height($header-height-s);
+    }
+
+    @include from($breakpoint--desktop) {
+      @include icon-size-height($header-height-m);
+    }
+  }
 }

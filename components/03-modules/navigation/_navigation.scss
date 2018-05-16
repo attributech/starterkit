@@ -1,9 +1,9 @@
 .navigation {
-  position: relative;
   @include z-index(navigation);
 
   @include to($breakpoint--mobile) {
     height: $header-height-s;
+    position: relative;
   }
 
   &__toggle {
@@ -44,7 +44,6 @@
   }
 
   &__content {
-    position: relative;
     @include z-index(navigation-content--desktop);
 
     @include to($breakpoint--mobile) {
@@ -53,6 +52,7 @@
       left: 0;
       top: $header-height-s;
       width: 100%;
+      padding: $page--margin--s;
 
       overflow-y: scroll;
       background-color: $color--white;
@@ -68,6 +68,9 @@
         opacity: 1;
         transition: visibility 0s, transform $animation--duration--m $animation--timing--default, opacity $animation--duration--m $animation--timing--default;
       }
+    }
+    @include from($breakpoint--desktop) {
+      display: flex;
     }
   }
 }

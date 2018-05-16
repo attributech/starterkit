@@ -1,7 +1,11 @@
 .meta-navigation {
-  padding: 0 0 $page--margin--s $menu-padding--s;
+  padding: 0;
+  @include font-style(s);
 
   @include from($breakpoint--desktop) {
-    padding: 0 0 $page--margin--m $menu-padding--m;
+    display: flex;
+    position: absolute;
+    right: $page--margin--m;
+    top: 0;
   }
 }

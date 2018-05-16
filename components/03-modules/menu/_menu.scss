@@ -3,4 +3,24 @@
   list-style: none;
   padding: 0;
   margin: 0;
+
+  @include from($breakpoint--desktop) {
+    display: flex;
+  }
+
+  &--meta-navigation {
+    display: flex;
+    @include to($breakpoint--mobile) {
+      margin: 0 (-$gutter--s/2);
+    }
+  }
+
+  &__item {
+    &--meta-navigation {
+      margin: 0 $gutter--s / 2;
+    }
+    @include from($breakpoint--desktop) {
+      margin: 0 0 0 $gutter--m;
+    }
+  }
 }

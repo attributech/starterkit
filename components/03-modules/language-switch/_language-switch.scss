@@ -1,6 +1,21 @@
 .language-switch {
+  display: flex;
+  text-transform: uppercase;
+
+  @include to($breakpoint--mobile) {
+    margin: 0 (-$gutter--s/2);
+  }
+
   .language-link {
-    color: $color--font--default;
+    @include hover();
+
+    @include to($breakpoint--mobile) {
+      margin: 0 $gutter--s / 2;
+    }
+
+    @include from($breakpoint--desktop) {
+      margin-left: $gutter--m;
+    }
 
     &.is-active {
       color: $color--font--highlight;
