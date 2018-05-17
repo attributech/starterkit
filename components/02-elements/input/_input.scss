@@ -1,17 +1,5 @@
-input[type="text"],
-input[type="button"],
-input[type="submit"],
-input[type="tel"],
-input[type="number"],
-input[type="search"],
-input[type="email"],
-input[type="password"] {
-  -webkit-appearance: none;
-  border-radius: 0;
-  border: $border--default;
-  font-family: $font--base;
-  box-sizing: border-box;
-  padding: 5px;
+input {
+  @include input-default-styles;
 }
 
 input[type="text"],
@@ -20,9 +8,8 @@ input[type="number"],
 input[type="search"],
 input[type="email"],
 input[type="password"] {
+  display: block;
   width: 100%;
-  @include font-style(m);
-  line-height: normal !important;
 }
 
 input[type="button"],
@@ -30,7 +17,6 @@ input[type="submit"] {
   height: $form-item--height--s;
   padding: 0 $form-item--padding--s;
   
-  -webkit-appearance: none;
   border: $border--default;
   @include from($breakpoint--desktop) {
     height: $form-item--height--m;

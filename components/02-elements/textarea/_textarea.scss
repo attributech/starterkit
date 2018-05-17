@@ -1,0 +1,7 @@
+textarea {
+  @include input-default-styles;
+  width: 100%;
+  display: block;
+  overflow: auto;
+  resize: vertical;
+}
