@@ -238,7 +238,6 @@ gulp.task('fractal:build', function () {
 
 var defaultTasks = [
   'svg',
-  'fractal:build',
 ];
 
 var developTasks = [
@@ -253,6 +252,7 @@ var productionTasks = [
   'css:production',
   'webpack:production',
   'modernizr',
+  'fractal:build',
 ];
 
 
