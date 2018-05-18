@@ -43,6 +43,7 @@
     "breakpoint-sass": "^2.7.0",
     "breakpoint-slicer": "^2.0.0",
     "browser-sync": "^2.23.6",
+    "faker": "^4.1.0",
     "fitvids": "^2.0.0",
     "gulp-sass-glob": "^1.0.8",
     "gulp-sourcemaps": "^2.6.4",
