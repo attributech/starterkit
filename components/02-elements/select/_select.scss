@@ -1,35 +1,6 @@
 select {
-  appearance: none;
-  cursor: pointer;
+  @include input-default-styles;
   width: 100%;
-
-  font-family: $font--base;
-  text-align: center;
-
-  color: $color--grey;
-
-  border-radius: 0;
-  border: $border--default;
-  padding: 5px;
-  @include font-style(m);
-  line-height: normal !important;
-}
-
-.form-select {
-  &__wrapper {
-    position: relative;
-    &:after {
-      content: "\2193";
-      position: absolute;
-
-      right: 0.7em;
-      top: 50%;
-      z-index: -1;
-      transform: translateY(-50%);
-
-      font-feature-settings: "ss03";
-      font-family: $font--base;
-      font-weight: normal;
-    }
-  }
+  background: #fff url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23000' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right .75rem center;
+  background-size: 8px 10px;
 }

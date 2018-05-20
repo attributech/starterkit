@@ -1,0 +1,49 @@
+.form-item {
+  &--type-radio {
+    @include input-custom-element-wrapper;
+    input[type="radio"] {
+      &:checked {
+        ~ label {
+          &::before {
+            box-shadow: inset 0 0 0 $border-width $color--black;
+          }
+          &::after {
+            opacity: 1;
+          }
+        }
+      }
+      &:focus {
+        ~ label {
+          &::before {
+            box-shadow: inset 0 0 0 $border-width $color--black, 0 0 0 .2rem rgba(0, 123, 255, .25);
+          }
+        }
+      }
+    }
+    label {
+      @include input-custom-element-label;
+
+      &:hover {
+        &::before {
+          box-shadow: inset 0 0 0 $border-width $color--black;
+        }
+      }
+
+      &::before {
+        @include input-custom-element;
+        box-shadow: inset 0 0 0 $border-width $color--grey;
+        border-radius: 50%;
+        transition: box-shadow $animation--duration--s $animation--timing--default;
+      }
+      &::after {
+        @include input-custom-element;
+        opacity: 0;
+        transition: opacity $animation--duration--xs $animation--timing--default;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 50% 50%;
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%23000'/%3E%3C/svg%3E");
+      }
+    }
+  }
+}

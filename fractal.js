@@ -2,7 +2,8 @@ const pkg = require('./package.json');
 const fractal = require('@frctl/fractal').create();
 const twigAdapter = require('@wondrousllc/fractal-twig-drupal-adapter');
 const twig = twigAdapter({
-  handlePrefix: '@components/',
+  handlePrefix: '@components',
+  importContext: true
 });
 
 const paths = {

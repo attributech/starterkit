@@ -1,4 +1,11 @@
-input {
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+input[type="search"],
+input[type="email"],
+input[type="password"],
+input[type="button"],
+input[type="submit"] {
   @include input-default-styles;
 }
 

@@ -350,10 +350,34 @@
   border: $border--light;
   box-sizing: border-box;
   padding: 5px;
+  background: transparent;
 
   &:focus {
     border: $border--default;
     outline: 0;
     box-shadow: 0 0 0 1px $border-color--default;
   }
+}
+
+@mixin input-custom-element {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -$form-item--custom-element-offset--s;
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  content: "";
+}
+
+@mixin input-custom-element-wrapper {
+  display: flex;
+  position: relative;
+  padding-left: $form-item--custom-element-offset--s;
+  align-items: center;
+  align-content: center;
+}
+
+@mixin input-custom-element-label {
+  position: relative;
 }

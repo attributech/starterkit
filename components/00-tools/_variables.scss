@@ -19,6 +19,7 @@ $page--margin--m: $gutter--m;
 
 /* Animations */
 
+$animation--duration--xs: .1s;
 $animation--duration--s: .2s;
 $animation--duration--m: .4s;
 $animation--duration--l: .6s;
@@ -101,8 +102,13 @@ $tabs--line--width: 1PX;
 $form-item--height--s: 24px;
 $form-item--height--m: 32px;
 
-$form-item--padding--s: 5px;
-$form-item--padding--m: 8px;
+$form-item--padding--s: .5em;
+$form-item--padding--m: .5em;
+
+$form-item--custom-element-size--s: 1em;
+$form-item--custom-element-offset--s: $form-item--custom-element-size--s + $form-item--padding--s;
+
+
 
 /* z-index */
 $z-index: (
