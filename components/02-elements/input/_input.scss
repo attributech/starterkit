@@ -4,6 +4,7 @@ input[type="number"],
 input[type="search"],
 input[type="email"],
 input[type="password"],
+input[type="url"],
 input[type="button"],
 input[type="submit"] {
   @include input-default-styles;
@@ -14,7 +15,8 @@ input[type="tel"],
 input[type="number"],
 input[type="search"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="url"] {
   display: block;
   width: 100%;
 }

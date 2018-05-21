@@ -5,6 +5,7 @@
       &:checked {
         ~ label {
           &::before {
+            border-color: $color--black;
             box-shadow: inset 0 0 0 $border-width $color--black;
           }
           &::after {
@@ -15,7 +16,7 @@
       &:focus {
         ~ label {
           &::before {
-            box-shadow: inset 0 0 0 $border-width $color--black, 0 0 0 .2rem rgba(0, 123, 255, .25);
+            box-shadow: inset 0 0 0 $border-width $color--black, $outline--default;
           }
         }
       }
@@ -25,24 +26,22 @@
 
       &:hover {
         &::before {
+          border-color: $color--black;
           box-shadow: inset 0 0 0 $border-width $color--black;
         }
       }
 
       &::before {
-        @include input-custom-element;
-        box-shadow: inset 0 0 0 $border-width $color--grey;
-        transition: box-shadow $animation--duration--s $animation--timing--default;
+        @include input-custom-element-border;
+        border: $border-width solid $color--grey;
+        transition: border-color $animation--duration--s $animation--timing--default, box-shadow $animation--duration--s $animation--timing--default;
       }
       &::after {
-        @include input-custom-element;
+        @include input-custom-element-value;
         opacity: 0;
         transition: opacity $animation--duration--xs $animation--timing--default;
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: 50% 50%;
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23000' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
-
+        padding: calc(#{$border-width} + #{$form-item--custom-element-size--s / 3});
+        background-color: $color--black;
       }
     }
   }

@@ -35,11 +35,18 @@ $opactiy-s: .75;
 $border-width: 1PX;
 $border-radius: 0;
 
-$border-color--default: $color--black;
-$border-color--light: $color--grey;
+$border-color--default: $color--font--default;
+$border-color--light: $color--font--light;
+$border-color--highlight: $color--element-highlight;
 
 $border--default: $border-width solid $border-color--default;
 $border--light: $border-width solid $border-color--light;
+$border--highlight: $border-width solid $color--element-highlight;
+
+/* Outlines */
+$outline-width: 3px;
+$outline-color: $color--element-highlight;
+$outline--default: 0 0 0 $outline-width $outline-color;
 
 $header-height-s: 50px;
 $header-height-m: 80px;
