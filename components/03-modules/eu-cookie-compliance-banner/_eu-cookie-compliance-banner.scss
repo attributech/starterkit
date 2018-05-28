@@ -1,0 +1,50 @@
+.eu-cookie-compliance {
+  &-banner {
+    background: $color--black;
+  }
+
+  &-content {
+    display: flex;
+    //align-items: center;
+    justify-content: space-between;
+    padding: $page--margin--m;
+    background: $color--black;
+    color: $color--white;
+    width: auto;
+    max-width: $max-width;
+    //box-sizing: border-box;
+
+    @include to($breakpoint--mobile) {
+      padding: $page--margin--s;
+    }
+    @include from($breakpoint--desktop) {
+      padding: $page--margin--m;
+    }
+
+    button {
+      font-size: inherit;
+      line-height: inherit
+    }
+  }
+
+  &-message {
+    max-width: none;
+  }
+
+  &-buttons {
+    max-width: none;
+  }
+
+  &-more-button {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    @include underline;
+  }
+
+  &-default-button {
+    margin-left: 0.5em;
+    white-space: nowrap;
+  }
+}
