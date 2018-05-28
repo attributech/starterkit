@@ -6,7 +6,7 @@ use Drupal\Core\Render\Element;
  * Implements hook_preprocess_HOOK().
  */
 function starterkit_preprocess_input(&$variables) {
-  if (in_array($variables['element']['#type'], array(
+  /*if (in_array($variables['element']['#type'], array(
     'textfield',
     'email',
     'tel',
@@ -14,14 +14,14 @@ function starterkit_preprocess_input(&$variables) {
     'number'
   ))) {
     $variables['attributes']['placeholder'] = $variables['element']['#title'];
-  }
+  }*/
 }
 
 /**
  * Implements hook_preprocess_HOOK().
  */
 function starterkit_preprocess_textarea(&$variables) {
-  $variables['attributes']['placeholder'] = $variables['element']['#title'];
+  //$variables['attributes']['placeholder'] = $variables['element']['#title'];
 }
 
 function starterkit_preprocess_links__language_block(&$variables) {
