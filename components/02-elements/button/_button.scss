@@ -1,6 +1,5 @@
 button {
   font-family: $font--base;
-  text-transform: lowercase;
   @include font-style(heading-m);
   -webkit-appearance: none;
   border: $border--default;
