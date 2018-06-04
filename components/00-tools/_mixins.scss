@@ -200,14 +200,14 @@
   }
 }
 
-@mixin grid($gutter: $gutter--m, $flex-wrap: wrap) {
+@mixin grid($gutter: $grid--gutter--default, $flex-wrap: wrap) {
   display: flex;
   flex-wrap: $flex-wrap;
   margin-left: -#{$gutter / 2};
   margin-right: -#{$gutter / 2};
 }
 
-@mixin grid-item($width, $gutter: $gutter--m) {
+@mixin grid-item($width, $gutter: $grid--gutter--default) {
   @if ($width) {
     flex-basis: $width;
   }
