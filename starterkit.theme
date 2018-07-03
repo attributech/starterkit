@@ -25,9 +25,13 @@ function starterkit_preprocess_textarea(&$variables) {
 }
 
 function starterkit_preprocess_links__language_block(&$variables) {
+  $language = \Drupal::languageManager()->getCurrentLanguage();
   foreach ($variables['links'] as $key => $link) {
     $variables['links'][$key]['text'] = $key;
     $variables['links'][$key]['link']['#title'] = $key;
+    if ($key == $language->getId()) {
+      $variables['links'][$key]['link']['#options']['attributes']['class'][] = 'is-active';
+    }
   }
 }
 
