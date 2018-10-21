@@ -166,7 +166,7 @@ gulp.task('svg', function () {
 gulp.task('browsersync', function () {
   browserSync.init({
     watchTask: true,
-    proxy: 'ethixlab.ch.docker.amazee.io/',
+    proxy: 'DRUPAL-PROJECT-DOMAIN.docker.amazee.io/',
     browser: [],
     reloadOnRestart: false,
     notify: false
