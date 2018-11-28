@@ -17,6 +17,7 @@ var vulcanize = require('gulp-vulcanize');
 var browserSync = require('browser-sync');
 var modernizr = require('gulp-modernizr');
 var svgo = require('gulp-svgo');
+var svgSprite = require('gulp-svg-sprite');
 var notify = require('gulp-notify');
 
 var sassGlob = require('gulp-sass-glob');
@@ -47,7 +48,7 @@ var path = {
   },
   svg: {
     src: 'images/**/*.svg',
-    dist: dist + 'images'
+    dist: dist + 'images',
   },
   favicons: {
     src: 'favicon.svg',
@@ -147,19 +148,41 @@ gulp.task('webpack:production', function () {
 
 /* SVG task */
 gulp.task('svg', function () {
+
+  var svgSpriteConfig = {
+    mode: {
+      symbol: { // symbol mode to build the SVG
+        render: {
+          css: false, // CSS output option for icon sizing
+          scss: false // SCSS output option for icon sizing
+        },
+        dest: 'sprite', // destination folder
+        prefix: '.svg--%s', // BEM-style prefix if styles rendered
+        sprite: 'sprite.svg', //generated sprite name
+        example: true // Build a sample page, please!
+      },
+
+    },
+    shape: {
+      transform: [],
+    }
+  };
+
   gulp.src(path.svg.src)
-    .pipe(svgo({
-      plugins: [
-        {
-          removeDimensions: true
-        }, {
-          removeAttrs: {
-            attrs: ['id']
+      .pipe(svgo({
+        plugins: [
+          {
+            removeDimensions: true
+          }, {
+            removeAttrs: {
+              attrs: ['id']
+            }
           }
-        }
-      ]
-    }))
-    .pipe(gulp.dest(path.svg.dist));
+        ]
+      }))
+      .pipe(gulp.dest(path.svg.dist))
+      .pipe(svgSprite(svgSpriteConfig))
+      .pipe(gulp.dest(path.svg.dist));
 });
 
 /* Browsersync task */

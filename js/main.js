@@ -13,7 +13,7 @@ import * as magnificMessages       from './misc/magnificMessages';
 import * as lazySizes              from './misc/lazysizes';
 
 import * as navigation             from 'components/03-modules/navigation/navigation';
-
+import * as svgpolyfill from './misc/svgpolyfill.js';
 
 //anchorScrollAnimation.init();
 //buggyfill.init();
@@ -25,5 +25,6 @@ Drupal.behaviors.leniadam = {
   attach: (context, settings) => {
     navigation.init(context, settings);
     lazySizes.aspectRatio.init(context, settings);
+    svgpolyfill.init();
   }
 };
