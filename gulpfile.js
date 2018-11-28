@@ -231,6 +231,11 @@ gulp.task('modernizr', function () {
  */
 
 gulp.task('fractal:start', function () {
+  fractal.web.set('server.syncOptions', {
+    ui: {
+      port: 29237 // random port number to fix https://github.com/frctl/fractal/issues/87
+    }
+  });
   const server = fractal.web.server({
     sync: true
   });
