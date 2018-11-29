@@ -15,7 +15,7 @@ module.exports = {
           exclude: ['bower_components', 'node_modules'],
           loader: 'babel',
           query: {
-            presets: ['es2015'],
+            presets: ['@babel/env'],
             cacheDirectory: true
           },
         },
@@ -28,14 +28,10 @@ module.exports = {
     }
   },
   production: {
+    mode: "production",
     output: { filename: 'main.js' },
     target: 'web',
     plugins: [
-      new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          warnings: false
-        }
-      }),
       new webpack.DefinePlugin({
         'process.env': { 'NODE_ENV': JSON.stringify('production') }
       })

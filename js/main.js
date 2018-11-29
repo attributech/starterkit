@@ -12,7 +12,7 @@ import * as headroom               from './misc/headroom';
 import * as magnificMessages       from './misc/magnificMessages';
 import * as lazySizes              from './misc/lazysizes';
 
-import * as navigation             from 'components/03-modules/navigation/navigation';
+import * as  navigation             from 'components/03-modules/navigation/navigation';
 import * as svgpolyfill from './misc/svgpolyfill.js';
 
 //anchorScrollAnimation.init();

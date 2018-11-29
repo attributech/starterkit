@@ -1,19 +1,15 @@
 'use strict';
 
 var gulp = require('gulp');
-var util = require('gulp-util');
-var colors = require('colors');
 
 var sass = require('gulp-sass');
 var postcss = require('gulp-postcss');
-var scss = require('postcss-scss');
 var autoprefixer = require('autoprefixer');
 var pxtorem = require('postcss-pxtorem');
 var calc = require('postcss-calc');
 var sourcemaps = require('gulp-sourcemaps');
 
 var webpack = require('gulp-webpack');
-var vulcanize = require('gulp-vulcanize');
 var browserSync = require('browser-sync');
 var modernizr = require('gulp-modernizr');
 var svgo = require('gulp-svgo');
@@ -62,10 +58,10 @@ var path = {
 var webpackConfig = require('./webpack.config.js');
 
 /* CSS develop task */
-gulp.task('css:develop', function () {
+function cssDevelop () {
   'use strict';
 
-  gulp.src([path.css.src])
+  return gulp.src([path.css.src])
 
     // Sass Compilation
     .pipe(sassGlob({ ignorePaths: ['**/email.scss'] }))
@@ -89,9 +85,7 @@ gulp.task('css:develop', function () {
         propWhiteList: [],
         rootValue: 16
       }),
-      calc
     ]))
-
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(path.css.dist))
     .pipe(browserSync.reload({stream: true}))
@@ -99,11 +93,11 @@ gulp.task('css:develop', function () {
       message: 'css: <%= file.relative %> 🚀',
       onLast: true,
     }));
-});
+}
 
 /* CSS production task */
-gulp.task('css:production', function () {
-  gulp.src([path.css.src])
+function cssProduction () {
+  return gulp.src([path.css.src])
 
   // Sass Compilation
   .pipe(sourcemaps.init())
@@ -130,24 +124,24 @@ gulp.task('css:production', function () {
   ]))
   .pipe(sourcemaps.write('.'))
   .pipe(gulp.dest(path.css.dist));
-});
+}
 
 /* Webpack task */
-gulp.task('webpack:develop', function () {
-  gulp.src(path.webpack.main)
+function webpackDevelop () {
+  return gulp.src(path.webpack.main)
     .pipe(webpack(webpackConfig.develop))
     .pipe(gulp.dest(path.webpack.dist))
     .pipe(notify('webpack: <%= file.relative %> 🚀'));
-});
+}
 
-gulp.task('webpack:production', function () {
-  gulp.src(path.webpack.main)
+function webpackProduction () {
+  return gulp.src(path.webpack.main)
     .pipe(webpack(webpackConfig.production))
     .pipe(gulp.dest(path.webpack.dist));
-});
+}
 
 /* SVG task */
-gulp.task('svg', function () {
+function svg () {
 
   var svgSpriteConfig = {
     mode: {
@@ -168,7 +162,7 @@ gulp.task('svg', function () {
     }
   };
 
-  gulp.src(path.svg.src)
+  return gulp.src(path.svg.src)
       .pipe(svgo({
         plugins: [
           {
@@ -183,10 +177,10 @@ gulp.task('svg', function () {
       .pipe(gulp.dest(path.svg.dist))
       .pipe(svgSprite(svgSpriteConfig))
       .pipe(gulp.dest(path.svg.dist));
-});
+}
 
 /* Browsersync task */
-gulp.task('browsersync', function () {
+function browsersync () {
   browserSync.init({
     watchTask: true,
     proxy: 'DRUPAL-PROJECT-DOMAIN.docker.amazee.io/',
@@ -194,22 +188,24 @@ gulp.task('browsersync', function () {
     reloadOnRestart: false,
     notify: false
   });
-});
+}
 
+// BrowserSync Reload
+function browserSyncReload(done) {
+  browserSync.reload();
+  done();
+}
 
-/* Watch task */
-gulp.task('watch', function () {
-  gulp.watch([path.components.css, path.css.src], ['css:develop']);
-
-  gulp.watch(path.components.js, ['webpack:develop']).on('change', browserSync.reload);
-  gulp.watch(path.webpack.src, ['webpack:develop']).on('change', browserSync.reload);
-
-  gulp.watch(path.vulcanize.src, ['vulcanize']).on('change', browserSync.reload);
-  gulp.watch(path.svg.src, ['svg']).on('change', browserSync.reload);
-});
+// Watch files
+function watchFiles() {
+  gulp.watch([path.components.css, path.css.src], gulp.series([cssDevelop], browserSyncReload));
+  gulp.watch(path.components.js, gulp.series([webpackDevelop], browserSyncReload));
+  gulp.watch(path.webpack.src, gulp.series([webpackDevelop], browserSyncReload));
+  gulp.watch(path.svg.src, gulp.series([svg]));
+}
 
 /* Modernizr task */
-gulp.task('modernizr', function () {
+function modernizer () {
   gulp.src(path.webpack.src)
     .pipe(modernizr({
       'options': [
@@ -218,7 +214,7 @@ gulp.task('modernizr', function () {
       'tests': ['touchevents'],
     }))
     .pipe(gulp.dest(path.modernizr.dist))
-});
+}
 
 /*
  * Start the Fractal server
@@ -230,7 +226,7 @@ gulp.task('modernizr', function () {
  * This task will also log any errors to the console.
  */
 
-gulp.task('fractal:start', function () {
+function fractalStart () {
   fractal.web.set('server.syncOptions', {
     ui: {
       port: 29237 // random port number to fix https://github.com/frctl/fractal/issues/87
@@ -243,7 +239,7 @@ gulp.task('fractal:start', function () {
   return server.start().then(() => {
     logger.success(`Fractal server is now running at ${server.url}`);
   });
-});
+}
 
 /*
  * Run a static export of the project web UI.
@@ -255,37 +251,36 @@ gulp.task('fractal:start', function () {
  * configuration option set above.
  */
 
-gulp.task('fractal:build', function () {
+function fractalBuild () {
   const builder = fractal.web.builder();
   builder.on('progress', (completed, total) => logger.update(`Exported ${completed} of ${total} items`, 'info'));
   builder.on('error', err => logger.error(err.message));
   return builder.build().then(() => {
     logger.success('Fractal build completed!');
   });
-});
+}
 
 var defaultTasks = [
-  'svg',
+  svg,
 ];
 
 var developTasks = [
-  'css:develop',
-  'webpack:develop',
-  'watch',
-  'browsersync',
-  'fractal:start',
+  cssDevelop,
+  webpackDevelop,
+  browsersync,
+  fractalStart,
+  watchFiles,
 ];
 
 var productionTasks = [
-  'css:production',
-  'webpack:production',
-  'modernizr',
-  'fractal:build',
+  cssProduction,
+  webpackProduction,
+  modernizer,
+  fractalBuild,
 ];
 
-
 /* Develop task */
-gulp.task('develop', defaultTasks.concat(developTasks));
+gulp.task('develop', gulp.parallel(defaultTasks.concat(developTasks)));
 
 /* Production task */
-gulp.task('default', defaultTasks.concat(productionTasks));
+gulp.task('default', gulp.parallel(defaultTasks.concat(productionTasks)));
