@@ -198,7 +198,7 @@ function browserSyncReload(done) {
 
 // Watch files
 function watchFiles() {
-  gulp.watch([path.components.css, path.css.src], gulp.series([cssDevelop], browserSyncReload));
+  gulp.watch([path.components.css, path.css.src], gulp.series([cssDevelop]));
   gulp.watch(path.components.js, gulp.series([webpackDevelop], browserSyncReload));
   gulp.watch(path.webpack.src, gulp.series([webpackDevelop], browserSyncReload));
   gulp.watch(path.svg.src, gulp.series([svg]));
