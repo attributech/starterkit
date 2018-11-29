@@ -12,6 +12,7 @@
   "devDependencies": {
     "@babel/core": "7.1.6",
     "@babel/preset-env": "7.1.6",
+    "@wondrousllc/fractal-twig-drupal-adapter": "github:luksak/fractal-twig-drupal-adapter#active_theme_path",
     "autoprefixer": "^9.3.1",
     "babel-loader": "^8.0.4",
     "colors": "^1.1.2",
@@ -36,9 +37,8 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
+    "@babel/polyfill": "7.0.0",
     "@frctl/fractal": "^1.1.7",
-    "@wondrousllc/fractal-twig-drupal-adapter": "^1.1.1",
-    "babel-polyfill": "^6.23.0",
     "breakpoint-sass": "^2.7.0",
     "breakpoint-slicer": "^2.0.0",
     "browser-sync": "^2.23.6",
@@ -47,9 +47,11 @@
     "gulp-sass-glob": "^1.0.8",
     "gulp-sourcemaps": "^2.6.4",
     "headroom.js": "^0.9.4",
+    "install": "0.12.2",
     "lazysizes": "^4.0.1",
     "magnific-popup": "^1.1.0",
     "normalize.css": "^8.0.0",
+    "npm": "6.4.1",
     "svg4everybody": "2.1.9",
     "viewport-units-buggyfill": "^0.6.2"
   },

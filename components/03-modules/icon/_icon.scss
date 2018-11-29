@@ -17,9 +17,11 @@
   }
 
   &--logo {
+    height: $header-height-m;
+    width: $header-height-m;
     svg {
-      //fill: #000;
-      //--primary-color: #fff;
+      fill: #000;
+      --primary-color: #fff;
     }
   }
 }

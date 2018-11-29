@@ -3,7 +3,7 @@
  * A JavaScript file for the theme.
 \******************************************/
 
-import "babel-polyfill"; // https://babeljs.io/docs/usage/polyfill/
+import "@babel/polyfill";
 
 import * as anchorScrollAnimation  from './misc/anchorScrollAnimation';
 import * as buggyfill              from './misc/buggyfill';
