@@ -31,18 +31,18 @@ module.exports = {
     mode: "production",
     output: { filename: 'main.js' },
     target: 'web',
-    plugins: [
+    /*plugins: [
       new webpack.DefinePlugin({
         'process.env': { 'NODE_ENV': JSON.stringify('production') }
       })
-    ],
+    ],*/
     module: {
       loaders: [
         {
           test: /.js?$/,
           loader: 'babel',
           query: {
-            presets: ['es2015'],
+            presets: ['@babel/env'],
             cacheDirectory: true
           },
         }

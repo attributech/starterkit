@@ -119,8 +119,7 @@ function cssProduction () {
     pxtorem({
       propWhiteList: [],
       rootValue: 16,
-    }),
-    calc
+    })
   ]))
   .pipe(sourcemaps.write('.'))
   .pipe(gulp.dest(path.css.dist));
@@ -206,7 +205,7 @@ function watchFiles() {
 
 /* Modernizr task */
 function modernizer () {
-  gulp.src(path.webpack.src)
+  return gulp.src(path.webpack.src)
     .pipe(modernizr({
       'options': [
         "setClasses",
@@ -275,7 +274,7 @@ var developTasks = [
 var productionTasks = [
   cssProduction,
   webpackProduction,
-  modernizer,
+  //modernizer,
   fractalBuild,
 ];
 
