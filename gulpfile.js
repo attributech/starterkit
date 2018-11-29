@@ -1,29 +1,29 @@
 'use strict';
 
-var gulp = require('gulp');
+const gulp = require('gulp');
 
-var sass = require('gulp-sass');
-var postcss = require('gulp-postcss');
-var autoprefixer = require('autoprefixer');
-var pxtorem = require('postcss-pxtorem');
-var calc = require('postcss-calc');
-var sourcemaps = require('gulp-sourcemaps');
+const sass = require('gulp-sass');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const pxtorem = require('postcss-pxtorem');
+const calc = require('postcss-calc');
+const sourcemaps = require('gulp-sourcemaps');
 
-var webpack = require('gulp-webpack');
-var browserSync = require('browser-sync');
-var modernizr = require('gulp-modernizr');
-var svgo = require('gulp-svgo');
-var svgSprite = require('gulp-svg-sprite');
-var notify = require('gulp-notify');
+const webpack = require('webpack-stream');
+const browserSync = require('browser-sync');
+const modernizr = require('gulp-modernizr');
+const svgo = require('gulp-svgo');
+const svgSprite = require('gulp-svg-sprite');
+const notify = require('gulp-notify');
 
-var sassGlob = require('gulp-sass-glob');
+const sassGlob = require('gulp-sass-glob');
 
 const fractal = require('./fractal.js');
 const logger = fractal.cli.console; // keep a reference to the fractal CLI console utility
 
 // Set paths
-var dist = 'dist/';
-var path = {
+const dist = 'dist/';
+const path = {
   components: {
     css: 'components/**/*.scss',
     js: 'components/**/*.js'
@@ -55,8 +55,6 @@ var path = {
   }
 };
 
-var webpackConfig = require('./webpack.config.js');
-
 /* CSS develop task */
 function cssDevelop () {
   'use strict';
@@ -68,7 +66,7 @@ function cssDevelop () {
     .pipe(sass())
     .on('error', err => notify({
       message: '\n\n🐙\nError: <%= error.message %> ',
-      sound: false // deactivate sound?
+      sound: true
     }).write(err))
 
     // PostCSS tasks after Sass compilation
@@ -119,7 +117,8 @@ function cssProduction () {
     pxtorem({
       propWhiteList: [],
       rootValue: 16,
-    })
+    }),
+    //calc
   ]))
   .pipe(sourcemaps.write('.'))
   .pipe(gulp.dest(path.css.dist));
@@ -128,21 +127,21 @@ function cssProduction () {
 /* Webpack task */
 function webpackDevelop () {
   return gulp.src(path.webpack.main)
-    .pipe(webpack(webpackConfig.develop))
+    .pipe(webpack(require('./webpack.develop.js')))
     .pipe(gulp.dest(path.webpack.dist))
     .pipe(notify('webpack: <%= file.relative %> 🚀'));
 }
 
 function webpackProduction () {
   return gulp.src(path.webpack.main)
-    .pipe(webpack(webpackConfig.production))
+    .pipe(webpack(require('./webpack.production.js')))
     .pipe(gulp.dest(path.webpack.dist));
 }
 
 /* SVG task */
 function svg () {
 
-  var svgSpriteConfig = {
+  const svgSpriteConfig = {
     mode: {
       symbol: { // symbol mode to build the SVG
         render: {
@@ -182,7 +181,7 @@ function svg () {
 function browsersync () {
   browserSync.init({
     watchTask: true,
-    proxy: 'DRUPAL-PROJECT-DOMAIN.docker.amazee.io/',
+    proxy: 'now-uster.ch.docker.amazee.io/',
     browser: [],
     reloadOnRestart: false,
     notify: false
@@ -259,11 +258,11 @@ function fractalBuild () {
   });
 }
 
-var defaultTasks = [
+const defaultTasks = [
   svg,
 ];
 
-var developTasks = [
+const developTasks = [
   cssDevelop,
   webpackDevelop,
   browsersync,
@@ -271,7 +270,7 @@ var developTasks = [
   watchFiles,
 ];
 
-var productionTasks = [
+const productionTasks = [
   cssProduction,
   webpackProduction,
   //modernizer,

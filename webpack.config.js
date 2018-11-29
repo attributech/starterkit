@@ -1,12 +1,12 @@
 // Webpack config
 
-var webpack = require('webpack');
-var path = require('path');
+const webpack = require('webpack');
+const path = require('path');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   develop: {
     output: { filename: 'main.js' },
-    target: 'web',
     devtool: 'source-map',
     module: {
       loaders: [
@@ -28,14 +28,49 @@ module.exports = {
     }
   },
   production: {
-    mode: "production",
-    output: { filename: 'main.js' },
-    target: 'web',
+    mode: 'production',
+    stats: {
+      colors: false,
+      hash: true,
+      timings: true,
+      assets: true,
+      chunks: true,
+      chunkModules: true,
+      modules: true,
+      children: true,
+    },
+    optimization: {
+      minimizer: [
+        new UglifyJSPlugin({
+          sourceMap: true,
+          uglifyOptions: {
+            compress: {
+              inline: false
+            }
+          }
+        })
+      ],
+      runtimeChunk: false,
+      splitChunks: {
+        cacheGroups: {
+          default: false,
+          commons: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendor_app',
+            chunks: 'all',
+            minChunks: 2
+          }
+        }
+      }
+    },
     /*plugins: [
       new webpack.DefinePlugin({
-        'process.env': { 'NODE_ENV': JSON.stringify('production') }
-      })
+        'process.env': {
+          NODE_ENV: JSON.stringify('production')
+        },
+      }),
     ],*/
+    output: { filename: 'main.js' },
     module: {
       loaders: [
         {
