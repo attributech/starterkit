@@ -261,8 +261,8 @@ const defaultTasks = [
 const developTasks = [
   cssDevelop,
   webpackDevelop,
-  browsersync,
   fractalStart,
+  browsersync,
   watchFiles,
 ];
 
