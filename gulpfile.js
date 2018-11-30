@@ -177,7 +177,7 @@ function svg () {
 function browsersync () {
   browserSync.init({
     watchTask: true,
-    proxy: 'PROJECTDOMAIN.docker.amazee.io/',
+    proxy: 'PROJECTDOMAIN.docker.amazee.io',
     browser: [],
     reloadOnRestart: false,
     notify: false

@@ -21,7 +21,7 @@ headroom.init();
 //magnificMessages.init();
 
 
-Drupal.behaviors.THEMENAME = {
+Drupal.behaviors.starterkit = {
   attach: (context, settings) => {
     navigation.init(context, settings);
     lazySizes.aspectRatio.init(context, settings);
