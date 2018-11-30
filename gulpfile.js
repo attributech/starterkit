@@ -6,7 +6,8 @@ const sass = require('gulp-sass');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const pxtorem = require('postcss-pxtorem');
-const calc = require('postcss-calc');
+const cssnano = require('cssnano');
+var cssImport = require('postcss-import');
 const sourcemaps = require('gulp-sourcemaps');
 
 const webpack = require('webpack-stream');
@@ -55,13 +56,26 @@ const path = {
   }
 };
 
+const postCssDefaultConfig = [
+  autoprefixer({
+    supports: false,
+    grid: false,
+    browsers: [
+      '> 1%',
+      'last 2 versions'
+    ]
+  }),
+  pxtorem({
+    propWhiteList: [],
+    rootValue: 16
+  }),
+];
+
 /* CSS develop task */
 function cssDevelop () {
   'use strict';
 
   return gulp.src([path.css.src])
-
-    // Sass Compilation
     .pipe(sassGlob({ ignorePaths: ['**/email.scss'] }))
     .pipe(sass())
     .on('error', err => notify({
@@ -70,20 +84,7 @@ function cssDevelop () {
     }).write(err))
 
     // PostCSS tasks after Sass compilation
-    .pipe(postcss([
-      autoprefixer({
-        supports: false,
-        grid: false,
-        browsers: [
-          '> 1%',
-          'last 2 versions'
-        ]
-      }),
-      pxtorem({
-        propWhiteList: [],
-        rootValue: 16
-      }),
-    ]))
+    .pipe(postcss(postCssDefaultConfig))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(path.css.dist))
     .pipe(browserSync.reload({stream: true}))
@@ -95,31 +96,26 @@ function cssDevelop () {
 
 /* CSS production task */
 function cssProduction () {
-  return gulp.src([path.css.src])
+  const postCssProductionConfig = postCssDefaultConfig;
+  postCssProductionConfig.push(
+      cssnano({
+        preset: ['default', {
+          calc: false,
+        }],
+      })
+  );
 
-  // Sass Compilation
+  postCssProductionConfig.unshift(
+      cssImport({ root: './sass' })
+  );
+
+  return gulp.src([path.css.src])
   .pipe(sourcemaps.init())
   .pipe(sassGlob({ignorePaths: ['**/email.scss']}))
   .pipe(sass({
     errLogToConsole: true
   }))
-
-  // PostCSS tasks after Sass compilation
-  .pipe(postcss([
-    autoprefixer({
-      supports: false,
-      grid: false,
-      browsers: [
-        '> 1%',
-        'last 2 versions'
-      ]
-    }),
-    pxtorem({
-      propWhiteList: [],
-      rootValue: 16,
-    }),
-    //calc
-  ]))
+  .pipe(postcss(postCssProductionConfig))
   .pipe(sourcemaps.write('.'))
   .pipe(gulp.dest(path.css.dist));
 }
