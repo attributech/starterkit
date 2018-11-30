@@ -181,7 +181,7 @@ function svg () {
 function browsersync () {
   browserSync.init({
     watchTask: true,
-    proxy: 'DRUPAL-PROJECT-DOMAIN.docker.amazee.io/',
+    proxy: 'PROJECTDOMAIN.docker.amazee.io/',
     browser: [],
     reloadOnRestart: false,
     notify: false
