@@ -16,12 +16,14 @@ $color--error--light: #fcf4f2;
 $color--error--medium: #e62600;
 $color--error--dark: #a51b00;
 
-$color--element-highlight: rgba(0, 123, 255, .25);
+$color--highlight: rgb(0, 123, 255);
+
+$color--element-highlight: rgba($color--highlight, 0.25);
 
 $color--font--default: $color--black;
 $color--font--light: $color--grey;
-$color--font--highlight: $color--error--medium;
-$color--font--highlight--active: $color--grey;
+$color--font--highlight: $color--highlight;
+$color--font--highlight--active: $color--highlight;
 
 $color--text--underline: currentColor;
 $color--text--underline--background: #fff;

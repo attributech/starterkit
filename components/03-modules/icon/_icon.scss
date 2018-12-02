@@ -17,8 +17,7 @@
   }
 
   &--logo {
-    height: $header-height-m;
-    width: $header-height-m;
+    @include icon-size-height(100%);
     svg {
       fill: #000;
       --primary-color: #fff;

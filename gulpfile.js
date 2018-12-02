@@ -57,6 +57,7 @@ const path = {
 };
 
 const postCssDefaultConfig = [
+  cssImport({ root: './sass' }),
   autoprefixer({
     supports: false,
     grid: false,
@@ -103,10 +104,6 @@ function cssProduction () {
           calc: false,
         }],
       })
-  );
-
-  postCssProductionConfig.unshift(
-      cssImport({ root: './sass' })
   );
 
   return gulp.src([path.css.src])

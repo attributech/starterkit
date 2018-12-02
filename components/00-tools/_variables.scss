@@ -9,6 +9,7 @@ $gutter--xs: 10px;
 $gutter--s: 15px;
 $gutter--m: 20px;
 $gutter--l: 30px;
+$gutter--xl: 45px;
 
 $grid--gutter--default: $gutter--m;
 
@@ -51,16 +52,20 @@ $outline--default: 0 0 0 $outline-width $outline-color;
 $header-height-s: 50px;
 $header-height-m: 80px;
 
+$header-padding-s: $gutter--s;
+$header-padding-m: $gutter--xl;
+
+$header--total-height-s: $header-height-s + $header-padding-s * 2;
+$header--total-height-m: $header-height-m + $header-padding-m * 2;
+
 $breadcrumb--height-s: 30px;
 
-$main-vertical-margin-s: 20px;
-$main-vertical-margin-m: 40px;
+$main-vertical-margin-s: 0;
+$main-vertical-margin-m: 0;
 
-$main--padding-top--s: $header-height-s;
-$main--padding-top--m: $header-height-m + 50px;
+$main-margin-top-s: $main-vertical-margin-s + $header--total-height-s;
+$main-margin-top-m: $main-vertical-margin-m + $header--total-height-m;
 
-$main-margin-top-s: $main-vertical-margin-s + $header-height-s;
-$main-margin-top-m: $main-vertical-margin-m + $header-height-m;
 $main-margin-bottom-s: $main-vertical-margin-s;
 $main-margin-bottom-m: $main-vertical-margin-m;
 

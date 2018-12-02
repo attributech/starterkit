@@ -4,8 +4,11 @@
   &__wrapper {
     position: relative;
     max-width: $max-width;
-    padding: 0 $page--margin--s;
-    margin: $main-margin-top-s auto $main-margin-bottom-s;
+
+    @include to($breakpoint--mobile) {
+      padding: 0 $page--margin--s;
+      margin: $main-margin-top-s auto $main-margin-bottom-s;
+    }
 
     @include from($breakpoint--desktop) {
       padding: 0 $page--margin--m;

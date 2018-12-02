@@ -5,8 +5,8 @@ html {
     @include fluid-size(
       $min-viewport-width: $breakpoint--s,
       $max-viewport-width: $breakpoint--l,
-      $min-value: 16PX,
-      $max-value: 18PX
+      $min-value: map-deep-get($font--sizes, s, font-size),
+      $max-value: map-deep-get($font--sizes, m, font-size)
     );
   }
 
@@ -14,8 +14,8 @@ html {
     @include fluid-size(
       $min-viewport-width: $breakpoint--l,
       $max-viewport-width: 1920px,
-      $min-value: 18PX,
-      $max-value: 20PX
+      $min-value: map-deep-get($font--sizes, m, font-size),
+      $max-value: map-deep-get($font--sizes, m, font-size) * 1.2
     );
   }
 }

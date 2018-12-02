@@ -3,7 +3,8 @@
     {% embed '@components/03-modules/logo/logo.twig' %}
     {% endembed %}
     {% block content %}
-      <p>Pleas overwrite content block in 04-layouts/header</p>
+      {% embed  '@components/03-modules/navigation/navigation.twig' %}
+      {% endembed %}
     {% endblock %}
     {% block navigation %}{% endblock %}
   </div>

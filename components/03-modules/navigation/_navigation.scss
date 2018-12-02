@@ -50,7 +50,7 @@
       @include z-index(navigation-content--mobile);
       position: fixed;
       left: 0;
-      top: $header-height-s;
+      top: $header--total-height-s;
       width: 100%;
       padding: $page--margin--s;
 

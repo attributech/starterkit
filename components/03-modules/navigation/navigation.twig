@@ -1,7 +1,10 @@
 <div class="navigation">
   <div class="navigation__content">
     {% block navigation %}
-      {{ content }}
+      {% embed '@components/03-modules/menu/menu.twig' with {
+
+      } %}
+      {% endembed %}
     {% endblock %}
   </div>
   <div class="navigation__toggle">

@@ -23,4 +23,12 @@
       margin: 0 0 0 $gutter--m;
     }
   }
+
+  &__item-link {
+    @include underline-remove;
+
+    &--active_trail {
+      color: $color--font--highlight;
+    }
+  }
 }

@@ -107,31 +107,6 @@
   transform: translate(-50%, -50%);
 }
 
-// icon fitters
-
-@mixin icon-size($size: $icon-size-m) {
-  > svg {
-    width: $size;
-    height: $size;
-  }
-}
-
-@mixin icon-size-width($width: $icon-size-m) {
-  width: $width;
-  > svg {
-    width: 100%;
-    height: auto;
-  }
-}
-
-@mixin icon-size-height($height: $icon-size-m) {
-  height: $height;
-  > svg {
-    height: 100%;
-    width: auto;
-  }
-}
-
 @mixin max-width($max-width) {
   max-width: $max-width;
   margin-left: auto;
@@ -185,7 +160,7 @@
   $max-value
 ) {
   font-size: calc(
-    #{$min-value}
+    #{strip-unit($min-value)}PX
     + #{strip-unit($max-value - $min-value)}
     * (100vw - #{$min-viewport-width})
     / #{strip-unit($max-viewport-width - $min-viewport-width)}
@@ -317,6 +292,7 @@
 
 @mixin icon-size-width($width: $icon-size--m) {
   width: $width;
+  height: auto;
   > svg {
     width: 100%;
     height: auto;
@@ -325,6 +301,7 @@
 
 @mixin icon-size-height($height: $icon-size--m) {
   height: $height;
+  width: auto;
   > svg {
     height: 100%;
     width: auto;

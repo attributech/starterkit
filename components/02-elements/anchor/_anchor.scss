@@ -4,7 +4,7 @@ a {
   outline: none !important;
   text-decoration-skip: ink;
   &:hover {
-    opacity: 0.5;
+    //opacity: 0.5;
   }
   @include hover;
 }
