@@ -18,7 +18,9 @@ $color--error--dark: #a51b00;
 
 $color--highlight: rgb(0, 123, 255);
 
-$color--element-highlight: rgba($color--highlight, 0.25);
+$color--highlight: $color--blue;
+
+$color--element-highlight: $color--highlight;
 
 $color--font--default: $color--black;
 $color--font--light: $color--grey;

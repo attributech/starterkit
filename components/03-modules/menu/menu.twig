@@ -16,14 +16,15 @@
         'menu__item',
         'menu__item--' ~ menu_name,
         'menu__item--level-' ~ menu_level,
-        item.in_active_trail and item.below ? ' menu__item--active_trail menu__item--open',
-        item.below ? ' menu__item--has-sub-items'
+        item.in_active_trail and item.below ? 'menu__item--active_trail' : '',
+        item.in_active_trail and item.below ? 'menu__item--open' : '',
+        item.below ? 'menu__item--has-sub-items' : ''
       ] %}
 
       {% set link_classes = [
         'menu__item-link',
-        item.in_active_trail ? ' menu__item-link--active_trail',
-        item.is_active ? ' menu__item-link--active'
+        item.in_active_trail ? 'menu__item-link--active_trail' : '',
+        item.is_active ? 'menu__item-link--active' : ''
       ] %}
       <li{{ create_attribute().addClass(item_classes) }}>
         <a{{ create_attribute().addClass(link_classes) }} href="{{ item.url }}">

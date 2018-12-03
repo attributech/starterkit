@@ -46,7 +46,7 @@ $border--highlight: $border-width solid $color--element-highlight;
 
 /* Outlines */
 $outline-width: 3px;
-$outline-color: $color--element-highlight;
+$outline-color: rgba($color--highlight, 0.25);
 $outline--default: 0 0 0 $outline-width $outline-color;
 
 $header-height-s: 50px;

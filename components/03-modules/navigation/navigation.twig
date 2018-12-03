@@ -2,7 +2,10 @@
   <div class="navigation__content">
     {% block navigation %}
       {% embed '@components/03-modules/menu/menu.twig' with {
-
+        menu_name: main_menu.menu_name,
+        attributes: main_menu.attributes,
+        modifier: main_menu.modifier,
+        items: main_menu.items,
       } %}
       {% endembed %}
     {% endblock %}

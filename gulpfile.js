@@ -251,8 +251,15 @@ function fractalBuild () {
   });
 }
 
+function symlink () {
+ gulp.src('../../')
+   .pipe(gulp.symlink('dist/root'));
+ return gulp.src('../now/')
+   .pipe(gulp.symlink('dist/theme'));
+}
 const defaultTasks = [
   svg,
+  symlink,
 ];
 
 const developTasks = [
