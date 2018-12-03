@@ -40,7 +40,7 @@ fractal.components.set('resources', {
 fractal.docs.set('path', paths.docs);
 
 fractal.web.set('static.path', paths.static);
-fractal.web.set('static.mount', 'dist');
+fractal.web.set('static.mount', 'themes/now/dist');
 fractal.web.set('builder.dest', paths.build);
 
 module.exports = fractal;

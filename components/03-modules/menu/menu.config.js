@@ -11,7 +11,7 @@ const defaultValues = {
 
 for (var i = 0; i < menuItemCount; i++) {
   let data = {
-    title: faker.random.word()
+    title: faker.lorem.word()
   };
   data = {...defaultValues, ...data};
   menuItemData.push(data);

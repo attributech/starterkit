@@ -77,6 +77,7 @@ function cssDevelop () {
   'use strict';
 
   return gulp.src([path.css.src])
+    .pipe(sourcemaps.init())
     .pipe(sassGlob({ ignorePaths: ['**/email.scss'] }))
     .pipe(sass())
     .on('error', err => notify({
@@ -251,15 +252,31 @@ function fractalBuild () {
   });
 }
 
-function symlink () {
- gulp.src('../../')
-   .pipe(gulp.symlink('dist/root'));
- return gulp.src('../now/')
-   .pipe(gulp.symlink('dist/theme'));
+function copy () {
+
+  const nodeModules = [
+      'lazysizes',
+      'headroom.js',
+      'svg4everybody',
+  ];
+  const options = {
+    //overwrite: false
+  };
+
+  for (var nodeModule of nodeModules) {
+    gulp.src('node_modules/' + nodeModule + '/**/*')
+        .pipe(gulp.dest('dist/node_modules/' + nodeModule, options));
+  }
+
+  gulp.src('../../core/assets/**/*')
+      .pipe(gulp.dest('dist/drupal-core-assets/', options));
+  return gulp.src('../../core/misc/**/*')
+      .pipe(gulp.dest('dist/drupal-core-misc/', options));
 }
+
 const defaultTasks = [
   svg,
-  symlink,
+  copy,
 ];
 
 const developTasks = [
