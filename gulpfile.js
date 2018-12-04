@@ -258,6 +258,7 @@ function copy () {
       'lazysizes',
       'headroom.js',
       'svg4everybody',
+      'flickity',
   ];
   const options = {
     //overwrite: false
@@ -290,7 +291,7 @@ const developTasks = [
 const productionTasks = [
   cssProduction,
   webpackProduction,
-  //modernizer,
+  modernizer,
   fractalBuild,
 ];
 

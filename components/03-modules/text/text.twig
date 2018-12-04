@@ -1,0 +1,12 @@
+<section class="text">
+  {% block text %}
+    {% embed "@components/02-elements/paragraph/paragraph.twig" with {
+      text: text
+    } %}
+    {% endembed %}
+    {% embed "@components/02-elements/paragraph/paragraph.twig" with {
+      text: text
+    } %}
+    {% endembed %}
+  {% endblock %}
+</section>

@@ -3,19 +3,21 @@ html {
 
   @include to($breakpoint--mobile) {
     @include fluid-size(
-      $min-viewport-width: $breakpoint--s,
+      $min-viewport-width: 500px,
       $max-viewport-width: $breakpoint--l,
-      $min-value: map-deep-get($font--sizes, s, font-size),
-      $max-value: map-deep-get($font--sizes, m, font-size)
+      $min-value: 16px,
+      $max-value: 16px * 1.4
     );
   }
 
   @include from($breakpoint--desktop) {
     @include fluid-size(
-      $min-viewport-width: $breakpoint--l,
+      $min-viewport-width: 1280px,
       $max-viewport-width: 1920px,
-      $min-value: map-deep-get($font--sizes, m, font-size),
-      $max-value: map-deep-get($font--sizes, m, font-size) * 1.2
+      $min-value: 16px,
+      $max-value: 16px * 1.2
     );
   }
 }
+
+

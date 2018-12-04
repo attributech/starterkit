@@ -185,6 +185,7 @@
 @mixin grid-item($width, $gutter: $grid--gutter--default) {
   @if ($width) {
     flex-basis: $width;
+    max-width: $width;
   }
   padding: 0 $gutter / 2;
   box-sizing: border-box;

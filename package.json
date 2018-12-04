@@ -49,6 +49,7 @@
     "browser-sync": "^2.23.6",
     "faker": "^4.1.0",
     "fitvids": "^2.0.0",
+    "flickity": "2.1.2",
     "gulp-sass-glob": "^1.0.8",
     "gulp-sourcemaps": "^2.6.4",
     "headroom.js": "^0.9.4",

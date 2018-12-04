@@ -1,0 +1,90 @@
+.gallery {
+  position: relative;
+  width: 100%;
+
+  @include to($breakpoint--mobile) {
+    margin-bottom: $gutter--xxl;
+  }
+
+  &__item-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: static;
+  }
+
+  &__item {
+    margin: 0 1PX 0 0;
+    width: 100%;
+  }
+
+  /*&__counter {
+    position: absolute;
+    top: $gutter--xxs;
+    left: $gutter--xxs;
+    font-feature-settings: "tnum";
+    z-index: 1;
+    @include font-style(s);
+    html:not(.touchevents) & {
+      display: none;
+    }
+  }*/
+
+  .product--full & {
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.flickity-prev-next-button {
+  html.touchevents & {
+    display: none;
+  }
+
+  html:not(.touchevents) & {
+    height: 100%;
+    border-radius: 0;
+    width: 50%;
+    background-color: transparent !important;
+
+    &:hover {
+      background-color: transparent;
+    }
+    &.previous {
+      left: 0;
+      //cursor: w-resize;
+      //cursor: url("/themes/now/dist/images/menu-open.svg") 0 32, w-resize;
+      background: url("/themes/now/dist/images/arrow-left.svg") no-repeat;
+      background-position: left $gutter--m center;
+      background-size: $icon-size--m;
+    }
+    &.next {
+      right: 0;
+      //cursor: e-resize;
+      //cursor: url("/themes/now/dist/images/menu-open.svg") 63 32, e-resize;
+      background: url("/themes/now/dist/images/arrow-right.svg") no-repeat;
+      background-position: right $gutter--m center;
+      background-size: $icon-size--m;
+    }
+
+    // IE11 can't handle coordinates for cursor hotspots, the hotspot is defined in the file
+    // https://stackoverflow.com/questions/5649608/custom-css-cursor-click-point
+    // http://www.cursor.cc
+    // IE needs url relative to html
+    /*@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none)
+    {
+      &.previous { cursor: url("/themes/ensoie/images/cursor-prev.cur"), w-resize; }
+      &.next { cursor: url("/themes/ensoie/images/cursor-next.cur"), e-resize; }
+    }
+    // EDGE needs url relative to stylesheet
+    @supports (-ms-ime-align:auto) {
+      &.previous { cursor: url("../../images/cursor-prev.cur"), w-resize; }
+      &.next { cursor: url("../../images/cursor-next.cur"), e-resize; }
+    }*/
+
+    svg {
+      display: none;
+    }
+  }
+}

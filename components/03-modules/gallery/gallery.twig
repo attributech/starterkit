@@ -1,0 +1,14 @@
+<section class="gallery{{ modifier ? ' gallery--' ~ modifier }}"{% if ratio %} style="padding-bottom: {{ ratio }}%"{% endif %}>
+  <!--<div class="gallery__counter">1/{{ images|length }}</div>-->
+  <ul class="gallery__item-list">
+    {% for image in images %}
+      <li class="gallery__item">
+        <div class="gallery__item-wrapper">
+          {% block image %}
+            <img src="{{ image }}" alt="alt">
+          {% endblock %}
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</section>

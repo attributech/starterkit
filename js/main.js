@@ -15,6 +15,8 @@ import * as lazySizes              from './misc/lazysizes';
 import * as  navigation             from 'components/03-modules/navigation/navigation';
 import * as svgpolyfill from './misc/svgpolyfill.js';
 
+//import * as gallery from 'components/03-modules/gallery/gallery';
+
 //anchorScrollAnimation.init();
 //buggyfill.init();
 headroom.init();
@@ -26,5 +28,6 @@ Drupal.behaviors.starterkit = {
     navigation.init(context, settings);
     lazySizes.aspectRatio.init(context, settings);
     svgpolyfill.init();
+    //gallery.init();
   }
 };

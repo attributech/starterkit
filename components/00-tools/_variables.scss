@@ -71,6 +71,8 @@ $main-margin-bottom-m: $main-vertical-margin-m;
 
 $footer-height-s: 80px;
 $footer-height-m: 50px;
+$footer-padding-s: $gutter--s;
+$footer-padding-m: $gutter--xl;
 
 $menu-padding--s: $page--margin--s;
 $menu-padding--m: $page--margin--m;
@@ -119,8 +121,6 @@ $form-item--padding--m: .5em;
 
 $form-item--custom-element-size--s: 1em;
 $form-item--custom-element-offset--s: $form-item--custom-element-size--s + $form-item--padding--s;
-
-
 
 /* z-index */
 $z-index: (

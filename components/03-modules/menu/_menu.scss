@@ -16,21 +16,17 @@
   }
 
   &__item {
+    @include from($breakpoint--desktop) {
+      margin: 0 0 0 $gutter--m;
+    }
 
     &--main {
-      @include from($breakpoint--desktop) {
-        margin: 0 0 0 $gutter--m;
-      }
     }
 
     &--meta-navigation {
-      @include from($breakpoint--desktop) {
-        margin: 0 0 0 $gutter--m;
-      }
     }
-    
+
     &--footer {
-      margin: 0 $gutter--m 0 0;
     }
   }
 

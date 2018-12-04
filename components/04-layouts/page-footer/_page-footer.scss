@@ -1,6 +1,9 @@
 .page-footer {
   box-sizing: border-box;
-  min-height: $footer-height-s;
+
+  @include to($breakpoint--desktop) {
+    min-height: $footer-height-s;
+  }
 
   @include from($breakpoint--desktop) {
     min-height: $footer-height-m;
@@ -11,8 +14,11 @@
   max-width: $max-width;
   margin: 0 auto;
   padding: 2rem $page--margin--s 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 
   @include from($breakpoint--desktop) {
-    padding: 0 $page--margin--m;
+    padding: $footer-padding-m $page--margin--m;
   }
 }

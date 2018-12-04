@@ -2,7 +2,8 @@ base:
   version: 1.x
   css:
     base:
-      # //fonts.googleapis.com/css?family=Noto+Sans:700: {type: 'external'}
+      #//fast.fonts.net/cssapi/f97d8879-ee63-4512-a7a6-8b77900f268d.css: {type: 'external'}
+      #node_modules/flickity/dist/flickity.min.css: {}
       dist/css/styles.css: {weight: 9999}
       # node_modules/magnific-popup/dist/magnific-popup.css: {}
   js:
@@ -11,6 +12,8 @@ base:
     node_modules/headroom.js/dist/headroom.min.js: {}
     node_modules/headroom.js/dist/jQuery.headroom.min.js: {}
     node_modules/svg4everybody/dist/svg4everybody.min.js: {}
+    #node_modules/flickity/dist/flickity.pkgd.min.js: {}
+    #dist/js/modernizr.js: {}
     # node_modules/magnific-popup/dist/jquery.magnific-popup.js: {}
     dist/js/main.js: {}
   dependencies:
