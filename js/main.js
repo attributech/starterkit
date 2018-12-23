@@ -16,6 +16,7 @@ import * as  navigation             from 'components/03-modules/navigation/navig
 import * as svgpolyfill from './misc/svgpolyfill.js';
 
 //import * as gallery from 'components/03-modules/gallery/gallery';
+//import * as accordion from 'components/03-modules/accordion/accordion';
 
 //anchorScrollAnimation.init();
 //buggyfill.init();
@@ -29,5 +30,6 @@ Drupal.behaviors.starterkit = {
     lazySizes.aspectRatio.init(context, settings);
     svgpolyfill.init();
     //gallery.init();
+    //accordion.init(context);
   }
 };

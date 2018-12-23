@@ -54,6 +54,7 @@
     "gulp-sourcemaps": "^2.6.4",
     "headroom.js": "^0.9.4",
     "install": "0.12.2",
+    "jq-accordion": "1.0.3",
     "lazysizes": "^4.0.1",
     "magnific-popup": "^1.1.0",
     "normalize.css": "^8.0.0",

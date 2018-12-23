@@ -1,0 +1,100 @@
+/*------------------------------------------------------
+ACCORDIONS
+------------------------------------------------------*/
+
+.collapse-content {
+  overflow: hidden;
+}
+
+.accordion {
+  overflow: hidden;
+  @include to(m) {
+    margin: $gutter--m 0;
+  }
+  @include from(l) {
+    margin: $gutter--m 0;
+  }
+
+  &__header {
+    position: relative;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    padding: $gutter--m;
+
+    font-weight: 500;
+
+    background-color: $color--element-highlight;
+
+    transition: color $animation--duration--s, $animation--timing--default;
+
+    @include to(m) {
+    }
+    @include from(l) {
+      display: flex;
+    }
+
+    .accordion--open &,
+    &:hover {
+      //color: ;
+    }
+
+    > .accordion__icon {
+      flex-shrink: 0;
+
+      .icon {
+        display: block;
+        transition: transform $animation--duration--s $animation--timing--default;
+        will-change: transform;
+        transform-origin: center center;
+        transform: rotate(45deg);
+
+        .open & {
+          transform: rotate(0deg);
+        }
+      }
+    }
+
+  }
+
+  &__title {
+    display: inline-block;
+    margin: 0;
+    @include ellipsis;
+
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
+
+  &__content {
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+
+    .accordion--open & {
+      visibility: visible !important;
+    }
+  }
+
+
+  &__content-wrapper {
+    overflow: hidden;
+    padding: $gutter--m;
+    p:first-child {
+      margin-top: 0;
+    }
+    > :last-child {
+      @include to(m) {
+        margin-bottom: $gutter--s;
+      }
+      @include from(l) {
+        margin-bottom: $gutter--m;
+      }
+    }
+  }
+
+  &.open {
+    max-height: none;
+  }
+}

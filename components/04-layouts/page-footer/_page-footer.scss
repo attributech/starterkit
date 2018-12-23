@@ -13,10 +13,13 @@
 .page-footer__wrapper {
   max-width: $max-width;
   margin: 0 auto;
-  padding: 2rem $page--margin--s 2rem;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+
+  @include to($breakpoint--desktop) {
+    padding: $footer-padding-s $page--margin--s;
+  }
 
   @include from($breakpoint--desktop) {
     padding: $footer-padding-m $page--margin--m;

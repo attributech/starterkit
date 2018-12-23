@@ -15,6 +15,7 @@ base:
     #node_modules/flickity/dist/flickity.pkgd.min.js: {}
     #dist/js/modernizr.js: {}
     # node_modules/magnific-popup/dist/jquery.magnific-popup.js: {}
+    # node_modules/jq-accordion/dist/js/jquery.accordion.min.js: {}
     dist/js/main.js: {}
   dependencies:
     - core/jquery

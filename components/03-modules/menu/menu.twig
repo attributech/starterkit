@@ -30,7 +30,9 @@
         <a{{ create_attribute().addClass(link_classes) }} href="{{ item.url }}">
           {{ item.title }}
         </a>
-        {{ menus.menu_links(item.below, attributes, menu_level + 1, menu_name) }}
+        {% if item.below %}
+          {{ menus.menu_links(item.below, attributes, menu_level + 1, menu_name) }}
+        {% endif %}
       </li>
     {% endfor %}
   {% endblock %}
