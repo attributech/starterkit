@@ -1,7 +1,14 @@
 <footer class="page-footer" role="contentinfo">
   <div class="page-footer__wrapper">
     {% block content %}
-      <p>Please overwrite content in 04-layouts/footer</p>
+      {% embed '@components/03-modules/menu/menu.twig' with {
+        menu_name: 'footer',
+        attributes: footer_menu.attributes,
+        modifier: footer_menu.modifier,
+        items: footer_menu.items,
+      } %}
+      {% endembed %}
+      {% include '@components/03-modules/social-media-icons/social-media-icons.twig' %}
     {% endblock %}
   </div>
 </footer>

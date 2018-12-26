@@ -1,0 +1,77 @@
+.pswp {
+  &__bg {
+    background-color: $color--white;
+  }
+
+  &__preloader {
+    height: 0;
+    width: 0;
+  }
+  &__top-bar {
+    background: none;
+    @include to($breakpoint--mobile) {
+      height: $icon-size--s;
+    }
+  }
+
+  .media--image,
+  img {
+    height: 100%;
+    width: 100%;
+  }
+
+  img {
+    object-fit: contain;
+  }
+
+  .pswp__button {
+    &--close {
+      @extend %button--styles;
+      background: url("/themes/aqvarossa/dist/images/menu-close.svg") $color--white;
+      position: absolute;
+      top: $gutter--s;
+      right: $gutter--s;
+
+      @include to($breakpoint--mobile) {
+        background-size: $icon-size--s;
+      }
+
+      @include from($breakpoint--desktop) {
+        background-size: $icon-size--m;
+
+      }
+    }
+    &--arrow--left:before {
+      @extend %button--styles;
+
+      left: $gutter--s;
+      background: url("/themes/aqvarossa/dist/images/arrow-left.svg") $color--white;
+
+    }
+    &--arrow--right:before {
+      @extend %button--styles;
+      right: $gutter--s;
+      background: url("/themes/aqvarossa/dist/images/arrow-right.svg") $color--white;
+    }
+  }
+}
+
+%button--styles {
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+
+  background-clip: border-box;
+  padding: $gutter--xs;
+  box-sizing: content-box;
+
+  @include to($breakpoint--mobile) {
+    width: $icon-size--s;
+    height: $icon-size--s;
+  }
+
+  @include from($breakpoint--desktop) {
+    width: $icon-size--m;
+    height: $icon-size--m;
+  }
+}

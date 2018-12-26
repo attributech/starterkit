@@ -1,0 +1,9 @@
+.social-media-icon {
+  margin-left: $gutter--xs;
+
+  @include from($breakpoint--desktop) {
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}

@@ -3,7 +3,7 @@ html {
 
   @include to($breakpoint--mobile) {
     @include fluid-size(
-      $min-viewport-width: 500px,
+      $min-viewport-width: 320px,
       $max-viewport-width: $breakpoint--l,
       $min-value: 16px,
       $max-value: 16px * 1.4

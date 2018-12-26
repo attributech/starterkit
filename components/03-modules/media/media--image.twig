@@ -1,0 +1,21 @@
+{% if not src %}
+  {% set src = 'https://source.unsplash.com/random?sig=' ~ random() %}
+{% endif %}
+
+<div class="media media--image">
+  {% block content %}
+    <img src="data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+         alt="Mann beim trainieren"
+         typeof="foaf:Image" class="lazyload" data-sizes="auto"
+         data-srcset="{{ src }} 320w"
+         data-aspectratio="1.5"/>
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "ImageObject",
+        "contentUrl": "{{ src }}",
+        "description": "Title"
+      }
+    </script>
+  {% endblock %}
+</div>

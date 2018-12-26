@@ -1,0 +1,16 @@
+<section class="popup-gallery">
+  {% block popup_gallery_content %}
+    {% for i in 0..5 %}
+      {% block popup_gallery_item %}
+        <a class="image-gallery__item"
+           href="https://source.unsplash.com/random/1200x1600?sig={{ i }}"
+           data-photoswipe="[{&quot;src&quot;:&quot;https://source.unsplash.com/random/1200x1600?sig={{ i }}&quot;,&quot;w&quot;:1920,&quot;h&quot;:2560}]">
+          {% include "@components/03-modules/media/media--image.twig" with { src: 'https://source.unsplash.com/random/1200x1600?trenchcoat&sig=' ~ i } %}
+        </a>
+      {% endblock %}
+    {% endfor %}
+  {% endblock %}
+</section>
+
+{% embed '@components/03-modules/photoswipe/photoswipe.twig' %}{% endembed %}
+

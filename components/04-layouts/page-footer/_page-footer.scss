@@ -15,7 +15,7 @@
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
 
   @include to($breakpoint--desktop) {
     padding: $footer-padding-s $page--margin--s;

@@ -1,0 +1,11 @@
+.social-media-icons {
+  display: flex;
+
+
+  @include at($breakpoint--desktop) {
+    margin-left: $gutter--s;
+  }
+  @include from(xl) {
+    margin-left: $gutter--xl;
+  }
+}
