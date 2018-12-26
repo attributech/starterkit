@@ -40,7 +40,39 @@ fractal.components.set('resources', {
 fractal.docs.set('path', paths.docs);
 
 fractal.web.set('static.path', paths.static);
-fractal.web.set('static.mount', 'themes/now/dist');
+fractal.web.set('static.mount', 'themes/starterkit/dist');
 fractal.web.set('builder.dest', paths.build);
+
+fractal.components.set('default.status', 'prototype');
+
+const statusesComponents = {
+  unused: {
+    label: "Unused",
+    description: "Ready to for review.",
+    color: "#555555"
+  },
+  prototype: {
+    label: "Prototype",
+    description: "Do not implement.",
+    color: "#FF3333"
+  },
+  wip: {
+    label: "WIP",
+    description: "Work in progress. Implement with caution.",
+    color: "#FF9233"
+  },
+  review: {
+    label: "Review",
+    description: "Ready to for review.",
+    color: "#2625cc"
+  },
+  ready: {
+    label: "Done",
+    description: "Signed off.",
+    color: "#29CC29"
+  }
+};
+
+fractal.components.set('statuses', statusesComponents);
 
 module.exports = fractal;
