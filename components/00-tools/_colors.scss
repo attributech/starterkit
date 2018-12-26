@@ -18,7 +18,7 @@ $color--error--dark: #a51b00;
 
 $color--highlight: rgb(0, 123, 255);
 
-$color--highlight: $color--blue;
+$color--highlight: $color--highlight;
 
 $color--element-highlight: $color--highlight;
 
@@ -29,5 +29,3 @@ $color--font--highlight--active: $color--highlight;
 
 $color--text--underline: currentColor;
 $color--text--underline--background: #fff;
-
-

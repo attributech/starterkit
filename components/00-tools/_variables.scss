@@ -52,8 +52,8 @@ $outline--default: 0 0 0 $outline-width $outline-color;
 $header-height-s: 50px;
 $header-height-m: 80px;
 
-$header-padding-s: $gutter--s;
-$header-padding-m: $gutter--xl;
+$header-padding-s: $gutter--xs;
+$header-padding-m: $gutter--xs;
 
 $header--total-height-s: $header-height-s + $header-padding-s * 2;
 $header--total-height-m: $header-height-m + $header-padding-m * 2;

@@ -3,7 +3,7 @@
   width: 100%;
 
   @include to($breakpoint--mobile) {
-    margin-bottom: $gutter--xxl;
+    margin-bottom: $gutter--xl;
   }
 
   &__item-list {
@@ -55,7 +55,7 @@
       left: 0;
       //cursor: w-resize;
       //cursor: url("/themes/now/dist/images/menu-open.svg") 0 32, w-resize;
-      background: url("/themes/now/dist/images/arrow-left.svg") no-repeat;
+      background: url("/themes/starterkit/dist/images/arrow-left.svg") no-repeat;
       background-position: left $gutter--m center;
       background-size: $icon-size--m;
     }
@@ -63,7 +63,7 @@
       right: 0;
       //cursor: e-resize;
       //cursor: url("/themes/now/dist/images/menu-open.svg") 63 32, e-resize;
-      background: url("/themes/now/dist/images/arrow-right.svg") no-repeat;
+      background: url("/themes/starterkit/dist/images/arrow-right.svg") no-repeat;
       background-position: right $gutter--m center;
       background-size: $icon-size--m;
     }
