@@ -1,6 +1,24 @@
 button {
-  font-family: $font--base;
-  @include font-style(heading-m);
+  font-family: inherit;
   -webkit-appearance: none;
   border: $border--default;
+  text-decoration: none;
+
+  margin: 0 auto;
+  display: inline-block;
+
+  border: $border--default;
+  cursor: pointer;
+
+  @include to($breakpoint--mobile) {
+    height: $form-item--height--s;
+    line-height: $form-item--height--s;
+    padding: 0 $gutter--m;
+  }
+
+  @include from($breakpoint--desktop) {
+    line-height: $form-item--height--m;
+    height: $form-item--height--m;
+    padding: 0 $gutter--l;
+  }
 }

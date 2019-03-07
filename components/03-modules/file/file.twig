@@ -1,0 +1,9 @@
+<div class="file">
+  {{ description }} ({{ file_type }}, {{ file_size }})
+  <div class="file__download">
+    {% include '@components/03-modules/link-button/link-button.twig' with {
+      url: url,
+      text: 'Download'|t,
+    } %}
+  </div>
+</div>

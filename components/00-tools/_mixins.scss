@@ -230,7 +230,7 @@
 }
 
 @mixin underline-text-decoration-remove {
-  text-decoration-line: none;
+  text-decoration: none;
 }
 
 
@@ -323,7 +323,7 @@
   line-height: normal;
   transition: border-color $animation--duration--s $animation--timing--default, box-shadow $animation--duration--s $animation--timing--default;
 
-  -webkit-appearance: none;
+  appearance: none;
   border-radius: 0;
   border: $border--light;
   box-sizing: border-box;

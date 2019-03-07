@@ -146,7 +146,9 @@ function starterkit_preprocess_image(&$variables) {
  */
 function starterkit_preprocess_menu_local_tasks(&$variables) {
   foreach (Element::children($variables['primary'], $sort = TRUE) as $key) {
-    $link = $variables['primary'][$key];
-    $variables['items'][$key] = $link;
+    if($variables['primary'][$key]['#access'] instanceof \Drupal\Core\Access\AccessResultAllowed) {
+      $link = $variables['primary'][$key];
+      $variables['items'][$key] = $link;
+    }
   }
 }
