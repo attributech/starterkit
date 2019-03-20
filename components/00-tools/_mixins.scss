@@ -340,7 +340,7 @@
 @mixin input-custom-element {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  margin-top: -($form-item--custom-element-size--s / 2);
   left: -$form-item--custom-element-offset--s;
   display: block;
   content: "";
