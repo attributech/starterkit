@@ -269,6 +269,9 @@ function copy () {
         .pipe(gulp.dest('dist/node_modules/' + nodeModule, options));
   }
 
+  gulp.src('fonts/*')
+    .pipe(gulp.dest('dist/fonts'));
+
   gulp.src('../../core/assets/**/*')
       .pipe(gulp.dest('dist/drupal-core-assets/', options));
   return gulp.src('../../core/misc/**/*')

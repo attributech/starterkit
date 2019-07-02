@@ -60,8 +60,8 @@ $header--total-height-m: $header-height-m + $header-padding-m * 2;
 
 $breadcrumb--height-s: 30px;
 
-$main-vertical-margin-s: 0;
-$main-vertical-margin-m: 0;
+$main-vertical-margin-s: $page-title-height--s;
+$main-vertical-margin-m: $page-title-height--s;
 
 $main-margin-top-s: $main-vertical-margin-s + $header--total-height-s;
 $main-margin-top-m: $main-vertical-margin-m + $header--total-height-m;
