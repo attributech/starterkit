@@ -1,0 +1,22 @@
+{% embed '@components/04-layouts/page-container/page-container.twig' %}
+  {% block content %}
+    {% embed '@components/04-layouts/page-header/page-header.twig' with {
+      main_menu: main_menu
+    } %}
+    {% endembed %}
+
+    {% embed '@components/04-layouts/page-main/page-main.twig' %}
+      {% block page_main_content %}
+      {% endblock %}
+    {% endembed %}
+
+    {% if page.footer %}
+      {% embed '@components/04-layouts/page-footer/page-footer.twig' %}
+        {% block content %}
+          {{ page.footer }}
+        {% endblock %}
+      {% endembed %}
+    {% endif %}
+  {% endblock %}
+
+{% endembed %}
